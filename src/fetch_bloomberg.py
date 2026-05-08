@@ -52,19 +52,20 @@ DELTA_BACK_DAYS = 14
 # Fundamental fields fetched via BDP.
 # Each entry: (internal_key, bbg_field, scale_factor)
 #   scale_factor converts BBG units → internal units:
-#     CUR_MKT_CAP       : millions USD  → billions  (× 1e-3)
-#     BEST_SALES_GROWTH : percent       → decimal   (× 1e-2)
-#     RETURN_ON_INV_CAPITAL: percent    → decimal   (× 1e-2)
-#     RETURN_ON_EQUITY  : percent       → decimal   (× 1e-2)
-#     all others        : already in the right unit (× 1.0)
+#     CUR_MKT_CAP          : USD (absolute) → billions    (× 1e-9)
+#     FCF_YIELD_WITH_CUR_ENTP_VAL: percent  → decimal    (× 1e-2)
+#     SALES_GROWTH         : percent        → decimal    (× 1e-2)
+#     RETURN_ON_INV_CAPITAL: percent        → decimal    (× 1e-2)
+#     RETURN_COM_EQY       : percent        → decimal    (× 1e-2)
+#     EV_TO_T12M_EBITDA / NET_DEBT_TO_EBITDA: already ratios (× 1.0)
 _FUND_FIELDS: list[tuple[str, str, float]] = [
     ("ev_ebitda",       "EV_TO_T12M_EBITDA",           1.0),
     ("net_debt_ebitda", "NET_DEBT_TO_EBITDA",           1.0),
-    ("fcf_ev",          "FCF_YIELD_WITH_CUR_ENTP_VAL",  1.0),
-    ("mkt_cap_b",       "CUR_MKT_CAP",                  1e-3),
-    ("fwd_rev_growth",  "BEST_SALES_GROWTH",             1e-2),
+    ("fcf_ev",          "FCF_YIELD_WITH_CUR_ENTP_VAL",  1e-2),
+    ("mkt_cap_b",       "CUR_MKT_CAP",                  1e-9),
+    ("fwd_rev_growth",  "SALES_GROWTH",                  1e-2),
     ("roic",            "RETURN_ON_INV_CAPITAL",         1e-2),
-    ("roe",             "RETURN_ON_EQUITY",              1e-2),
+    ("roe",             "RETURN_COM_EQY",                1e-2),
 ]
 
 FUND_KEYS: tuple[str, ...] = tuple(k for k, _, _ in _FUND_FIELDS)
@@ -130,6 +131,14 @@ def _scalar_bdp(ticker_bbg: str, field: str):
     except Exception as e:
         log.info("    BBG %s %s: %s", field, ticker_bbg, e)
         return None
+    # vista_bbg returns a single-row DataFrame even for scalar queries
+    if isinstance(v, pd.DataFrame):
+        if v.empty:
+            return None
+        if field in v.columns:
+            return v[field].iloc[0]
+        cols = [c for c in v.columns if c != "TICKER"]
+        return v[cols[0]].iloc[0] if cols else None
     return v
 
 
@@ -158,6 +167,9 @@ def _fetch_fundamentals(tickers_bbg: list[str]) -> dict[str, dict]:
     try:
         df = vbbg.bdp(tickers_bbg, bbg_fields)
         if isinstance(df, pd.DataFrame) and not df.empty:
+            # vista_bbg returns TICKER as a column rather than the index
+            if "TICKER" in df.columns:
+                df = df.set_index("TICKER")
             for tb in tickers_bbg:
                 key = _ticker_key(tb)
                 if tb not in df.index:
