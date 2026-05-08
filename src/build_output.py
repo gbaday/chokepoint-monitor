@@ -23,7 +23,7 @@ import pandas as pd
 log = logging.getLogger(__name__)
 
 _PROJECT_ROOT = Path(__file__).resolve().parent.parent
-WEB_DIR = _PROJECT_ROOT / "web"
+WEB_DIR = _PROJECT_ROOT / "docs"
 
 HISTORY_MONTHS = 24  # keep 24 months of spread history for the line chart
 

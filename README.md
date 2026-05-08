@@ -62,7 +62,7 @@ chokepoint monitor/
 ## Hosting (GitHub Pages)
 
 1. Push the repo to GitHub.
-2. Settings → Pages → deploy from branch `main`, folder `/web`.
+2. Settings → Pages → deploy from branch `main`, folder `/docs`.
 3. Workflow `.github/workflows/update_data.yml` refreshes `web/data_gas_lng.json`
    daily at 17:30 ET on weekdays (cron schedules both 21:30 UTC and 22:30 UTC
    to cover EDT/EST). The workflow runs only the yfinance pipeline; Bloomberg
