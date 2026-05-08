@@ -101,7 +101,7 @@ main { padding: 0 24px 48px 24px; max-width: 1500px; margin: 0 auto; }
 }
 
 .logo {
-  height: 48px;
+  height: 30px;
   width: auto;
   flex-shrink: 0;
 }
