@@ -1,0 +1,47 @@
+name: Update gas/LNG dashboard data
+
+# Runs at 17:30 ET on weekdays. ET is UTC-4 in summer (DST) / UTC-5 in winter.
+# Cron is in UTC; we schedule both 21:30 and 22:30 UTC and let the run no-op
+# during the off-DST half of the year if needed (single run anyway).
+on:
+  schedule:
+    - cron: "30 21 * * 1-5"   # 17:30 EDT (Mar-Nov)
+    - cron: "30 22 * * 1-5"   # 17:30 EST (Nov-Mar)
+  workflow_dispatch:           # allow manual runs
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write          # to commit web/data_<sector>.json
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run daily update (gas_lng)
+        # NOTE: vista_bbg requires a Bloomberg Terminal session and is not
+        # installed here. fetch_bloomberg.py logs a warning and the dashboard
+        # leaves crowding/catalyst columns empty. Refresh those locally.
+        run: python -m src.run_daily --sector gas_lng
+
+      - name: Commit updated JSON
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add web/data_gas_lng.json
+          if git diff --cached --quiet; then
+            echo "No data changes to commit."
+          else
+            git commit -m "chore(data): refresh gas_lng [skip ci]"
+            git push
+          fi

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gas Chokepoint Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <script>
+    (function () {
+      var stored = localStorage.getItem("chokepoint-theme");
+      var theme = stored || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+</head>
+<body>
+  <header class="header">
+    <div class="header-top">
+      <div>
+        <h1>Gas Chokepoint Dashboard</h1>
+        <p class="subtitle">US gas/LNG equities ranked by composite Sweet Spot score — JKM/TTF/HH spread sensitivity, valuation, growth, technical setup.</p>
+      </div>
+      <div class="header-meta">
+        <div class="generated-at" id="generatedAt"></div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme" title="Toggle theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="kpi-row" id="kpiRow"></div>
+
+    <div class="controls">
+      <input type="text" id="searchInput" placeholder="Filter ticker..." />
+      <select id="sortSelect">
+        <option value="sweet_spot">Sort: Sweet Spot</option>
+        <option value="broad_score">Sort: Broad Score</option>
+        <option value="spread">Sort: Spread Orthogonality</option>
+        <option value="setup">Sort: Setup</option>
+        <option value="value">Sort: Valuation</option>
+        <option value="growth">Sort: Growth</option>
+        <option value="reset">Sort: Reset</option>
+        <option value="not_extended">Sort: Not Extended</option>
+        <option value="quality">Sort: Quality</option>
+        <option value="jkm_hh_beta">Sort: JKM-HH beta</option>
+        <option value="ttf_hh_beta">Sort: TTF-HH beta</option>
+      </select>
+      <div class="toggle-group">
+        <button class="toggle-btn active" data-mode="top10">Top 10</button>
+        <button class="toggle-btn" data-mode="all">All</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="explainer-grid">
+      <div class="explainer-box">
+        <h3>Why This Exists</h3>
+        <p>Track the equities most exposed to the structural gas/LNG chokepoint between US Henry Hub and global JKM/TTF prices. Composite scoring lets us rank torque vs. valuation vs. setup in one place.</p>
+      </div>
+      <div class="explainer-box">
+        <h3>What To Look For</h3>
+        <p>High Sweet Spot with positive Spread beta + clean balance sheet = directional torque to widening spreads. High Reset + Not Extended = better risk/reward entry.</p>
+      </div>
+      <div class="explainer-box">
+        <h3>Best Use</h3>
+        <p>Screener for daily idea generation. Cross-reference Sweet Spot rank, fundamentals, and earnings calendar before sizing. Watchlist below isolates small-caps.</p>
+      </div>
+      <div class="explainer-box">
+        <h3>Data Caveat</h3>
+        <p>Z-scores are cross-sectional across this universe (not historical). Bloomberg fields (short interest, days to cover, earnings) require an open Terminal — empty cells show "—".</p>
+      </div>
+    </section>
+
+    <section class="chart-section">
+      <h2>Sweet Spot Score Stack</h2>
+      <p class="chart-note">Component contributions per ticker: Value (30%), Growth (20%), Spread (20%), Reset (20%), Not Extended (10%).</p>
+      <div class="chart-wrap"><canvas id="stackChart"></canvas></div>
+    </section>
+
+    <section class="chart-grid-2">
+      <div class="chart-section">
+        <h2>Setup vs Spread Orthogonality</h2>
+        <p class="chart-note">Bubble = market cap. Color = Sweet Spot.</p>
+        <div id="scatterSetup" class="chart-wrap"></div>
+      </div>
+      <div class="chart-section">
+        <h2>Valuation vs Leverage</h2>
+        <p class="chart-note">EV/EBITDA × Debt/EBITDA. Bubble = market cap. Color = Sweet Spot.</p>
+        <div id="scatterValLev" class="chart-wrap"></div>
+      </div>
+    </section>
+
+    <section class="chart-section">
+      <h2>International Gas Spreads</h2>
+      <p class="chart-note">Daily JKM-HH, TTF-HH, JKM-TTF ($/MMBtu).</p>
+      <div class="chart-wrap"><canvas id="spreadChart"></canvas></div>
+    </section>
+
+    <section class="table-section">
+      <h2>Screen Table</h2>
+      <div class="table-scroll">
+        <table id="screenTable" class="screen-table"></table>
+      </div>
+    </section>
+
+    <section class="table-section">
+      <h2>Small-Cap / High-Leverage Watchlist</h2>
+      <div class="table-scroll">
+        <table id="watchlistTable" class="screen-table"></table>
+      </div>
+    </section>
+
+    <section class="dictionary-section">
+      <h2>Column Dictionary</h2>
+      <div class="table-scroll">
+        <table id="dictionaryTable" class="screen-table dictionary-table"></table>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Data: yfinance (prices/fundamentals), Bloomberg (crowding/catalyst). Spreads: ICE futures via Yahoo. Auto-update via GitHub Actions on weekdays 17:30 ET.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
