@@ -94,6 +94,24 @@ main { padding: 0 24px 48px 24px; max-width: 1500px; margin: 0 auto; }
   margin-bottom: 20px;
 }
 
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo {
+  height: 48px;
+  width: auto;
+  flex-shrink: 0;
+}
+
+.logo-light { display: block; }
+.logo-dark  { display: none;  }
+
+[data-theme="dark"] .logo-light { display: none;  }
+[data-theme="dark"] .logo-dark  { display: block; }
+
 h1 {
   font-size: 22px;
   font-weight: 600;
