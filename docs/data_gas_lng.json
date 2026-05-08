@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-08T18:28:00",
+  "generated_at": "2026-05-08T22:30:13",
   "sector": "gas_lng",
   "spreads": {
     "jkm_hh_latest": 14.09000015258789,
@@ -3096,86 +3096,36 @@
   },
   "tickers": [
     {
-      "ticker": "EXE",
-      "bucket": "core",
-      "what_it_does": "Expand Energy: large US gas producer; cheap producer exposure to higher HH with lower oil beta.",
-      "scores": {
-        "sweet_spot": 1.136572635241052,
-        "broad_score": 1.2199640640132319,
-        "spread": -0.7081631671985427,
-        "value": 1.6185444686658852,
-        "growth": 2.631200733626805,
-        "reset": 0.5710496194019152,
-        "not_extended": 1.5219185747525088,
-        "setup": 1.7100150439356803,
-        "quality": 1.180215071034149
-      },
-      "betas": {
-        "jkm_hh_beta": -0.04100952201207169,
-        "jkm_hh_t": -1.4775301948593536,
-        "ttf_hh_beta": 0.009582263525223126,
-        "ttf_hh_t": 0.2932710752041267,
-        "brent_beta": 0.15041298127031152,
-        "r_squared": 0.0795559140615848
-      },
-      "fundamentals": {
-        "mkt_cap_b": 22.95161577306,
-        "ev_ebitda": 4.034013,
-        "net_debt_ebitda": 0.398621,
-        "fcf_ev": 0.10842974999999999,
-        "fwd_rev_growth": 1.8628099200000001,
-        "roic": 0.14185029999999998,
-        "roe": 0.17568119,
-        "price_sales": 1.7715048,
-        "from_1y_hi": -0.21503888616971212
-      },
-      "returns": {
-        "mar_run": 0.05189193408705628,
-        "apr_sell": -0.09044606666319366,
-        "ytd": -0.12121823914890362
-      },
-      "crowding": {
-        "si_pct_float": 1.921,
-        "days_to_cover": null,
-        "delta_short_2w": 0.0
-      },
-      "catalyst": {
-        "next_earnings_date": null,
-        "days_to_earnings": null,
-        "earnings_flag": null
-      }
-    },
-    {
       "ticker": "VST",
       "bucket": "small/levered",
       "what_it_does": "Vistra: power generator; gas-fired capacity beneficiary of power demand surge, less direct LNG linkage.",
       "scores": {
-        "sweet_spot": 0.7069062121592082,
-        "broad_score": 0.789480712840152,
-        "spread": 1.8927428045028667,
-        "value": 0.04910148570251149,
-        "growth": -0.6290718527276071,
-        "reset": 1.5267236591821156,
-        "not_extended": 1.3409684425697967,
-        "setup": 2.3429866966289343,
-        "quality": -0.09749364148955314
+        "sweet_spot": 1.0680731628411066,
+        "broad_score": 0.9423497860566903,
+        "spread": 1.8927438118959663,
+        "value": -0.29038436111190763,
+        "growth": 1.685990602268136,
+        "reset": 1.5267238402677408,
+        "not_extended": 1.3409682028831045,
+        "setup": 2.3429864881529188,
+        "quality": -1.1926833093371165
       },
       "betas": {
-        "jkm_hh_beta": -0.040612485242920916,
-        "jkm_hh_t": -0.9046012633992412,
-        "ttf_hh_beta": 0.036929417740853135,
-        "ttf_hh_t": 0.6987463417959041,
-        "brent_beta": -0.11370121678409639,
-        "r_squared": 0.014171414019301776
+        "jkm_hh_beta": -0.040612531201450364,
+        "jkm_hh_t": -0.9046022564547714,
+        "ttf_hh_beta": 0.036929504576557345,
+        "ttf_hh_t": 0.6987479611710116,
+        "brent_beta": -0.11370128501603777,
+        "r_squared": 0.014171422567951453
       },
       "fundamentals": {
-        "mkt_cap_b": 49.80859417295999,
-        "ev_ebitda": 11.181835,
-        "net_debt_ebitda": 2.878991,
-        "fcf_ev": 0.025472,
-        "fwd_rev_growth": 0.029842080000000003,
-        "roic": 0.11875376,
-        "roe": 0.74917733,
+        "mkt_cap_b": 50.01050112,
+        "ev_ebitda": 14.152,
+        "net_debt_ebitda": 3.753251427537803,
+        "fcf_ev": -0.006207330222607053,
+        "fwd_rev_growth": 0.3181,
+        "roic": 0.03487,
+        "roe": 0.17656,
         "price_sales": 2.819399,
         "from_1y_hi": -0.32026544603916285
       },
@@ -3185,9 +3135,59 @@
         "ytd": -0.10475392375012504
       },
       "crowding": {
-        "si_pct_float": 3.313,
+        "si_pct_float": null,
         "days_to_cover": null,
-        "delta_short_2w": 0.0
+        "delta_short_2w": null
+      },
+      "catalyst": {
+        "next_earnings_date": null,
+        "days_to_earnings": null,
+        "earnings_flag": null
+      }
+    },
+    {
+      "ticker": "EXE",
+      "bucket": "core",
+      "what_it_does": "Expand Energy: large US gas producer; cheap producer exposure to higher HH with lower oil beta.",
+      "scores": {
+        "sweet_spot": 0.6256343497040437,
+        "broad_score": 0.8435942108809564,
+        "spread": -0.7081632372416437,
+        "value": 1.5004050476755468,
+        "growth": 0.25371838171426964,
+        "reset": 0.5710497088390362,
+        "not_extended": 1.521918647390472,
+        "setup": 1.7100150591446943,
+        "quality": 1.2780885031180376
+      },
+      "betas": {
+        "jkm_hh_beta": -0.04100953177613943,
+        "jkm_hh_t": -1.4775303862871745,
+        "ttf_hh_beta": 0.009582274942928539,
+        "ttf_hh_t": 0.29327139282030285,
+        "brent_beta": 0.15041298101553413,
+        "r_squared": 0.07955590645482202
+      },
+      "fundamentals": {
+        "mkt_cap_b": 22.951616512,
+        "ev_ebitda": 3.522,
+        "net_debt_ebitda": 0.3824083793103448,
+        "fcf_ev": 0.06485546438597538,
+        "fwd_rev_growth": 0.08180001,
+        "roic": 0.09668,
+        "roe": 0.17568001,
+        "price_sales": 1.7715048,
+        "from_1y_hi": -0.21503888616971212
+      },
+      "returns": {
+        "mar_run": 0.05189193408705628,
+        "apr_sell": -0.09044606666319366,
+        "ytd": -0.12121823914890362
+      },
+      "crowding": {
+        "si_pct_float": null,
+        "days_to_cover": null,
+        "delta_short_2w": null
       },
       "catalyst": {
         "next_earnings_date": null,
@@ -3200,32 +3200,32 @@
       "bucket": "core",
       "what_it_does": "EQT: largest US gas producer; Appalachia scale operator, high leverage to HH price.",
       "scores": {
-        "sweet_spot": 0.380511562626566,
-        "broad_score": 0.5362259527501951,
-        "spread": -0.05716112438755352,
-        "value": 1.0507999654157747,
-        "growth": -0.1730064454056171,
-        "reset": 0.19732832983661586,
-        "not_extended": 0.7183942099314459,
-        "setup": 0.748171579218389,
-        "quality": 1.3179526847475125
+        "sweet_spot": 0.32350027829428657,
+        "broad_score": 0.5033220050748382,
+        "spread": -0.05716095393709106,
+        "value": 1.0268315702298114,
+        "growth": -0.42211053776422175,
+        "reset": 0.19732838343411388,
+        "not_extended": 0.7183942887878292,
+        "setup": 0.748171636154461,
+        "quality": 1.422489862632361
       },
       "betas": {
-        "jkm_hh_beta": -0.05043275742973447,
-        "jkm_hh_t": -1.8540079847820141,
-        "ttf_hh_beta": 0.031007371468716332,
-        "ttf_hh_t": 0.9683075137814465,
-        "brent_beta": 0.09442078077567453,
-        "r_squared": 0.05457428167143519
+        "jkm_hh_beta": -0.050432736978916926,
+        "jkm_hh_t": -1.854006805439117,
+        "ttf_hh_beta": 0.03100740346739545,
+        "ttf_hh_t": 0.9683082897558036,
+        "brent_beta": 0.0944208490494001,
+        "r_squared": 0.054574276917677356
       },
       "fundamentals": {
-        "mkt_cap_b": 35.00174888000001,
-        "ev_ebitda": 6.619222,
-        "net_debt_ebitda": 0.763206,
-        "fcf_ev": 0.09155113000000001,
-        "fwd_rev_growth": 0.28624801,
-        "roic": 0.11049594000000001,
-        "roe": 0.14330618,
+        "mkt_cap_b": 35.001749504,
+        "ev_ebitda": 5.805,
+        "net_debt_ebitda": 0.7391185463046643,
+        "fcf_ev": 0.05625415539346715,
+        "fwd_rev_growth": -0.0297,
+        "roic": 0.07727,
+        "roe": 0.13402,
         "price_sales": 3.7378552,
         "from_1y_hi": -0.17388949420759925
       },
@@ -3235,359 +3235,9 @@
         "ytd": 0.052672526831901934
       },
       "crowding": {
-        "si_pct_float": 2.661,
+        "si_pct_float": null,
         "days_to_cover": null,
-        "delta_short_2w": 0.0
-      },
-      "catalyst": {
-        "next_earnings_date": null,
-        "days_to_earnings": null,
-        "earnings_flag": null
-      }
-    },
-    {
-      "ticker": "AR",
-      "bucket": "core",
-      "what_it_does": "Antero Resources: Appalachia gas/NGL producer; liquids-rich with LNG export upside.",
-      "scores": {
-        "sweet_spot": 0.2814245590539623,
-        "broad_score": 0.315498612183555,
-        "spread": -1.29714116064838,
-        "value": 1.3306910357246127,
-        "growth": -0.2914181726881806,
-        "reset": 0.7071156619365022,
-        "not_extended": 0.5850598261659021,
-        "setup": 1.0557444352147713,
-        "quality": -0.4903802217565678
-      },
-      "betas": {
-        "jkm_hh_beta": -0.02349705675294275,
-        "jkm_hh_t": -0.7363623762629932,
-        "ttf_hh_beta": 0.01923501264825056,
-        "ttf_hh_t": 0.5120590715494707,
-        "brent_beta": 0.2771177627917023,
-        "r_squared": 0.15444355452391922
-      },
-      "fundamentals": {
-        "mkt_cap_b": 11.13550584,
-        "ev_ebitda": 6.094895,
-        "net_debt_ebitda": 1.603273,
-        "fcf_ev": 0.1259137,
-        "fwd_rev_growth": 0.21967539,
-        "roic": 0.08489315,
-        "roe": 0.12586044,
-        "price_sales": 1.9794096,
-        "from_1y_hi": -0.20398676828152418
-      },
-      "returns": {
-        "mar_run": 0.21763752147567472,
-        "apr_sell": -0.0739109254197754,
-        "ytd": 0.050569996741728795
-      },
-      "crowding": {
-        "si_pct_float": 1.499,
-        "days_to_cover": null,
-        "delta_short_2w": 0.0
-      },
-      "catalyst": {
-        "next_earnings_date": null,
-        "days_to_earnings": null,
-        "earnings_flag": null
-      }
-    },
-    {
-      "ticker": "VG",
-      "bucket": "core",
-      "what_it_does": "Venture Global: LNG exporter/developer; maximum LNG torque with high leverage/legal-contract overhang.",
-      "scores": {
-        "sweet_spot": 0.2194749251577648,
-        "broad_score": 0.03877784798514904,
-        "spread": -1.230836545962423,
-        "value": -0.9196023656374672,
-        "growth": 2.4648904929015405,
-        "reset": 2.7657545859314325,
-        "not_extended": -3.04606071725105,
-        "setup": -0.22901814886757416,
-        "quality": -0.03784953924204191
-      },
-      "betas": {
-        "jkm_hh_beta": -0.12431311128579837,
-        "jkm_hh_t": -1.9700069285401265,
-        "ttf_hh_beta": 0.22618877069843962,
-        "ttf_hh_t": 3.044887990986591,
-        "brent_beta": 0.48124557581424704,
-        "r_squared": 0.22777150793621748
-      },
-      "fundamentals": {
-        "mkt_cap_b": 28.42541025245,
-        "ev_ebitda": 8.819266,
-        "net_debt_ebitda": 5.359752,
-        "fcf_ev": -0.10126481,
-        "fwd_rev_growth": 1.76930813,
-        "roic": 0.09862607000000001,
-        "roe": 0.40849525999999997,
-        "price_sales": 2.0644498,
-        "from_1y_hi": -0.3944410836453631
-      },
-      "returns": {
-        "mar_run": 0.5425413331661688,
-        "apr_sell": -0.18937333984014648,
-        "ytd": 0.6286583598662014
-      },
-      "crowding": {
-        "si_pct_float": 1.229,
-        "days_to_cover": null,
-        "delta_short_2w": 0.0
-      },
-      "catalyst": {
-        "next_earnings_date": null,
-        "days_to_earnings": null,
-        "earnings_flag": null
-      }
-    },
-    {
-      "ticker": "RRC",
-      "bucket": "core",
-      "what_it_does": "Range Resources: low-leverage Appalachia gas producer; cleaner balance sheet, lower LNG-spread directness.",
-      "scores": {
-        "sweet_spot": 0.07098796559692698,
-        "broad_score": 0.26204695729086974,
-        "spread": -0.8312938255300745,
-        "value": 1.0669777043248578,
-        "growth": -0.47658450317773915,
-        "reset": -0.02297284407529307,
-        "not_extended": 0.1706488885609097,
-        "setup": 0.12065556390422977,
-        "quality": 1.6579976188060732
-      },
-      "betas": {
-        "jkm_hh_beta": -0.021235389662613936,
-        "jkm_hh_t": -0.7697249713593789,
-        "ttf_hh_beta": 0.014595644417757559,
-        "ttf_hh_t": 0.4494155338489263,
-        "brent_beta": 0.2151184571096274,
-        "r_squared": 0.1278838434724584
-      },
-      "fundamentals": {
-        "mkt_cap_b": 9.54741357,
-        "ev_ebitda": 7.126892,
-        "net_debt_ebitda": 0.600162,
-        "fcf_ev": 0.08065281,
-        "fwd_rev_growth": 0.11557245999999999,
-        "roic": 0.17428035000000003,
-        "roe": 0.21110463,
-        "price_sales": 2.9742646,
-        "from_1y_hi": -0.1496327563440455
-      },
-      "returns": {
-        "mar_run": 0.14043419019540604,
-        "apr_sell": -0.02620688252065373,
-        "ytd": 0.15055854554482329
-      },
-      "crowding": {
-        "si_pct_float": 4.519,
-        "days_to_cover": null,
-        "delta_short_2w": 0.0
-      },
-      "catalyst": {
-        "next_earnings_date": null,
-        "days_to_earnings": null,
-        "earnings_flag": null
-      }
-    },
-    {
-      "ticker": "MPLX",
-      "bucket": "small/levered",
-      "what_it_does": "MPLX: large midstream MLP; Permian/Marcellus gathering, stable distributions, lower spread beta.",
-      "scores": {
-        "sweet_spot": -0.02940632851158509,
-        "broad_score": 0.12290338917773529,
-        "spread": 0.7959431771541048,
-        "value": -0.1342818094814374,
-        "growth": -0.5234068943479013,
-        "reset": -0.5883985822254684,
-        "not_extended": 0.7405067421669911,
-        "setup": 0.12427672935109467,
-        "quality": 1.1737483930917578
-      },
-      "betas": {
-        "jkm_hh_beta": 0.00715802336914952,
-        "jkm_hh_t": 0.48823949015531526,
-        "ttf_hh_beta": -0.006965717364140724,
-        "ttf_hh_t": -0.4036036674408005,
-        "brent_beta": 0.028825640740765913,
-        "r_squared": 0.007692196109199911
-      },
-      "fundamentals": {
-        "mkt_cap_b": 54.795620826000004,
-        "ev_ebitda": 11.503982,
-        "net_debt_ebitda": 3.399164,
-        "fcf_ev": 0.04903626,
-        "fwd_rev_growth": 0.0892483,
-        "roic": 0.15025748,
-        "roe": 0.33666559,
-        "price_sales": 4.6370163,
-        "from_1y_hi": -0.08737533089292415
-      },
-      "returns": {
-        "mar_run": -0.017078091510937532,
-        "apr_sell": -0.010371924809531197,
-        "ytd": 0.022069867190908088
-      },
-      "crowding": {
-        "si_pct_float": 4.067,
-        "days_to_cover": null,
-        "delta_short_2w": 0.0
-      },
-      "catalyst": {
-        "next_earnings_date": null,
-        "days_to_earnings": null,
-        "earnings_flag": null
-      }
-    },
-    {
-      "ticker": "LNG",
-      "bucket": "core",
-      "what_it_does": "Cheniere: operating LNG exporter; contracted liquefaction fees plus spot/marketing upside to JKM-HH spreads.",
-      "scores": {
-        "sweet_spot": -0.033833375099913826,
-        "broad_score": -0.07395430116934322,
-        "spread": 0.3234095734145059,
-        "value": -0.39629981992005775,
-        "growth": -0.19814709208743111,
-        "reset": 0.35548584556810525,
-        "not_extended": -0.110930945029325,
-        "setup": 0.19980836792336526,
-        "quality": -0.5587933751300982
-      },
-      "betas": {
-        "jkm_hh_beta": -0.01822185301559921,
-        "jkm_hh_t": -0.8837503588485517,
-        "ttf_hh_beta": 0.05997388958637374,
-        "ttf_hh_t": 2.4708634393888618,
-        "brent_beta": 0.17001062232800485,
-        "r_squared": 0.23823061750556007
-      },
-      "fundamentals": {
-        "mkt_cap_b": 50.31549902548001,
-        "ev_ebitda": 14.808686,
-        "net_debt_ebitda": 4.147035,
-        "fcf_ev": 0.02738549,
-        "fwd_rev_growth": 0.27211361,
-        "roic": 0.09282538000000001,
-        "roe": 0.31598115,
-        "price_sales": 2.5340753,
-        "from_1y_hi": -0.19130377000162502
-      },
-      "returns": {
-        "mar_run": 0.19274499818436763,
-        "apr_sell": -0.0679741888374743,
-        "ytd": 0.21711126666331504
-      },
-      "crowding": {
-        "si_pct_float": 1.516,
-        "days_to_cover": null,
-        "delta_short_2w": 0.0
-      },
-      "catalyst": {
-        "next_earnings_date": null,
-        "days_to_earnings": null,
-        "earnings_flag": null
-      }
-    },
-    {
-      "ticker": "OKE",
-      "bucket": "core",
-      "what_it_does": "ONEOK: NGL/gas midstream; more levered and less clean than TRGP/ET for this specific thesis.",
-      "scores": {
-        "sweet_spot": -0.15248443680027096,
-        "broad_score": -0.2447668774322878,
-        "spread": -0.6726907935489804,
-        "value": -0.17195686771621865,
-        "growth": 0.29588756812069594,
-        "reset": -0.032541560202237696,
-        "not_extended": -0.19028419359300902,
-        "setup": -0.1820550318109927,
-        "quality": -1.0314202011825468
-      },
-      "betas": {
-        "jkm_hh_beta": -0.02310904822646435,
-        "jkm_hh_t": -1.1235464163793878,
-        "ttf_hh_beta": 0.01567633983906007,
-        "ttf_hh_t": 0.6474453159189515,
-        "brent_beta": 0.1940431918125478,
-        "r_squared": 0.17980859245115655
-      },
-      "fundamentals": {
-        "mkt_cap_b": 53.65359767632,
-        "ev_ebitda": 12.137713,
-        "net_debt_ebitda": 4.487334,
-        "fcf_ev": 0.025691980000000003,
-        "fwd_rev_growth": 0.5498663500000001,
-        "roic": 0.08273256999999999,
-        "roe": 0.16152421,
-        "price_sales": 1.5240767,
-        "from_1y_hi": -0.08279569980829427
-      },
-      "returns": {
-        "mar_run": 0.09103566307207434,
-        "apr_sell": 0.0016025829398316205,
-        "ytd": 0.17515373625691044
-      },
-      "crowding": {
-        "si_pct_float": 5.736,
-        "days_to_cover": null,
-        "delta_short_2w": 0.0
-      },
-      "catalyst": {
-        "next_earnings_date": null,
-        "days_to_earnings": null,
-        "earnings_flag": null
-      }
-    },
-    {
-      "ticker": "CTRA",
-      "bucket": "core",
-      "what_it_does": "Coterra: gas-weighted E&P with Permian/Appalachia mix; lower leverage, more balanced producer exposure.",
-      "scores": {
-        "sweet_spot": -0.19367582215079937,
-        "broad_score": -0.16846509466912069,
-        "spread": -1.7597978598164052,
-        "value": 1.0153166083895273,
-        "growth": 0.030560898265321854,
-        "reset": -0.4439756542061859,
-        "not_extended": -0.6362828151620362,
-        "setup": -0.8826021528267408,
-        "quality": 0.5557614239596554
-      },
-      "betas": {
-        "jkm_hh_beta": -0.01987684067510151,
-        "jkm_hh_t": -0.8653954111646506,
-        "ttf_hh_beta": 0.007516904781208766,
-        "ttf_hh_t": 0.27800241108619167,
-        "brent_beta": 0.3177738132773931,
-        "r_squared": 0.3018147443860947
-      },
-      "fundamentals": {
-        "mkt_cap_b": 24.724704750240004,
-        "ev_ebitda": 6.205454,
-        "net_debt_ebitda": 0.66459,
-        "fcf_ev": 0.07056245,
-        "fwd_rev_growth": 0.40069623,
-        "roic": 0.09607797,
-        "roe": 0.11367201,
-        "price_sales": 3.3629832,
-        "from_1y_hi": -0.10327733016166818
-      },
-      "returns": {
-        "mar_run": 0.16072984244670985,
-        "apr_sell": -0.011497624136238671,
-        "ytd": 0.2329801102463971
-      },
-      "crowding": {
-        "si_pct_float": 2.321,
-        "days_to_cover": null,
-        "delta_short_2w": 0.0
+        "delta_short_2w": null
       },
       "catalyst": {
         "next_earnings_date": null,
@@ -3600,32 +3250,32 @@
       "bucket": "core",
       "what_it_does": "Energy Transfer: diversified midstream MLP; Permian gas takeaway, intrastate pipes, NGL, fractionation, exports.",
       "scores": {
-        "sweet_spot": -0.1957137724949209,
-        "broad_score": -0.33770797401157715,
-        "spread": 0.44526256309576007,
-        "value": 0.046158507935790516,
-        "growth": -0.6205104010131816,
-        "reset": -0.9142587135377418,
-        "not_extended": 0.08339985415374616,
-        "setup": -0.6788355183332726,
-        "quality": -1.2627805185929766
+        "sweet_spot": 0.2630571248322085,
+        "broad_score": 0.03647047874603179,
+        "spread": 0.4452634643437374,
+        "value": 1.2823026197361356,
+        "growth": -0.1808729719985868,
+        "reset": -0.9142587665407014,
+        "not_extended": 0.08339993750477985,
+        "setup": -0.6788354470080457,
+        "quality": -1.2708138410834287
       },
       "betas": {
-        "jkm_hh_beta": 0.001824175580356342,
-        "jkm_hh_t": 0.12877332732499122,
-        "ttf_hh_beta": 0.0029694040739777485,
-        "ttf_hh_t": 0.17806478649115628,
-        "brent_beta": 0.08112026066214176,
-        "r_squared": 0.07495228706059665
+        "jkm_hh_beta": 0.0018241683297877927,
+        "jkm_hh_t": 0.12877285876515399,
+        "ttf_hh_beta": 0.0029694437257613807,
+        "ttf_hh_t": 0.17806722411322157,
+        "brent_beta": 0.08112019632825436,
+        "r_squared": 0.07495230327458013
       },
       "fundamentals": {
-        "mkt_cap_b": 66.55202041718,
-        "ev_ebitda": 9.776081,
-        "net_debt_ebitda": 4.678836,
-        "fcf_ev": 0.02577088,
-        "fwd_rev_growth": 0.03465544,
-        "roic": 0.07768839,
-        "roe": 0.131584,
+        "mkt_cap_b": 66.550874112,
+        "ev_ebitda": null,
+        "net_debt_ebitda": null,
+        "fcf_ev": null,
+        "fwd_rev_growth": 0.0101,
+        "roic": 0.04472,
+        "roe": 0.12352,
         "price_sales": 0.7211295,
         "from_1y_hi": -0.05149579541398164
       },
@@ -3635,9 +3285,209 @@
         "ytd": 0.1876347764182862
       },
       "crowding": {
-        "si_pct_float": 1.409,
+        "si_pct_float": null,
         "days_to_cover": null,
-        "delta_short_2w": 0.0
+        "delta_short_2w": null
+      },
+      "catalyst": {
+        "next_earnings_date": null,
+        "days_to_earnings": null,
+        "earnings_flag": null
+      }
+    },
+    {
+      "ticker": "RRC",
+      "bucket": "core",
+      "what_it_does": "Range Resources: low-leverage Appalachia gas producer; cleaner balance sheet, lower LNG-spread directness.",
+      "scores": {
+        "sweet_spot": 0.22464999018994752,
+        "broad_score": 0.360696415305061,
+        "spread": -0.8312935228077352,
+        "value": 1.0846380759935532,
+        "growth": 0.26523468730670796,
+        "reset": -0.02297281160453102,
+        "not_extended": 0.17064896812993258,
+        "setup": 0.1206556471737476,
+        "quality": 1.4876118184213842
+      },
+      "betas": {
+        "jkm_hh_beta": -0.021235452788511213,
+        "jkm_hh_t": -0.7697271327911785,
+        "ttf_hh_beta": 0.014595727640988605,
+        "ttf_hh_t": 0.44941802239974377,
+        "brent_beta": 0.2151184486004398,
+        "r_squared": 0.12788386546719688
+      },
+      "fundamentals": {
+        "mkt_cap_b": 9.547413504,
+        "ev_ebitda": 6.287,
+        "net_debt_ebitda": 0.5802908951008974,
+        "fcf_ev": 0.05229610715596373,
+        "fwd_rev_growth": 0.0837,
+        "roic": 0.109060004,
+        "roe": 0.21134001,
+        "price_sales": 2.9742646,
+        "from_1y_hi": -0.1496327563440455
+      },
+      "returns": {
+        "mar_run": 0.14043419019540604,
+        "apr_sell": -0.02620688252065373,
+        "ytd": 0.15055854554482329
+      },
+      "crowding": {
+        "si_pct_float": null,
+        "days_to_cover": null,
+        "delta_short_2w": null
+      },
+      "catalyst": {
+        "next_earnings_date": null,
+        "days_to_earnings": null,
+        "earnings_flag": null
+      }
+    },
+    {
+      "ticker": "LNG",
+      "bucket": "core",
+      "what_it_does": "Cheniere: operating LNG exporter; contracted liquefaction fees plus spot/marketing upside to JKM-HH spreads.",
+      "scores": {
+        "sweet_spot": 0.20468999010892544,
+        "broad_score": 0.1352129887661208,
+        "spread": 0.3234097961661459,
+        "value": -0.1089521922352765,
+        "growth": 0.563447959559704,
+        "reset": 0.35548591433280374,
+        "not_extended": -0.11093086232222349,
+        "setup": 0.19980847798453236,
+        "quality": -0.3278827525008897
+      },
+      "betas": {
+        "jkm_hh_beta": -0.018221854993941036,
+        "jkm_hh_t": -0.8837504632615785,
+        "ttf_hh_beta": 0.059973900755980206,
+        "ttf_hh_t": 2.4708639232310308,
+        "brent_beta": 0.17001059560589152,
+        "r_squared": 0.23823061249670474
+      },
+      "fundamentals": {
+        "mkt_cap_b": 50.455973888,
+        "ev_ebitda": 13.401,
+        "net_debt_ebitda": 4.115756831976604,
+        "fcf_ev": 0.02310441769211741,
+        "fwd_rev_growth": 0.1329,
+        "roic": 0.065120004,
+        "roe": 0.2892,
+        "price_sales": 2.5340753,
+        "from_1y_hi": -0.19130377000162502
+      },
+      "returns": {
+        "mar_run": 0.19274499818436763,
+        "apr_sell": -0.0679741888374743,
+        "ytd": 0.21711126666331504
+      },
+      "crowding": {
+        "si_pct_float": null,
+        "days_to_cover": null,
+        "delta_short_2w": null
+      },
+      "catalyst": {
+        "next_earnings_date": null,
+        "days_to_earnings": null,
+        "earnings_flag": null
+      }
+    },
+    {
+      "ticker": "AR",
+      "bucket": "core",
+      "what_it_does": "Antero Resources: Appalachia gas/NGL producer; liquids-rich with LNG export upside.",
+      "scores": {
+        "sweet_spot": 0.191569324409552,
+        "broad_score": 0.2524062235829201,
+        "spread": -1.297141233828693,
+        "value": 0.7315943312200468,
+        "growth": 0.15795064424008143,
+        "reset": 0.7071157644222661,
+        "not_extended": 0.5850599007680706,
+        "setup": 1.0557445075359213,
+        "quality": -0.29761576277538987
+      },
+      "betas": {
+        "jkm_hh_beta": -0.0234970567529428,
+        "jkm_hh_t": -0.7363623762629948,
+        "ttf_hh_beta": 0.019235012648250668,
+        "ttf_hh_t": 0.5120590715494735,
+        "brent_beta": 0.2771177627917023,
+        "r_squared": 0.15444355452391922
+      },
+      "fundamentals": {
+        "mkt_cap_b": 11.135505408,
+        "ev_ebitda": null,
+        "net_debt_ebitda": null,
+        "fcf_ev": null,
+        "fwd_rev_growth": 0.066,
+        "roic": 0.05886,
+        "roe": 0.12837,
+        "price_sales": 1.9794096,
+        "from_1y_hi": -0.20398676828152418
+      },
+      "returns": {
+        "mar_run": 0.21763752147567472,
+        "apr_sell": -0.0739109254197754,
+        "ytd": 0.050569996741728795
+      },
+      "crowding": {
+        "si_pct_float": null,
+        "days_to_cover": null,
+        "delta_short_2w": null
+      },
+      "catalyst": {
+        "next_earnings_date": null,
+        "days_to_earnings": null,
+        "earnings_flag": null
+      }
+    },
+    {
+      "ticker": "MPLX",
+      "bucket": "small/levered",
+      "what_it_does": "MPLX: large midstream MLP; Permian/Marcellus gathering, stable distributions, lower spread beta.",
+      "scores": {
+        "sweet_spot": 0.06921367887720534,
+        "broad_score": 0.12550999112048872,
+        "spread": 0.7959430121072318,
+        "value": -0.2848398583364895,
+        "growth": 0.1955303655402557,
+        "reset": -0.5883986039786583,
+        "not_extended": 0.7405068164438632,
+        "setup": 0.12427676374604438,
+        "quality": 0.49780381635295934
+      },
+      "betas": {
+        "jkm_hh_beta": 0.007158023369149515,
+        "jkm_hh_t": 0.48823949015531487,
+        "ttf_hh_beta": -0.006965717364140721,
+        "ttf_hh_t": -0.4036036674408002,
+        "brent_beta": 0.02882564074076592,
+        "r_squared": 0.007692196109199911
+      },
+      "fundamentals": {
+        "mkt_cap_b": 54.795620352,
+        "ev_ebitda": 13.211,
+        "net_debt_ebitda": 3.930148893755853,
+        "fcf_ev": 0.02479621984029925,
+        "fwd_rev_growth": 0.0722,
+        "roic": 0.07393,
+        "roe": 0.34705,
+        "price_sales": 4.6370163,
+        "from_1y_hi": -0.08737533089292415
+      },
+      "returns": {
+        "mar_run": -0.017078091510937532,
+        "apr_sell": -0.010371924809531197,
+        "ytd": 0.022069867190908088
+      },
+      "crowding": {
+        "si_pct_float": null,
+        "days_to_cover": null,
+        "delta_short_2w": null
       },
       "catalyst": {
         "next_earnings_date": null,
@@ -3650,32 +3500,32 @@
       "bucket": "core",
       "what_it_does": "Kinder Morgan: giant gas pipeline tollbooth; GCX/Permian Highway/Tennessee Gas/Trident LNG feedgas exposure.",
       "scores": {
-        "sweet_spot": -0.2637288736292722,
-        "broad_score": -0.34238517571028365,
-        "spread": 0.6180318021379274,
-        "value": -0.5268789378645454,
-        "growth": -0.4657644593360896,
-        "reset": -0.7502808965029867,
-        "not_extended": 0.13937518470321178,
-        "setup": -0.4991274881871293,
-        "quality": -0.8498817784058316
+        "sweet_spot": -0.12404970492641307,
+        "broad_score": -0.20943652796831536,
+        "spread": 0.6180316844479706,
+        "value": -0.3776871974599657,
+        "growth": 0.008844008113583424,
+        "reset": -0.7502809337805828,
+        "not_extended": 0.1393750255538237,
+        "setup": -0.49912761446149195,
+        "quality": -0.6052868352970279
       },
       "betas": {
-        "jkm_hh_beta": 0.0032644627420947807,
-        "jkm_hh_t": 0.18919279530855745,
-        "ttf_hh_beta": -0.004163357542953267,
-        "ttf_hh_t": -0.20496799374725902,
-        "brent_beta": 0.048505211491525535,
-        "r_squared": 0.015629087097215555
+        "jkm_hh_beta": 0.003264483828207194,
+        "jkm_hh_t": 0.1891940381935447,
+        "ttf_hh_beta": -0.0041633857179792354,
+        "ttf_hh_t": -0.2049694034146971,
+        "brent_beta": 0.04850519245395442,
+        "r_squared": 0.01562906841958356
       },
       "fundamentals": {
-        "mkt_cap_b": 69.88177702737,
-        "ev_ebitda": 14.500857,
-        "net_debt_ebitda": 4.300659,
-        "fcf_ev": 0.03406487,
-        "fwd_rev_growth": 0.12165563000000001,
-        "roic": 0.059075369999999995,
-        "roe": 0.10664169,
+        "mkt_cap_b": 69.881782272,
+        "ev_ebitda": 13.919,
+        "net_debt_ebitda": 4.320155960001352,
+        "fcf_ev": 0.015909298936349365,
+        "fwd_rev_growth": 0.0414,
+        "roic": 0.04319,
+        "roe": 0.10597,
         "price_sales": 3.9877756,
         "from_1y_hi": -0.06955092808812857
       },
@@ -3685,9 +3535,9 @@
         "ytd": 0.15510604526282257
       },
       "crowding": {
-        "si_pct_float": 4.116,
+        "si_pct_float": null,
         "days_to_cover": null,
-        "delta_short_2w": 0.0
+        "delta_short_2w": null
       },
       "catalyst": {
         "next_earnings_date": null,
@@ -3696,48 +3546,48 @@
       }
     },
     {
-      "ticker": "PAA",
-      "bucket": "small/levered",
-      "what_it_does": "Plains All American: crude/NGL pipelines; Permian logistics but wrong commodity for dry-gas spread.",
+      "ticker": "OKE",
+      "bucket": "core",
+      "what_it_does": "ONEOK: NGL/gas midstream; more levered and less clean than TRGP/ET for this specific thesis.",
       "scores": {
-        "sweet_spot": -0.3653263675804862,
-        "broad_score": -0.617337099912173,
-        "spread": -0.33452345479087653,
-        "value": 0.46024397436417297,
-        "growth": -0.8504915563738851,
-        "reset": -1.0090407246080924,
-        "not_extended": -0.6458841273516727,
-        "setup": -1.3521210696551207,
-        "quality": -2.034892134366087
+        "sweet_spot": -0.1422067724455094,
+        "broad_score": -0.21287050061066184,
+        "spread": -0.6726907333887057,
+        "value": -0.04816460077462346,
+        "growth": 0.16158736115645203,
+        "reset": -0.032541528649109155,
+        "not_extended": -0.19028412036849793,
+        "setup": -0.18205493372591386,
+        "quality": -0.8204870987536038
       },
       "betas": {
-        "jkm_hh_beta": 0.0011939641796456027,
-        "jkm_hh_t": 0.08140884268017338,
-        "ttf_hh_beta": -0.005152772667290025,
-        "ttf_hh_t": -0.2984494130618722,
-        "brent_beta": 0.1594365659146908,
-        "r_squared": 0.19941215188978112
+        "jkm_hh_beta": -0.02310899571094887,
+        "jkm_hh_t": -1.1235439985987787,
+        "ttf_hh_beta": 0.015676293953374474,
+        "ttf_hh_t": 0.6474434988790122,
+        "brent_beta": 0.1940431853192865,
+        "r_squared": 0.17980856167107673
       },
       "fundamentals": {
-        "mkt_cap_b": 15.32414815476,
-        "ev_ebitda": 10.088203,
-        "net_debt_ebitda": 4.352574,
-        "fcf_ev": 0.08180469,
-        "fwd_rev_growth": -0.09464297,
-        "roic": 0.05545251,
-        "roe": 0.09280687,
-        "price_sales": 0.34621456,
-        "from_1y_hi": -0.04105961681407422
+        "mkt_cap_b": 53.653598208,
+        "ev_ebitda": 11.684,
+        "net_debt_ebitda": 4.459837701383887,
+        "fcf_ev": 0.005180310568031895,
+        "fwd_rev_growth": 0.066599995,
+        "roic": 0.05657,
+        "roe": 0.15903,
+        "price_sales": 1.5240767,
+        "from_1y_hi": -0.08279569980829427
       },
       "returns": {
-        "mar_run": 0.05105386161153991,
-        "apr_sell": -0.012849929565429297,
-        "ytd": 0.24115850986885556
+        "mar_run": 0.09103566307207434,
+        "apr_sell": 0.0016025829398316205,
+        "ytd": 0.17515373625691044
       },
       "crowding": {
-        "si_pct_float": 6.521,
+        "si_pct_float": null,
         "days_to_cover": null,
-        "delta_short_2w": 0.0
+        "delta_short_2w": null
       },
       "catalyst": {
         "next_earnings_date": null,
@@ -3746,48 +3596,48 @@
       }
     },
     {
-      "ticker": "DTM",
-      "bucket": "small/levered",
-      "what_it_does": "DT Midstream: gas pipes/storage with Haynesville/Gulf Coast exposure; smaller midstream compounder.",
+      "ticker": "CTRA",
+      "bucket": "core",
+      "what_it_does": "Coterra: gas-weighted E&P with Permian/Appalachia mix; lower leverage, more balanced producer exposure.",
       "scores": {
-        "sweet_spot": -0.49292888998391476,
-        "broad_score": -0.5532584396384504,
-        "spread": 1.4487850450545323,
-        "value": -1.591826250246727,
-        "growth": -0.20711024204491058,
-        "reset": -1.0634392228511311,
-        "not_extended": -0.5102813094159482,
-        "setup": -1.2857748114105438,
-        "quality": -0.02431602017893071
+        "sweet_spot": -0.24338637335037372,
+        "broad_score": -0.20583630539261258,
+        "spread": -1.7597979126904761,
+        "value": 1.0176442643857173,
+        "growth": -0.221483315984259,
+        "reset": -0.44397566210931316,
+        "not_extended": -0.6362827450927921,
+        "setup": -0.8826020415383178,
+        "quality": 0.5542964079167637
       },
       "betas": {
-        "jkm_hh_beta": 0.0107945233513588,
-        "jkm_hh_t": 0.5722262764939079,
-        "ttf_hh_beta": -0.003157006024428876,
-        "ttf_hh_t": -0.14216385797520664,
-        "brent_beta": -0.03650596217064617,
-        "r_squared": 0.011369108313011522
+        "jkm_hh_beta": -0.019876840675101433,
+        "jkm_hh_t": -0.8653954111646474,
+        "ttf_hh_beta": 0.007516904781208701,
+        "ttf_hh_t": 0.27800241108618917,
+        "brent_beta": 0.3177738132773932,
+        "r_squared": 0.3018147443860947
       },
       "fundamentals": {
-        "mkt_cap_b": 14.5676160504,
-        "ev_ebitda": 19.086207,
-        "net_debt_ebitda": 3.594866,
-        "fcf_ev": 0.02604484,
-        "fwd_rev_growth": 0.26707441,
-        "roic": 0.05849282,
-        "roe": 0.09856306999999999,
-        "price_sales": 11.416627,
-        "from_1y_hi": -0.03506995235327559
+        "mkt_cap_b": 24.724652032,
+        "ev_ebitda": 5.786,
+        "net_debt_ebitda": 0.6628002829998193,
+        "fcf_ev": 0.04474146082092726,
+        "fwd_rev_growth": 0.0034,
+        "roic": 0.06199,
+        "roe": 0.11361,
+        "price_sales": 3.3629832,
+        "from_1y_hi": -0.10327733016166818
       },
       "returns": {
-        "mar_run": -0.03597470864229968,
-        "apr_sell": 0.005826539237669293,
-        "ytd": 0.18786078487444846
+        "mar_run": 0.16072984244670985,
+        "apr_sell": -0.011497624136238671,
+        "ytd": 0.2329801102463971
       },
       "crowding": {
-        "si_pct_float": 4.778,
+        "si_pct_float": null,
         "days_to_cover": null,
-        "delta_short_2w": 0.0
+        "delta_short_2w": null
       },
       "catalyst": {
         "next_earnings_date": null,
@@ -3800,32 +3650,32 @@
       "bucket": "core",
       "what_it_does": "Williams: Transco gas pipe owner; LNG/feedgas and Southeast power-demand tollbooth.",
       "scores": {
-        "sweet_spot": -0.5011443914961398,
-        "broad_score": -0.4975486963292528,
-        "spread": 0.7565715514658198,
-        "value": -1.272972672191659,
-        "growth": -0.43710178492659985,
-        "reset": -0.8642300814854424,
-        "not_extended": -0.10300526849397536,
-        "setup": -0.7902590226218994,
-        "quality": -0.08265051927817255
+        "sweet_spot": -0.29658530705297176,
+        "broad_score": -0.33749597931789416,
+        "spread": 0.7565702915274288,
+        "value": -1.07711217936069,
+        "growth": 0.29190416693908977,
+        "reset": -0.8642301296906896,
+        "not_extended": -0.103005189999306,
+        "setup": -0.7902589437071995,
+        "quality": -0.0652817042344549
       },
       "betas": {
-        "jkm_hh_beta": 0.015295945064046457,
-        "jkm_hh_t": 0.7734930573932782,
-        "ttf_hh_beta": -0.018408534972914423,
-        "ttf_hh_t": -0.7907674699150757,
-        "brent_beta": 0.027053883538878727,
-        "r_squared": 0.005109788097224732
+        "jkm_hh_beta": 0.015295980139692855,
+        "jkm_hh_t": 0.7734949707834866,
+        "ttf_hh_beta": -0.01840860549043858,
+        "ttf_hh_t": -0.7907706418924959,
+        "brent_beta": 0.027053947409112596,
+        "r_squared": 0.005109815401954543
       },
       "fundamentals": {
-        "mkt_cap_b": 87.99678626592,
-        "ev_ebitda": 17.811632,
-        "net_debt_ebitda": 4.336239,
-        "fcf_ev": 0.01001223,
-        "fwd_rev_growth": 0.13777016,
-        "roic": 0.07737036,
-        "roe": 0.21952850999999998,
+        "mkt_cap_b": 88.006950912,
+        "ev_ebitda": 17.706,
+        "net_debt_ebitda": 4.303181099221408,
+        "fcf_ev": -0.0015752468528216902,
+        "fwd_rev_growth": 0.0881,
+        "roic": 0.048860002,
+        "roe": 0.19656,
         "price_sales": 7.267896,
         "from_1y_hi": -0.0570043062939557
       },
@@ -3835,9 +3685,59 @@
         "ytd": 0.19108556788504094
       },
       "crowding": {
-        "si_pct_float": 3.012,
+        "si_pct_float": null,
         "days_to_cover": null,
-        "delta_short_2w": 0.0
+        "delta_short_2w": null
+      },
+      "catalyst": {
+        "next_earnings_date": null,
+        "days_to_earnings": null,
+        "earnings_flag": null
+      }
+    },
+    {
+      "ticker": "PAA",
+      "bucket": "small/levered",
+      "what_it_does": "Plains All American: crude/NGL pipelines; Permian logistics but wrong commodity for dry-gas spread.",
+      "scores": {
+        "sweet_spot": -0.3411836596381854,
+        "broad_score": -0.6050384473860438,
+        "spread": -0.33452276921575097,
+        "value": 0.0025802097533972426,
+        "growth": -0.043282702076980886,
+        "reset": -1.009040786700584,
+        "not_extended": -0.6458847096554143,
+        "setup": -1.352121503465742,
+        "quality": -1.9785593981328022
+      },
+      "betas": {
+        "jkm_hh_beta": 0.0011940952274057592,
+        "jkm_hh_t": 0.08141772527643937,
+        "ttf_hh_beta": -0.005152842738158468,
+        "ttf_hh_t": -0.29845327832508306,
+        "brent_beta": 0.15943658943994496,
+        "r_squared": 0.19941194768075265
+      },
+      "fundamentals": {
+        "mkt_cap_b": 15.324148736,
+        "ev_ebitda": 13.674,
+        "net_debt_ebitda": 4.765157724192917,
+        "fcf_ev": 0.023665700458546095,
+        "fwd_rev_growth": 0.0328,
+        "roic": 0.0306,
+        "roe": 0.105900005,
+        "price_sales": 0.34621456,
+        "from_1y_hi": -0.04105961681407422
+      },
+      "returns": {
+        "mar_run": 0.05105386161153991,
+        "apr_sell": -0.012849929565429297,
+        "ytd": 0.24115864514612273
+      },
+      "crowding": {
+        "si_pct_float": null,
+        "days_to_cover": null,
+        "delta_short_2w": null
       },
       "catalyst": {
         "next_earnings_date": null,
@@ -3850,32 +3750,32 @@
       "bucket": "core",
       "what_it_does": "Antero Midstream: Appalachia gathering/processing MLP; tied to AR volumes, high yield.",
       "scores": {
-        "sweet_spot": -0.567635602088178,
-        "broad_score": -0.4494738773683996,
-        "spread": 0.6108614150577194,
-        "value": -1.6240150274650205,
-        "growth": -0.5499262887852202,
-        "reset": -0.4343194221621101,
-        "not_extended": -0.05754234670749612,
-        "setup": -0.40186517246319087,
-        "quality": 0.5847827579836582
+        "sweet_spot": -0.3727570882820761,
+        "broad_score": -0.24868677455542199,
+        "spread": 0.610859947729739,
+        "value": -1.7845544723167455,
+        "growth": 0.6652768817924343,
+        "reset": -0.4343194291392112,
+        "not_extended": -0.05754226663644871,
+        "setup": -0.40186508519796893,
+        "quality": 1.1711996864976186
       },
       "betas": {
-        "jkm_hh_beta": -0.009596154184754605,
-        "jkm_hh_t": -0.5654248732539713,
-        "ttf_hh_beta": 0.012030031708586346,
-        "ttf_hh_t": 0.6021350771576546,
-        "brent_beta": 0.056051862276821365,
-        "r_squared": 0.03265574771512092
+        "jkm_hh_beta": -0.009596153428436529,
+        "jkm_hh_t": -0.5654247570026818,
+        "ttf_hh_beta": 0.012029990446174595,
+        "ttf_hh_t": 0.6021329355226739,
+        "brent_beta": 0.05605194228877848,
+        "r_squared": 0.03265576755182231
       },
       "fundamentals": {
-        "mkt_cap_b": 9.936581600000002,
-        "ev_ebitda": 18.328839,
-        "net_debt_ebitda": 4.686033,
-        "fcf_ev": -0.02336636,
-        "fwd_rev_growth": 0.07433875,
-        "roic": 0.08461914000000001,
-        "roe": 0.20407117,
+        "mkt_cap_b": 9.936581632,
+        "ev_ebitda": null,
+        "net_debt_ebitda": null,
+        "fcf_ev": null,
+        "fwd_rev_growth": 0.1497,
+        "roic": 0.0761,
+        "roe": 0.20407,
         "price_sales": 7.728406,
         "from_1y_hi": -0.1043405505035464
       },
@@ -3885,9 +3785,109 @@
         "ytd": 0.1925393287942323
       },
       "crowding": {
-        "si_pct_float": 4.579,
+        "si_pct_float": null,
         "days_to_cover": null,
-        "delta_short_2w": 0.0
+        "delta_short_2w": null
+      },
+      "catalyst": {
+        "next_earnings_date": null,
+        "days_to_earnings": null,
+        "earnings_flag": null
+      }
+    },
+    {
+      "ticker": "DTM",
+      "bucket": "small/levered",
+      "what_it_does": "DT Midstream: gas pipes/storage with Haynesville/Gulf Coast exposure; smaller midstream compounder.",
+      "scores": {
+        "sweet_spot": -0.41562535214952323,
+        "broad_score": -0.48480050837539207,
+        "spread": 1.4487849665894674,
+        "value": -1.510039774690757,
+        "growth": 0.05672784654445064,
+        "reset": -1.0634392901604024,
+        "not_extended": -0.510281243369993,
+        "setup": -1.285774724310788,
+        "quality": 0.06004003619347944
+      },
+      "betas": {
+        "jkm_hh_beta": 0.010794498197976841,
+        "jkm_hh_t": 0.5722250540245174,
+        "ttf_hh_beta": -0.0031569670686149385,
+        "ttf_hh_t": -0.14216213130658534,
+        "brent_beta": -0.03650594872605013,
+        "r_squared": 0.011369093575294364
+      },
+      "fundamentals": {
+        "mkt_cap_b": 14.567616512,
+        "ev_ebitda": 20.141,
+        "net_debt_ebitda": 3.590858488294314,
+        "fcf_ev": 0.008081347157542317,
+        "fwd_rev_growth": 0.0493,
+        "roic": 0.039389998,
+        "roe": 0.098579995,
+        "price_sales": 11.416627,
+        "from_1y_hi": -0.03506995235327559
+      },
+      "returns": {
+        "mar_run": -0.03597470864229968,
+        "apr_sell": 0.005826539237669293,
+        "ytd": 0.18786078487444846
+      },
+      "crowding": {
+        "si_pct_float": null,
+        "days_to_cover": null,
+        "delta_short_2w": null
+      },
+      "catalyst": {
+        "next_earnings_date": null,
+        "days_to_earnings": null,
+        "earnings_flag": null
+      }
+    },
+    {
+      "ticker": "VG",
+      "bucket": "core",
+      "what_it_does": "Venture Global: LNG exporter/developer; maximum LNG torque with high leverage/legal-contract overhang.",
+      "scores": {
+        "sweet_spot": -1.0345936414122248,
+        "broad_score": -0.8953970559267665,
+        "spread": -1.2308366116975946,
+        "value": -1.164261482707754,
+        "growth": -3.438463377351116,
+        "reset": 2.7657543310578188,
+        "not_extended": -3.0460606500172,
+        "setup": -0.22901828647685282,
+        "quality": 0.08708057098210858
+      },
+      "betas": {
+        "jkm_hh_beta": -0.12431313176267669,
+        "jkm_hh_t": -1.9700073581074966,
+        "ttf_hh_beta": 0.2261887944572557,
+        "ttf_hh_t": 3.044888473215608,
+        "brent_beta": 0.481245581105652,
+        "r_squared": 0.22777154146608847
+      },
+      "fundamentals": {
+        "mkt_cap_b": 28.42541056,
+        "ev_ebitda": 10.957,
+        "net_debt_ebitda": 5.38461546213144,
+        "fcf_ev": -0.16240929538725465,
+        "fwd_rev_growth": -0.6282,
+        "roic": 0.06649,
+        "roe": 0.27478,
+        "price_sales": 2.0644498,
+        "from_1y_hi": -0.3944409614745421
+      },
+      "returns": {
+        "mar_run": 0.5425413331661688,
+        "apr_sell": -0.18937333984014648,
+        "ytd": 0.6286583598662014
+      },
+      "crowding": {
+        "si_pct_float": null,
+        "days_to_cover": null,
+        "delta_short_2w": null
       },
       "catalyst": {
         "next_earnings_date": null,
