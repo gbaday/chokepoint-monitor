@@ -151,6 +151,9 @@ def _fetch_short_interest_df(ticker_bbg: str, start_str: str, end_str: str) -> p
         return pd.DataFrame(columns=["DATE", "SHORT_INT_RATIO"])
     if df is None or df.empty:
         return pd.DataFrame(columns=["DATE", "SHORT_INT_RATIO"])
+    # Ensure DATE is datetime so Timestamp comparisons work
+    if "DATE" in df.columns:
+        df["DATE"] = pd.to_datetime(df["DATE"], errors="coerce")
     return df
 
 
