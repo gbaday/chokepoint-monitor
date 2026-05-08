@@ -60,7 +60,7 @@ def compute_scores(prices_dict: dict[str, dict],
     raw["spread_raw"]      = [_g(betas_dict.get(t, {}), "spread_score_raw") for t in tickers]
     raw["ev_ebitda"]       = [_g(prices_dict[t], "ev_ebitda")               for t in tickers]
     raw["price_sales"]     = [_g(prices_dict[t], "price_sales")             for t in tickers]
-    raw["debt_ebitda"]     = [_g(prices_dict[t], "debt_ebitda")             for t in tickers]
+    raw["net_debt_ebitda"] = [_g(prices_dict[t], "net_debt_ebitda")         for t in tickers]
     raw["fcf_ev"]          = [_g(prices_dict[t], "fcf_ev")                  for t in tickers]
     raw["fwd_rev_growth"]  = [_g(prices_dict[t], "fwd_rev_growth")          for t in tickers]
     raw["from_1y_hi"]      = [_g(prices_dict[t], "from_1y_hi")              for t in tickers]
@@ -80,7 +80,7 @@ def compute_scores(prices_dict: dict[str, dict],
     val_components = pd.DataFrame({
         "ev_ebitda_inv":   _z(-raw["ev_ebitda"]),
         "price_sales_inv": _z(-raw["price_sales"]),
-        "debt_ebitda_inv": _z(-raw["debt_ebitda"]),
+        "net_debt_ebitda_inv": _z(-raw["net_debt_ebitda"]),
         "fcf_ev":          _z(raw["fcf_ev"]),
     }, index=tickers)
     z["value"] = _z(val_components.mean(axis=1, skipna=True))

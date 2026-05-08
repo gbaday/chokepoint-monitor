@@ -1,21 +1,27 @@
-"""Bloomberg fetcher: short interest, days to cover, next earnings.
+"""Bloomberg fetcher: fundamentals (batch BDP) + short interest + earnings.
 
 Mirrors the style of bbg_multiples.py:
   - load_dotenv(_SCRIPT_DIR.parent / ".env")
-  - small isolated _fetch_one helpers, try/except per call
-  - intermediate DataFrames before extracting scalars
+  - small isolated helpers, try/except per call
   - dates relative to date.today() (no hardcode)
+
+Fundamental fields fetched via a single batch bdp call (one request for all
+tickers × all fields). Falls back to a per-ticker loop if vista_bbg does not
+support the batch form.
 
 Returns dict keyed by ticker (without ' US Equity'):
   { "VG": {"si_pct_float": 8.2, "delta_short_2w": -0.5,
            "days_to_cover": 3.1,
            "next_earnings_date": "2026-08-10",
            "days_to_earnings": 96,
-           "earnings_flag": "green"},
+           "earnings_flag": "green",
+           "ev_ebitda": 7.2, "net_debt_ebitda": 1.8, "fcf_ev": 0.09,
+           "mkt_cap_b": 4.1, "fwd_rev_growth": 0.12,
+           "roic": 0.14, "roe": 0.21},
     ... }
 
 If vista_bbg unavailable (ImportError): log warning, return {} so the
-dashboard degrades gracefully and shows "—".
+dashboard degrades gracefully to yfinance values.
 """
 
 from __future__ import annotations
@@ -43,37 +49,44 @@ except Exception as e:
 SHORT_LOOKBACK_DAYS = 30
 DELTA_BACK_DAYS = 14
 
+# Fundamental fields fetched via BDP.
+# Each entry: (internal_key, bbg_field, scale_factor)
+#   scale_factor converts BBG units → internal units:
+#     CUR_MKT_CAP       : millions USD  → billions  (× 1e-3)
+#     BEST_SALES_GROWTH : percent       → decimal   (× 1e-2)
+#     RETURN_ON_INV_CAPITAL: percent    → decimal   (× 1e-2)
+#     RETURN_ON_EQUITY  : percent       → decimal   (× 1e-2)
+#     all others        : already in the right unit (× 1.0)
+_FUND_FIELDS: list[tuple[str, str, float]] = [
+    ("ev_ebitda",       "EV_TO_T12M_EBITDA",           1.0),
+    ("net_debt_ebitda", "NET_DEBT_TO_EBITDA",           1.0),
+    ("fcf_ev",          "FCF_YIELD_WITH_CUR_ENTP_VAL",  1.0),
+    ("mkt_cap_b",       "CUR_MKT_CAP",                  1e-3),
+    ("fwd_rev_growth",  "BEST_SALES_GROWTH",             1e-2),
+    ("roic",            "RETURN_ON_INV_CAPITAL",         1e-2),
+    ("roe",             "RETURN_ON_EQUITY",              1e-2),
+]
+
+FUND_KEYS: tuple[str, ...] = tuple(k for k, _, _ in _FUND_FIELDS)
+
+
+def _empty_fund() -> dict:
+    return {k: None for k, _, _ in _FUND_FIELDS}
+
 
 def _empty() -> dict:
-    return {"si_pct_float": None, "delta_short_2w": None,
-            "days_to_cover": None,
-            "next_earnings_date": None, "days_to_earnings": None,
-            "earnings_flag": None}
+    d: dict = {
+        "si_pct_float": None, "delta_short_2w": None,
+        "days_to_cover": None,
+        "next_earnings_date": None, "days_to_earnings": None,
+        "earnings_flag": None,
+    }
+    d.update(_empty_fund())
+    return d
 
 
 def _ticker_key(ticker_bbg: str) -> str:
     return ticker_bbg.replace(" US Equity", "").strip()
-
-
-def _fetch_short_interest_df(ticker_bbg: str, start_str: str, end_str: str) -> pd.DataFrame:
-    try:
-        df = vbbg.bdh(ticker_bbg, "SHORT_INT_RATIO",
-                      start_date=start_str, end_date=end_str)
-    except Exception as e:
-        log.info("    BBG SHORT_INT_RATIO %s: %s", ticker_bbg, e)
-        return pd.DataFrame(columns=["DATE", "SHORT_INT_RATIO"])
-    if df is None or df.empty:
-        return pd.DataFrame(columns=["DATE", "SHORT_INT_RATIO"])
-    return df
-
-
-def _scalar_bdp(ticker_bbg: str, field: str):
-    try:
-        v = vbbg.bdp(ticker_bbg, field)
-    except Exception as e:
-        log.info("    BBG %s %s: %s", field, ticker_bbg, e)
-        return None
-    return v
 
 
 def _to_float(v) -> float | None:
@@ -111,8 +124,73 @@ def _earnings_flag(d: dt.date | None) -> tuple[int | None, str | None]:
     return days, "green"
 
 
-def fetch_one(ticker_bbg: str) -> dict:
-    out = _empty()
+def _scalar_bdp(ticker_bbg: str, field: str):
+    try:
+        v = vbbg.bdp(ticker_bbg, field)
+    except Exception as e:
+        log.info("    BBG %s %s: %s", field, ticker_bbg, e)
+        return None
+    return v
+
+
+def _fetch_short_interest_df(ticker_bbg: str, start_str: str, end_str: str) -> pd.DataFrame:
+    try:
+        df = vbbg.bdh(ticker_bbg, "SHORT_INT_RATIO",
+                      start_date=start_str, end_date=end_str)
+    except Exception as e:
+        log.info("    BBG SHORT_INT_RATIO %s: %s", ticker_bbg, e)
+        return pd.DataFrame(columns=["DATE", "SHORT_INT_RATIO"])
+    if df is None or df.empty:
+        return pd.DataFrame(columns=["DATE", "SHORT_INT_RATIO"])
+    return df
+
+
+def _fetch_fundamentals(tickers_bbg: list[str]) -> dict[str, dict]:
+    """Fetch fundamental BDP fields for all tickers.
+
+    Tries a single batch bdp(tickers, fields) call first; falls back to a
+    per-ticker loop if the batch form is unsupported or raises.
+    """
+    bbg_fields = [f for _, f, _ in _FUND_FIELDS]
+    result: dict[str, dict] = {_ticker_key(t): _empty_fund() for t in tickers_bbg}
+
+    # Attempt batch call
+    try:
+        df = vbbg.bdp(tickers_bbg, bbg_fields)
+        if isinstance(df, pd.DataFrame) and not df.empty:
+            for tb in tickers_bbg:
+                key = _ticker_key(tb)
+                if tb not in df.index:
+                    continue
+                row = df.loc[tb]
+                for local_key, bbg_field, scale in _FUND_FIELDS:
+                    raw = row[bbg_field] if bbg_field in row.index else None
+                    v = _to_float(raw)
+                    result[key][local_key] = None if v is None else v * scale
+            log.info("  bbg fundamentals fetched via batch bdp (%d tickers)", len(tickers_bbg))
+            return result
+    except Exception as e:
+        log.info("  batch bdp unsupported or failed (%s); falling back to per-ticker loop", e)
+
+    # Per-ticker fallback
+    for tb in tickers_bbg:
+        key = _ticker_key(tb)
+        log.info("  bbg fundamentals %s", tb)
+        for local_key, bbg_field, scale in _FUND_FIELDS:
+            v = _to_float(_scalar_bdp(tb, bbg_field))
+            result[key][local_key] = None if v is None else v * scale
+
+    return result
+
+
+def fetch_one_crowding(ticker_bbg: str) -> dict:
+    """Fetch short interest + days_to_cover + next earnings for a single ticker."""
+    out: dict = {
+        "si_pct_float": None, "delta_short_2w": None,
+        "days_to_cover": None,
+        "next_earnings_date": None, "days_to_earnings": None,
+        "earnings_flag": None,
+    }
 
     today = dt.date.today()
     start = today - dt.timedelta(days=SHORT_LOOKBACK_DAYS + 5)
@@ -143,15 +221,30 @@ def fetch_one(ticker_bbg: str) -> dict:
 def get_bloomberg_data(tickers_bbg: list[str]) -> dict[str, dict]:
     if not _VBBG_OK:
         return {}
+
+    # 1. Fundamentals — single batch BDP call (minimises datapoint cost)
+    log.info("  bbg fundamentals (batch bdp, %d tickers × %d fields)...",
+             len(tickers_bbg), len(_FUND_FIELDS))
+    try:
+        fund = _fetch_fundamentals(tickers_bbg)
+    except Exception as e:
+        log.warning("  fundamentals batch failed entirely: %s", e)
+        fund = {}
+
+    # 2. Crowding / catalyst — per-ticker (requires bdh for short interest history)
     out: dict[str, dict] = {}
     for tb in tickers_bbg:
         key = _ticker_key(tb)
-        log.info("  bbg %s", tb)
+        log.info("  bbg crowding/catalyst %s", tb)
         try:
-            out[key] = fetch_one(tb)
+            d = fetch_one_crowding(tb)
         except Exception as e:
-            log.warning("  bbg fetch_one %s failed: %s", tb, e)
-            out[key] = _empty()
+            log.warning("  bbg crowding %s failed: %s", tb, e)
+            d = {k: None for k in ("si_pct_float", "delta_short_2w", "days_to_cover",
+                                   "next_earnings_date", "days_to_earnings", "earnings_flag")}
+        d.update(fund.get(key, _empty_fund()))
+        out[key] = d
+
     return out
 
 

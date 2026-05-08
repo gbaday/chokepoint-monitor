@@ -33,7 +33,7 @@ def main() -> int:
     from src.build_output import build, write_json
     from src.compute_betas import compute_all as compute_betas
     from src.compute_scores import compute_scores
-    from src.fetch_bloomberg import get_bloomberg_data
+    from src.fetch_bloomberg import get_bloomberg_data, FUND_KEYS
     from src.fetch_prices import fetch_all as fetch_prices
     from src.fetch_spreads import fetch_spreads
 
@@ -52,10 +52,18 @@ def main() -> int:
     log.info("[3/5] computing betas (180d OLS)...")
     betas = compute_betas(prices, spreads["frame"])
 
-    log.info("[4/5] fetching Bloomberg crowding/catalyst...")
+    log.info("[4/5] fetching Bloomberg fundamentals + crowding/catalyst...")
     bbg = get_bloomberg_data(bbg_symbols)
     if not bbg:
-        log.warning("Bloomberg data unavailable — crowding/catalyst columns will be empty.")
+        log.warning("Bloomberg data unavailable — BBG fields will fall back to yfinance values.")
+
+    # Merge BBG fundamentals into prices (BBG takes priority over yfinance).
+    for t, bbg_data in bbg.items():
+        if t in prices:
+            for k in FUND_KEYS:
+                v = bbg_data.get(k)
+                if v is not None:
+                    prices[t][k] = v
 
     log.info("[5/5] computing scores + building output...")
     scores = compute_scores(prices, betas)

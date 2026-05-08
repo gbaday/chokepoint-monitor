@@ -5,10 +5,12 @@ Output of fetch_all(tickers) is a dict keyed by ticker; each value carries:
   price_last, high_1y, low_1y, high_5y
   from_1y_hi, from_1y_lo, from_5y_hi
   ytd, mar_run, apr_sell
-  mkt_cap_b, ev_ebitda, price_sales, debt_ebitda, fcf_ev, fwd_rev_growth
-  ebitda_margin, roic, roe   (used by Quality score in Etapa 5)
+  price_sales                       (stays in yfinance — not in Bloomberg)
+  mkt_cap_b, ev_ebitda, net_debt_ebitda, fcf_ev, fwd_rev_growth,
+  ebitda_margin, roic, roe          (fallback — Bloomberg values take priority
+                                     when merged in run_daily.py)
 
-EBITDA <= 0 -> ev_ebitda and debt_ebitda forced to None (do not treat as cheap).
+EBITDA <= 0 -> ev_ebitda and net_debt_ebitda forced to None.
 Any failure on a ticker logs a warning and yields None values; never raises.
 """
 
@@ -154,9 +156,9 @@ def fetch_one(ticker: str) -> dict[str, Any]:
     total_debt = _first_not_none(info, "totalDebt")
     cash = _first_not_none(info, "totalCash")
     if total_debt is not None and cash is not None and ebitda and ebitda > 0:
-        out["debt_ebitda"] = (total_debt - cash) / ebitda
+        out["net_debt_ebitda"] = (total_debt - cash) / ebitda
     else:
-        out["debt_ebitda"] = None
+        out["net_debt_ebitda"] = None
 
     fcf = _first_not_none(info, "freeCashflow")
     if fcf is None:
@@ -169,7 +171,7 @@ def fetch_one(ticker: str) -> dict[str, Any]:
     out["fwd_rev_growth"] = _forward_revenue_growth(tk, info)
 
     out["ebitda_margin"] = _first_not_none(info, "ebitdaMargins")
-    out["roic"] = _first_not_none(info, "returnOnAssets")  # proxy if ROIC unavailable
+    out["roic"] = _first_not_none(info, "returnOnAssets")  # proxy; Bloomberg RETURN_ON_INV_CAPITAL takes priority
     out["roe"] = _first_not_none(info, "returnOnEquity")
 
     return out
