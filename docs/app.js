@@ -271,7 +271,7 @@ function renderValLevScatter(rows) {
 
   const trace = {
     x: rows.map((r) => r.fundamentals.ev_ebitda),
-    y: rows.map((r) => r.fundamentals.debt_ebitda),
+    y: rows.map((r) => r.fundamentals.net_debt_ebitda),
     text: rows.map((r) => r.ticker),
     mode: "markers+text",
     textposition: "top center",
@@ -283,7 +283,7 @@ function renderValLevScatter(rows) {
       opacity: 0.85,
     },
     hovertemplate:
-      "<b>%{text}</b><br>EV/EBITDA: %{x:.1f}<br>Debt/EBITDA: %{y:.1f}<extra></extra>",
+      "<b>%{text}</b><br>EV/EBITDA: %{x:.1f}<br>Net Debt/EBITDA: %{y:.1f}<extra></extra>",
   };
   Plotly.newPlot("scatterValLev", [trace], plotlyLayout("EV / EBITDA", "Net Debt / EBITDA"),
     { displayModeBar: false, responsive: true });
@@ -338,9 +338,7 @@ function signedClass(v) { return v == null ? "" : v >= 0 ? "cell-pos" : "cell-ne
 const SCREEN_COLS = [
   { k: "ticker", label: "Ticker", cls: "col-ticker", get: (r) => r.ticker },
   { k: "sweet_spot", label: "Sweet Spot", get: (r) => FMT.z(r.scores.sweet_spot), cls2: (r) => signedClass(r.scores.sweet_spot) },
-  { k: "broad_score", label: "Broad", get: (r) => FMT.z(r.scores.broad_score), cls2: (r) => signedClass(r.scores.broad_score) },
   { k: "what_it_does", label: "What It Does", cls: "col-text", get: (r) => r.what_it_does, sortable: false },
-  { k: "bucket", label: "Bucket", get: (r) => `<span class="${r.bucket === 'core' ? 'bucket-core' : 'bucket-small'}">${r.bucket}</span>`, sortable: false },
   { k: "spread", label: "Spread", get: (r) => FMT.z(r.scores.spread), cls2: (r) => signedClass(r.scores.spread) },
   { k: "value", label: "Value", get: (r) => FMT.z(r.scores.value), cls2: (r) => signedClass(r.scores.value) },
   { k: "growth", label: "Growth", get: (r) => FMT.z(r.scores.growth), cls2: (r) => signedClass(r.scores.growth) },
@@ -349,11 +347,10 @@ const SCREEN_COLS = [
   { k: "setup", label: "Setup", get: (r) => FMT.z(r.scores.setup), cls2: (r) => signedClass(r.scores.setup) },
   { k: "quality", label: "Quality", get: (r) => FMT.z(r.scores.quality), cls2: (r) => signedClass(r.scores.quality) },
   { sep: true, k: "si_pct_float", label: "SI% Float", get: (r) => FMT.num(r.crowding.si_pct_float, 2) },
-  { k: "delta_short_2w", label: "ΔShort 2w", get: (r) => FMT.num(r.crowding.delta_short_2w, 2), cls2: (r) => signedClass(r.crowding.delta_short_2w) },
   { k: "days_to_cover", label: "Days to Cover", get: (r) => FMT.num(r.crowding.days_to_cover, 1) },
   { k: "days_to_earnings", label: "Days to Earnings", get: (r) => `${flagSpan(r.catalyst.earnings_flag)}${FMT.intish(r.catalyst.days_to_earnings)}` },
   { sep: true, k: "ev_ebitda", label: "EV/EBITDA", get: (r) => FMT.num(r.fundamentals.ev_ebitda, 1) },
-  { k: "debt_ebitda", label: "Debt/EBITDA", get: (r) => FMT.num(r.fundamentals.debt_ebitda, 1) },
+  { k: "net_debt_ebitda", label: "Net Debt/EBITDA", get: (r) => FMT.num(r.fundamentals.net_debt_ebitda, 1) },
   { k: "fcf_ev", label: "FCF/EV", get: (r) => FMT.pct(r.fundamentals.fcf_ev), cls2: (r) => signedClass(r.fundamentals.fcf_ev) },
   { k: "mkt_cap_b", label: "Mkt Cap", get: (r) => FMT.bil(r.fundamentals.mkt_cap_b) },
 ];
@@ -390,7 +387,7 @@ const WATCHLIST_COLS = [
   { label: "Ticker", cls: "col-ticker", get: (r) => r.ticker },
   { label: "What It Does", cls: "col-text", get: (r) => r.what_it_does },
   { label: "Mkt Cap", get: (r) => FMT.bil(r.fundamentals.mkt_cap_b) },
-  { label: "Debt/EBITDA", get: (r) => FMT.num(r.fundamentals.debt_ebitda, 1) },
+  { label: "Net Debt/EBITDA", get: (r) => FMT.num(r.fundamentals.net_debt_ebitda, 1) },
   { label: "EV/EBITDA", get: (r) => FMT.num(r.fundamentals.ev_ebitda, 1) },
   { label: "FCF/EV", get: (r) => FMT.pct(r.fundamentals.fcf_ev), cls2: (r) => signedClass(r.fundamentals.fcf_ev) },
   { label: "Spread", get: (r) => FMT.z(r.scores.spread), cls2: (r) => signedClass(r.scores.spread) },
@@ -416,9 +413,7 @@ function renderWatchlist() {
 const DICTIONARY = [
   ["Ticker", "Stock symbol (yfinance form).", "Static config.", "n/a", "n/a"],
   ["Sweet Spot", "Composite z-score: 0.30 Value + 0.20 Growth + 0.20 Spread + 0.20 Reset + 0.10 NotExt.", "Cross-sectional weighted z-scores.", "Best risk/reward profile in universe.", "Worst risk/reward in universe."],
-  ["Broad", "Same as Sweet Spot plus Quality and Setup with smaller weights.", "Cross-sectional.", "Quality-aware sweet spot.", "Weak across multiple lenses."],
   ["What It Does", "Short business description for context.", "Static config.", "n/a", "n/a"],
-  ["Bucket", "Core (large/liquid) vs small/levered.", "Static config.", "n/a", "n/a"],
   ["Spread", "Cross-sectional z of (JKM-HH β + TTF-HH β − 0.5·Brent β) from 180-day OLS.", "Daily-return regression on macro spreads.", "High torque to widening LNG spreads.", "Decoupled from spread cycle."],
   ["Value", "Cross-sec z of equal-weighted EV/EBITDA, P/S, Debt/EBITDA (inverted) + FCF/EV.", "Yahoo fundamentals; negative EBITDA flagged, not treated as cheap.", "Cheaper / less levered.", "Expensive or stretched balance sheet."],
   ["Growth", "Cross-sec z of forward revenue growth (clipped ±3σ).", "Yahoo growth estimates.", "Faster expected revenue growth.", "Decline expected."],
@@ -427,11 +422,10 @@ const DICTIONARY = [
   ["Setup", "Cross-sec z of (Reset z + NotExt z) average.", "Derived.", "Best technical setup.", "Worst technical setup."],
   ["Quality", "Cross-sec z of EBITDA margin + ROIC (or ROE fallback).", "Yahoo fundamentals.", "Cleaner profitability.", "Weak profitability."],
   ["SI% Float", "Latest short interest as % of float.", "Bloomberg SHORT_INT_RATIO.", "Heavily shorted.", "Not crowded."],
-  ["ΔShort 2w", "Change in SI%Float vs ~14 days ago.", "Bloomberg SHORT_INT_RATIO bdh.", "Shorts piling on.", "Shorts covering."],
   ["Days to Cover", "Short interest ÷ avg daily volume.", "Bloomberg DAYS_TO_COVER.", "Slow to cover, more squeeze risk.", "Easy to cover."],
   ["Days to Earnings", "Days until next reported earnings; flag green > 30, yellow 10-30, red < 10.", "Bloomberg NEXT_ANNOUNCEMENT_DT.", "Plenty of room before binary event.", "Earnings imminent."],
   ["EV/EBITDA", "Trailing enterprise value / EBITDA.", "Yahoo fundamentals.", "Expensive vs peers.", "Cheap vs peers."],
-  ["Debt/EBITDA", "Net debt / EBITDA.", "Yahoo fundamentals.", "Highly levered.", "Clean balance sheet."],
+  ["Net Debt/EBITDA", "Net debt / EBITDA.", "Bloomberg NET_DEBT_TO_EBITDA.", "Highly levered.", "Clean balance sheet."],
   ["FCF/EV", "Free cash flow yield on enterprise value.", "(OCF − Capex) / EV.", "Strong cash conversion.", "Burning cash."],
   ["Mkt Cap", "Market capitalization, $B.", "Yahoo fundamentals.", "Larger / more liquid.", "Smaller / less liquid."],
 ];
