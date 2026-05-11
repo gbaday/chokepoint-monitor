@@ -101,9 +101,11 @@ main { padding: 0 24px 48px 24px; max-width: 1500px; margin: 0 auto; }
 }
 
 .logo {
-  height: 42px;
+  height: 36px;
   width: auto;
+  object-fit: contain;
   flex-shrink: 0;
+  /* both logos share identical dimensions so layout never shifts on theme swap */
 }
 
 .logo-light { display: block; }
