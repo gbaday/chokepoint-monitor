@@ -32,6 +32,7 @@ def _empty() -> dict[str, Any]:
             "ttf_hh_beta": None, "ttf_hh_t": None,
             "brent_beta": None, "r_squared": None,
             "spread_score_raw": None, "n_obs": 0,
+            "ttf_hh_beta_uni": None, "jkm_hh_beta_uni": None,
             "reg_scatter": None, "reg_line": None}
 
 
@@ -80,28 +81,37 @@ def compute_one(stock_prices: pd.Series, spreads: pd.DataFrame) -> dict[str, Any
     out["brent_beta"] = float(res.params["brent"])
     out["r_squared"] = float(res.rsquared)
 
-    # Spread score uses TTF-HH beta only
+    # Spread score uses TTF-HH beta only (multivariate, kept for display)
     out["spread_score_raw"] = out["ttf_hh_beta"]
 
-    # Bivariate OLS (stock ~ TTF-HH) for the regression chart
+    # Bivariate OLS (stock ~ TTF-HH) — univariate beta for spread score + chart
     try:
         X_ttf = sm.add_constant(df[["ttf_hh"]])
         res_ttf = sm.OLS(df["y"], X_ttf).fit()
-        slope = float(res_ttf.params["ttf_hh"])
+        slope_ttf = float(res_ttf.params["ttf_hh"])
         intercept = float(res_ttf.params["const"])
         x0 = round(float(df["ttf_hh"].min()), 5)
         x1 = round(float(df["ttf_hh"].max()), 5)
+        out["ttf_hh_beta_uni"] = slope_ttf
         out["reg_scatter"] = {
             "x": [round(float(v), 5) for v in df["ttf_hh"]],
             "y": [round(float(v), 5) for v in df["y"]],
         }
         out["reg_line"] = {
-            "slope": round(slope, 4),
+            "slope": round(slope_ttf, 4),
             "intercept": round(intercept, 6),
             "x0": x0, "x1": x1,
         }
     except Exception as e:
-        log.warning("bivariate OLS failed: %s", e)
+        log.warning("bivariate TTF OLS failed: %s", e)
+
+    # Bivariate OLS (stock ~ JKM-HH) — univariate beta for spread score
+    try:
+        X_jkm = sm.add_constant(df[["jkm_hh"]])
+        res_jkm = sm.OLS(df["y"], X_jkm).fit()
+        out["jkm_hh_beta_uni"] = float(res_jkm.params["jkm_hh"])
+    except Exception as e:
+        log.warning("bivariate JKM OLS failed: %s", e)
 
     return out
 

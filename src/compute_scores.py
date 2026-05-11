@@ -59,12 +59,12 @@ def compute_scores(prices_dict: dict[str, dict],
     tickers = list(prices_dict.keys())
 
     raw = pd.DataFrame(index=tickers)
-    raw["ttf_hh_beta"]       = [_g(betas_dict.get(t, {}), "ttf_hh_beta")      for t in tickers]
-    raw["jkm_hh_beta"]       = [_g(betas_dict.get(t, {}), "jkm_hh_beta")      for t in tickers]
+    raw["ttf_hh_beta_uni"]   = [_g(betas_dict.get(t, {}), "ttf_hh_beta_uni")   for t in tickers]
+    raw["jkm_hh_beta_uni"]   = [_g(betas_dict.get(t, {}), "jkm_hh_beta_uni")   for t in tickers]
     raw["ev_ebitda"]         = [_g(prices_dict[t], "ev_ebitda")                for t in tickers]
     raw["net_debt_ebitda"]   = [_g(prices_dict[t], "net_debt_ebitda")          for t in tickers]
     raw["fcf_ev"]            = [_g(prices_dict[t], "fcf_ev")                   for t in tickers]
-    raw["fwd_ebitda_growth"] = [_g(prices_dict[t], "fwd_ebitda_growth")        for t in tickers]
+    raw["fwd_rev_growth"]    = [_g(prices_dict[t], "fwd_rev_growth")           for t in tickers]
     raw["from_1y_hi"]        = [_g(prices_dict[t], "from_1y_hi")               for t in tickers]
     raw["from_5y_hi"]        = [_g(prices_dict[t], "from_5y_hi")               for t in tickers]
     raw["ytd"]               = [_g(prices_dict[t], "ytd")                      for t in tickers]
@@ -75,9 +75,10 @@ def compute_scores(prices_dict: dict[str, dict],
 
     z = pd.DataFrame(index=tickers)
 
-    # Spread: individual z-scores + combined (average of both z-scores, then re-standardised)
-    z["spread_ttf"] = _z(raw["ttf_hh_beta"])
-    z["spread_jkm"] = _z(raw["jkm_hh_beta"])
+    # Spread: bivariate (univariate) betas — avoids multicollinearity between JKM and TTF.
+    # Each beta is estimated independently (stock ~ const + spread_i).
+    z["spread_ttf"] = _z(raw["ttf_hh_beta_uni"])
+    z["spread_jkm"] = _z(raw["jkm_hh_beta_uni"])
     spread_avg = pd.DataFrame(
         {"ttf": z["spread_ttf"], "jkm": z["spread_jkm"]}, index=tickers
     ).mean(axis=1, skipna=True)
@@ -91,8 +92,8 @@ def compute_scores(prices_dict: dict[str, dict],
     }, index=tickers)
     z["value"] = _z(val_components.mean(axis=1, skipna=True))
 
-    # Growth: forward EBITDA growth (clip ±3σ before z-scoring)
-    z["growth"] = _z(raw["fwd_ebitda_growth"], clip=GROWTH_CLIP_SIGMA)
+    # Growth: forward revenue growth (clip ±3σ before z-scoring)
+    z["growth"] = _z(raw["fwd_rev_growth"], clip=GROWTH_CLIP_SIGMA)
 
     # Reset: mean of (price/1y_high − 1) and (price/5y_high − 1), inverted.
     reset_raw = -((raw["from_1y_hi"] + raw["from_5y_hi"]) / 2.0)
