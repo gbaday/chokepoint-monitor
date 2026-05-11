@@ -253,6 +253,7 @@ function plotlyLayout(xTitle, yTitle) {
 }
 
 function renderSetupScatter(rows) {
+  if (!document.getElementById("scatterSetup")) return;
   const sweets = rows.map((r) => r.scores.sweet_spot).filter((v) => v != null);
   const sMin = Math.min(...sweets), sMax = Math.max(...sweets);
   const mcs = rows.map((r) => r.fundamentals.mkt_cap_b).filter((v) => v != null);
@@ -278,6 +279,7 @@ function renderSetupScatter(rows) {
 }
 
 function renderValLevScatter(rows) {
+  if (!document.getElementById("scatterValLev")) return;
   const sweets = rows.map((r) => r.scores.sweet_spot).filter((v) => v != null);
   const sMin = Math.min(...sweets), sMax = Math.max(...sweets);
   const mcs = rows.map((r) => r.fundamentals.mkt_cap_b).filter((v) => v != null);
@@ -304,6 +306,7 @@ function renderValLevScatter(rows) {
 
 // ---------- Regression chart ----------
 function renderRegressionChart() {
+  if (!document.getElementById("scatterRegression")) return;
   const allRows = STATE.data.tickers;
   const traces = [];
 
