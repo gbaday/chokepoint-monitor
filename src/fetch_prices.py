@@ -125,31 +125,6 @@ def _fetch_info(tk: yf.Ticker, ticker: str) -> dict:
     return info
 
 
-def _forward_revenue_growth(tk: yf.Ticker, info: dict) -> float | None:
-    # Preferred: analyst growth estimates (next-year revenue growth).
-    try:
-        ge = getattr(tk, "growth_estimates", None)
-        if ge is not None and not ge.empty:
-            for label in ("+1y", "1y", "+5y"):
-                if label in ge.index:
-                    row = ge.loc[label]
-                    if isinstance(row, pd.Series):
-                        for col in ("stockTrend", "growth", "estimate"):
-                            if col in row and pd.notna(row[col]):
-                                return float(row[col])
-                        first = row.dropna()
-                        if not first.empty:
-                            return float(first.iloc[0])
-                    elif pd.notna(row):
-                        return float(row)
-                    break
-    except Exception:
-        pass
-    # Fallback: trailing revenue growth from .info.
-    val = _first_not_none(info, "revenueGrowth")
-    return float(val) if val is not None else None
-
-
 def fetch_one(ticker: str) -> dict[str, Any]:
     out: dict[str, Any] = {"ticker": ticker}
     try:
@@ -221,7 +196,7 @@ def fetch_one(ticker: str) -> dict[str, Any]:
             fcf = ocf + capex  # capex is negative in yfinance
     out["fcf_ev"] = (fcf / ev) if (fcf is not None and ev) else None
 
-    out["fwd_rev_growth"] = _forward_revenue_growth(tk, info)
+    out["fwd_ebitda_growth"] = None  # Bloomberg BEST_EBITDA_GROWTH only; no yfinance source
 
     out["ebitda_margin"] = _first_not_none(info, "ebitdaMargins")
     out["roic"] = _first_not_none(info, "returnOnAssets")  # proxy; Bloomberg RETURN_ON_INV_CAPITAL takes priority

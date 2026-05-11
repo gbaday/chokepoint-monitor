@@ -32,8 +32,6 @@ TICKERS = [
      "what_it_does": "Antero Resources: Appalachia gas/NGL producer; liquids-rich with LNG export upside."},
 
     # --- Small / levered ---
-    {"ticker": "PAA", "ticker_bbg": "PAA US Equity", "bucket": "small/levered",
-     "what_it_does": "Plains All American: crude/NGL pipelines; Permian logistics but wrong commodity for dry-gas spread."},
     {"ticker": "DTM", "ticker_bbg": "DTM US Equity", "bucket": "small/levered",
      "what_it_does": "DT Midstream: gas pipes/storage with Haynesville/Gulf Coast exposure; smaller midstream compounder."},
     {"ticker": "VST", "ticker_bbg": "VST US Equity", "bucket": "small/levered",

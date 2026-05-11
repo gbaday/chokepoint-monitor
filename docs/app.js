@@ -44,6 +44,7 @@ let STATE = {
   sortKey: "sweet_spot",
   sortDir: "desc",
   topMode: "top10",
+  scatterSpread: "ttf",
   charts: {},
 };
 
@@ -250,6 +251,9 @@ function plotlyLayout(xTitle, yTitle) {
 
 function renderSetupScatter(rows) {
   if (!document.getElementById("scatterSetup")) return;
+  const spreadKey   = STATE.scatterSpread === "jkm" ? "spread_jkm" : "spread_ttf";
+  const spreadLabel = STATE.scatterSpread === "jkm" ? "JKM-HH Spread z-score" : "TTF-HH Spread z-score";
+
   const sweets = rows.map((r) => r.scores.sweet_spot).filter((v) => v != null);
   const sMin = Math.min(...sweets), sMax = Math.max(...sweets);
   const mcs = rows.map((r) => r.fundamentals.mkt_cap_b).filter((v) => v != null);
@@ -257,7 +261,7 @@ function renderSetupScatter(rows) {
 
   const trace = {
     x: rows.map((r) => r.scores.setup),
-    y: rows.map((r) => r.scores.spread),
+    y: rows.map((r) => r.scores[spreadKey]),
     text: rows.map((r) => r.ticker),
     mode: "markers+text",
     textposition: "top center",
@@ -268,9 +272,9 @@ function renderSetupScatter(rows) {
       line: { color: cssVar("--bg"), width: 1 },
       opacity: 0.85,
     },
-    hovertemplate: "<b>%{text}</b><br>Setup z: %{x:.2f}<br>Spread z: %{y:.2f}<extra></extra>",
+    hovertemplate: `<b>%{text}</b><br>Setup z: %{x:.2f}<br>Spread z: %{y:.2f}<extra></extra>`,
   };
-  Plotly.newPlot("scatterSetup", [trace], plotlyLayout("Setup z-score", "Spread z-score"),
+  Plotly.newPlot("scatterSetup", [trace], plotlyLayout("Setup z-score", spreadLabel),
     { displayModeBar: false, responsive: true });
 }
 
@@ -491,9 +495,9 @@ const DICTIONARY = [
   ["Ticker",          "Stock symbol.",                                                             "Static config.",                                                             "n/a",                                  "n/a"],
   ["Sweet Spot",      "Composite z-score: 0.30 Value + 0.20 Growth + 0.20 Spread + 0.20 Reset + 0.10 Room to Run.", "Cross-sectional weighted z-scores.",   "Best risk/reward in universe.",        "Worst risk/reward in universe."],
   ["What It Does",    "Short business description.",                                                "Static config.",                                                             "n/a",                                  "n/a"],
-  ["Spread",          "Cross-sec z of TTF-HH β from 180-day bivariate OLS (stock return ~ TTF-HH return).", "Daily-return regression.",                "High torque to widening TTF-HH spreads.", "Decoupled from spread cycle."],
-  ["Value",           "Cross-sec z of equal-weighted EV/EBITDA, P/S, Net Debt/EBITDA (inverted) + FCF/EV.", "Bloomberg fundamentals; negative EBITDA excluded.", "Cheaper / less levered.",          "Expensive or stretched balance sheet."],
-  ["Growth",          "Cross-sec z of forward revenue growth (clipped ±3σ).",                       "Bloomberg SALES_GROWTH.",                                                    "Faster revenue growth.",               "Decline expected."],
+  ["Spread",          "Cross-sec z of average(TTF-HH β, JKM-HH β) from 180-day multivariate OLS. Scatter chart can toggle between individual betas.", "Daily-return regression vs each spread.", "High torque to widening global spreads.", "Decoupled from spread cycle."],
+  ["Value",           "Cross-sec z of equal-weighted EV/EBITDA, Net Debt/EBITDA (inverted) + FCF/EV.", "Bloomberg fundamentals; negative EBITDA excluded. P/S excluded.", "Cheaper / less levered.", "Expensive or stretched balance sheet."],
+  ["Growth",          "Cross-sec z of forward EBITDA growth (clipped ±3σ).",                        "Bloomberg BEST_EBITDA_GROWTH.",                                              "Faster EBITDA growth expected.",       "EBITDA contraction expected."],
   ["Reset",           "Inverted distance to 1y and 5y highs (mean) → cross-sec z.",                 "Price history.",                                                             "More room back to highs.",             "Already at/near highs."],
   ["Room to Run",     "Inverted blend of YTD return + distance from 1y low.",                       "Price history.",                                                             "Not stretched, room to run.",          "Crowded / extended."],
   ["Setup",           "Cross-sec z of (Reset z + Room to Run z) average.",                          "Derived.",                                                                   "Best technical setup.",                "Worst technical setup."],
@@ -537,12 +541,21 @@ function bindControls() {
     STATE.sortDir = "desc";
     renderAll();
   });
-  document.querySelectorAll(".toggle-btn").forEach((btn) => {
+  document.querySelectorAll(".toggle-btn[data-mode]").forEach((btn) => {
     btn.addEventListener("click", () => {
-      document.querySelectorAll(".toggle-btn").forEach((b) => b.classList.remove("active"));
+      document.querySelectorAll(".toggle-btn[data-mode]").forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
       STATE.topMode = btn.dataset.mode;
       renderAll();
+    });
+  });
+
+  document.querySelectorAll("#scatterSpreadToggle .toggle-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll("#scatterSpreadToggle .toggle-btn").forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      STATE.scatterSpread = btn.dataset.spread;
+      renderSetupScatter(topSlice(getFilteredSorted()));
     });
   });
 }

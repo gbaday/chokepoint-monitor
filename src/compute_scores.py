@@ -1,13 +1,15 @@
-"""Cross-sectional z-scores + composite Sweet Spot / Broad scores.
+"""Cross-sectional z-scores + composite Sweet Spot score.
 
 All z-scores are computed across the universe of tickers in `prices_dict`
 (not across history). Missing values stay missing through z-scoring; for
 composite scores they are coalesced to 0 (= universe mean).
 
 Composite weights:
-  Sweet Spot = 0.30 Value + 0.20 Growth + 0.20 Spread + 0.20 Reset + 0.10 NotExtended
-  Broad      = 0.25 Value + 0.15 Growth + 0.15 Spread + 0.15 Reset
-              + 0.10 NotExtended + 0.10 Setup + 0.10 Quality
+  Sweet Spot = 0.30 Value + 0.20 Growth + 0.20 Spread + 0.20 Reset + 0.10 RoomToRun
+
+  Spread = average of z(TTF-HH beta) and z(JKM-HH beta).
+  Value  = average of z(-EV/EBITDA), z(-NetDebt/EBITDA), z(FCF/EV)  [P/S excluded].
+  Growth = z(forward EBITDA growth, clipped ±3σ).
 """
 
 from __future__ import annotations
@@ -57,36 +59,40 @@ def compute_scores(prices_dict: dict[str, dict],
     tickers = list(prices_dict.keys())
 
     raw = pd.DataFrame(index=tickers)
-    raw["spread_raw"]      = [_g(betas_dict.get(t, {}), "spread_score_raw") for t in tickers]
-    raw["ev_ebitda"]       = [_g(prices_dict[t], "ev_ebitda")               for t in tickers]
-    raw["price_sales"]     = [_g(prices_dict[t], "price_sales")             for t in tickers]
-    raw["net_debt_ebitda"] = [_g(prices_dict[t], "net_debt_ebitda")         for t in tickers]
-    raw["fcf_ev"]          = [_g(prices_dict[t], "fcf_ev")                  for t in tickers]
-    raw["fwd_rev_growth"]  = [_g(prices_dict[t], "fwd_rev_growth")          for t in tickers]
-    raw["from_1y_hi"]      = [_g(prices_dict[t], "from_1y_hi")              for t in tickers]
-    raw["from_5y_hi"]      = [_g(prices_dict[t], "from_5y_hi")              for t in tickers]
-    raw["ytd"]             = [_g(prices_dict[t], "ytd")                     for t in tickers]
-    raw["from_1y_lo"]      = [_g(prices_dict[t], "from_1y_lo")             for t in tickers]
-    raw["ebitda_margin"]   = [_g(prices_dict[t], "ebitda_margin")           for t in tickers]
-    raw["roic"]            = [_g(prices_dict[t], "roic")                    for t in tickers]
-    raw["roe"]             = [_g(prices_dict[t], "roe")                     for t in tickers]
+    raw["ttf_hh_beta"]       = [_g(betas_dict.get(t, {}), "ttf_hh_beta")      for t in tickers]
+    raw["jkm_hh_beta"]       = [_g(betas_dict.get(t, {}), "jkm_hh_beta")      for t in tickers]
+    raw["ev_ebitda"]         = [_g(prices_dict[t], "ev_ebitda")                for t in tickers]
+    raw["net_debt_ebitda"]   = [_g(prices_dict[t], "net_debt_ebitda")          for t in tickers]
+    raw["fcf_ev"]            = [_g(prices_dict[t], "fcf_ev")                   for t in tickers]
+    raw["fwd_ebitda_growth"] = [_g(prices_dict[t], "fwd_ebitda_growth")        for t in tickers]
+    raw["from_1y_hi"]        = [_g(prices_dict[t], "from_1y_hi")               for t in tickers]
+    raw["from_5y_hi"]        = [_g(prices_dict[t], "from_5y_hi")               for t in tickers]
+    raw["ytd"]               = [_g(prices_dict[t], "ytd")                      for t in tickers]
+    raw["from_1y_lo"]        = [_g(prices_dict[t], "from_1y_lo")               for t in tickers]
+    raw["ebitda_margin"]     = [_g(prices_dict[t], "ebitda_margin")             for t in tickers]
+    raw["roic"]              = [_g(prices_dict[t], "roic")                      for t in tickers]
+    raw["roe"]               = [_g(prices_dict[t], "roe")                       for t in tickers]
 
     z = pd.DataFrame(index=tickers)
 
-    # Spread
-    z["spread"] = _z(raw["spread_raw"])
+    # Spread: individual z-scores + combined (average of both z-scores, then re-standardised)
+    z["spread_ttf"] = _z(raw["ttf_hh_beta"])
+    z["spread_jkm"] = _z(raw["jkm_hh_beta"])
+    spread_avg = pd.DataFrame(
+        {"ttf": z["spread_ttf"], "jkm": z["spread_jkm"]}, index=tickers
+    ).mean(axis=1, skipna=True)
+    z["spread"] = _z(spread_avg)
 
-    # Value: invert cost-style metrics; FCF/EV is already a yield (direct).
+    # Value: invert cost-style metrics; FCF/EV is already a yield (direct). P/S excluded.
     val_components = pd.DataFrame({
-        "ev_ebitda_inv":   _z(-raw["ev_ebitda"]),
-        "price_sales_inv": _z(-raw["price_sales"]),
+        "ev_ebitda_inv":      _z(-raw["ev_ebitda"]),
         "net_debt_ebitda_inv": _z(-raw["net_debt_ebitda"]),
-        "fcf_ev":          _z(raw["fcf_ev"]),
+        "fcf_ev":             _z(raw["fcf_ev"]),
     }, index=tickers)
     z["value"] = _z(val_components.mean(axis=1, skipna=True))
 
-    # Growth (clip ±3σ before z-scoring)
-    z["growth"] = _z(raw["fwd_rev_growth"], clip=GROWTH_CLIP_SIGMA)
+    # Growth: forward EBITDA growth (clip ±3σ before z-scoring)
+    z["growth"] = _z(raw["fwd_ebitda_growth"], clip=GROWTH_CLIP_SIGMA)
 
     # Reset: mean of (price/1y_high − 1) and (price/5y_high − 1), inverted.
     reset_raw = -((raw["from_1y_hi"] + raw["from_5y_hi"]) / 2.0)
@@ -122,6 +128,8 @@ def compute_scores(prices_dict: dict[str, dict],
         out[t] = {
             "sweet_spot":   float(sweet.loc[t]),
             "spread":       _to_float_or_none(z["spread"].loc[t]),
+            "spread_ttf":   _to_float_or_none(z["spread_ttf"].loc[t]),
+            "spread_jkm":   _to_float_or_none(z["spread_jkm"].loc[t]),
             "value":        _to_float_or_none(z["value"].loc[t]),
             "growth":       _to_float_or_none(z["growth"].loc[t]),
             "reset":        _to_float_or_none(z["reset"].loc[t]),

@@ -92,7 +92,13 @@
     <section class="chart-grid-2">
       <div class="chart-section">
         <h2>Setup vs Spread Orthogonality</h2>
-        <p class="chart-note">Bubble = market cap. Color = Sweet Spot.</p>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+          <div class="toggle-group" id="scatterSpreadToggle">
+            <button class="toggle-btn active" data-spread="ttf">TTF-HH</button>
+            <button class="toggle-btn" data-spread="jkm">JKM-HH</button>
+          </div>
+          <p class="chart-note" style="margin:0">Bubble = market cap. Color = Sweet Spot.</p>
+        </div>
         <div id="scatterSetup" class="chart-wrap"></div>
       </div>
       <div class="chart-section">

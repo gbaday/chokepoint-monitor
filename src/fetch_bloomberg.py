@@ -63,7 +63,7 @@ _FUND_FIELDS: list[tuple[str, str, float]] = [
     ("net_debt_ebitda", "NET_DEBT_TO_EBITDA",           1.0),
     ("fcf_ev",          "FCF_YIELD_WITH_CUR_ENTP_VAL",  1e-2),
     ("mkt_cap_b",       "CUR_MKT_CAP",                  1e-9),
-    ("fwd_rev_growth",  "SALES_GROWTH",                  1e-2),
+    ("fwd_ebitda_growth", "BEST_EBITDA_GROWTH",            1e-2),
     ("roic",            "RETURN_ON_INV_CAPITAL",         1e-2),
     ("roe",             "RETURN_COM_EQY",                1e-2),
 ]
