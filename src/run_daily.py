@@ -65,6 +65,32 @@ def main() -> int:
                 if v is not None:
                     prices[t][k] = v
 
+    # Ensure every ticker has a BBG entry (handles Bloomberg-unavailable case).
+    for t in yf_symbols:
+        if t not in bbg:
+            bbg[t] = {}
+
+    # Fallback: fill empty BBG crowding/catalyst fields from yfinance.
+    def _flag(days: int | None) -> str | None:
+        if days is None or days < 0:
+            return None
+        return "red" if days < 10 else "yellow" if days <= 30 else "green"
+
+    for t in yf_symbols:
+        p = prices.get(t, {})
+        d = bbg[t]
+        if d.get("days_to_cover") is None:
+            v = p.get("days_to_cover_yf")
+            if v is not None:
+                d["days_to_cover"] = v
+        if d.get("next_earnings_date") is None:
+            nxt_date = p.get("next_earnings_date_yf")
+            nxt_days = p.get("days_to_earnings_yf")
+            if nxt_date is not None:
+                d["next_earnings_date"] = nxt_date
+                d["days_to_earnings"] = nxt_days
+                d["earnings_flag"] = _flag(nxt_days)
+
     log.info("[5/5] computing scores + building output...")
     scores = compute_scores(prices, betas)
     payload = build(TICKERS, SECTOR_NAME, spreads, prices, betas, scores, bbg)

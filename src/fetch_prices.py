@@ -40,6 +40,44 @@ def _first_not_none(d: dict, *keys) -> Any:
     return None
 
 
+def _next_earnings_yf(tk: yf.Ticker) -> tuple[str | None, int | None]:
+    today = dt.date.today()
+    # Method 1: tk.calendar (dict in modern yfinance)
+    try:
+        cal = tk.calendar
+        if isinstance(cal, dict):
+            dates = cal.get("Earnings Date", [])
+            if not isinstance(dates, list):
+                dates = [dates]
+            for d in dates:
+                if d is None:
+                    continue
+                try:
+                    ts = pd.Timestamp(d)
+                except Exception:
+                    continue
+                if pd.isna(ts):
+                    continue
+                date_obj = ts.date()
+                days = (date_obj - today).days
+                if days >= 0:
+                    return date_obj.isoformat(), days
+    except Exception:
+        pass
+    # Method 2: tk.earnings_dates DataFrame
+    try:
+        ed = tk.earnings_dates
+        if ed is not None and not ed.empty:
+            future = [i for i in ed.index if pd.Timestamp(i).date() >= today]
+            if future:
+                earliest = min(future, key=lambda x: pd.Timestamp(x).date())
+                date_obj = pd.Timestamp(earliest).date()
+                return date_obj.isoformat(), (date_obj - today).days
+    except Exception:
+        pass
+    return None, None
+
+
 def _rsi14(prices: pd.Series) -> float | None:
     if prices is None or len(prices) < 15:
         return None
@@ -188,6 +226,15 @@ def fetch_one(ticker: str) -> dict[str, Any]:
     out["ebitda_margin"] = _first_not_none(info, "ebitdaMargins")
     out["roic"] = _first_not_none(info, "returnOnAssets")  # proxy; Bloomberg RETURN_ON_INV_CAPITAL takes priority
     out["roe"] = _first_not_none(info, "returnOnEquity")
+
+    # Days to cover (short ratio = shares short / avg daily volume)
+    sr = _first_not_none(info, "shortRatio")
+    out["days_to_cover_yf"] = float(sr) if sr is not None else None
+
+    # Next earnings date
+    nxt_date, nxt_days = _next_earnings_yf(tk)
+    out["next_earnings_date_yf"] = nxt_date
+    out["days_to_earnings_yf"] = nxt_days
 
     return out
 

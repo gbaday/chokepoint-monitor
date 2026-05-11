@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-05-11T15:51:39",
+  "generated_at": "2026-05-11T16:54:32",
   "sector": "gas_lng",
   "spreads": {
-    "jkm_hh_latest": 13.949000835418701,
-    "ttf_hh_latest": 13.089837529231371,
-    "jkm_ttf_latest": 0.8591633061873303,
-    "hh_latest": 2.9210000038146973,
-    "brent_latest": 104.30000305175781,
+    "jkm_hh_latest": 13.94800090789795,
+    "ttf_hh_latest": 13.092609976271508,
+    "jkm_ttf_latest": 0.8553909316264416,
+    "hh_latest": 2.921999931335449,
+    "brent_latest": 104.12000274658203,
     "history": [
       {
         "date": "2024-04-29",
@@ -3076,9 +3076,9 @@
       },
       {
         "date": "2026-05-11",
-        "jkm_hh": 13.949000835418701,
-        "ttf_hh": 13.089837529231371,
-        "jkm_ttf": 0.8591633061873303
+        "jkm_hh": 13.94800090789795,
+        "ttf_hh": 13.092609976271508,
+        "jkm_ttf": 0.8553909316264416
       }
     ]
   },
@@ -3088,22 +3088,22 @@
       "bucket": "core",
       "what_it_does": "Expand Energy: large US gas producer; cheap producer exposure to higher HH with lower oil beta.",
       "scores": {
-        "sweet_spot": 1.2376381833879098,
-        "spread": -0.30094499340173464,
-        "value": 1.641261146888081,
+        "sweet_spot": 1.2375526421829948,
+        "spread": -0.3035801670479499,
+        "value": 1.6401662118314697,
         "growth": 2.631200733626805,
-        "reset": 0.6296336325082039,
-        "room_to_run": 1.532819647748308,
-        "setup": 1.7537058349962373,
+        "reset": 0.6268528005103943,
+        "room_to_run": 1.5460810521570394,
+        "setup": 1.744097629413832,
         "quality": 1.1863008570909934
       },
       "betas": {
-        "jkm_hh_beta": -0.04122405933058227,
-        "jkm_hh_t": -1.490328295462068,
-        "ttf_hh_beta": 0.009515381781869718,
-        "ttf_hh_t": 0.2921234352409275,
-        "brent_beta": 0.14980574586161383,
-        "r_squared": 0.07987317958804396,
+        "jkm_hh_beta": -0.041173215924046644,
+        "jkm_hh_t": -1.4887365595968953,
+        "ttf_hh_beta": 0.009461022765844951,
+        "ttf_hh_t": 0.29051795393450475,
+        "brent_beta": 0.14971747874437608,
+        "r_squared": 0.07973891724251836,
         "reg_scatter": {
           "x": [
             0.02656,
@@ -3285,7 +3285,7 @@
             -0.07129,
             -0.00937,
             0.01569,
-            0.05386
+            0.05409
           ],
           "y": [
             -0.00828,
@@ -3302,7 +3302,7 @@
             0.00222,
             0.01837,
             -0.00653,
-            0.00396,
+            0.00397,
             -0.00665,
             0.0203,
             0.02215,
@@ -3343,7 +3343,7 @@
             0.0,
             0.00518,
             0.01654,
-            0.02116,
+            0.02117,
             0.03318,
             0.00691,
             -0.00778,
@@ -3467,42 +3467,42 @@
             -0.02837,
             0.00506,
             -0.01519,
-            0.01027
+            0.00938
           ]
         },
         "reg_line": {
           "slope": -0.0044,
-          "intercept": 0.000371,
+          "intercept": 0.000367,
           "x0": -0.20253,
           "x1": 0.63205
         }
       },
       "fundamentals": {
-        "mkt_cap_b": 23.165725592915,
+        "mkt_cap_b": 23.175294746875,
         "ev_ebitda": 4.034013,
         "net_debt_ebitda": 0.398621,
-        "fcf_ev": 0.10753874,
+        "fcf_ev": 0.10749926,
         "fwd_rev_growth": 1.8628099200000001,
         "roic": 0.14185029999999998,
         "roe": 0.17568119,
-        "price_sales": 1.7896925,
-        "from_1y_hi": -0.20697981637036245
+        "price_sales": 1.7881229,
+        "from_1y_hi": -0.20767532359469243
       },
       "returns": {
         "mar_run": 0.05189193408705628,
         "apr_sell": -0.09044606666319366,
-        "ytd": -0.11219592782122989,
-        "rsi_14": 43.020576108486615
+        "ytd": -0.11297456392499683,
+        "rsi_14": 42.76448408060874
       },
       "crowding": {
         "si_pct_float": 1.921,
-        "days_to_cover": null,
+        "days_to_cover": 1.49,
         "delta_short_2w": 0.0
       },
       "catalyst": {
-        "next_earnings_date": null,
-        "days_to_earnings": null,
-        "earnings_flag": null
+        "next_earnings_date": "2026-07-28",
+        "days_to_earnings": 78,
+        "earnings_flag": "green"
       }
     },
     {
@@ -3510,22 +3510,22 @@
       "bucket": "core",
       "what_it_does": "Venture Global: LNG exporter/developer; maximum LNG torque with high leverage/legal-contract overhang.",
       "scores": {
-        "sweet_spot": 1.1891541827304044,
-        "spread": 3.6470315559121462,
-        "value": -0.9129500587278304,
+        "sweet_spot": 1.1921262817655611,
+        "spread": 3.650385326089137,
+        "value": -0.9123706492981096,
         "growth": 2.4648904929015405,
-        "reset": 2.7332147685971924,
-        "room_to_run": -3.0598816313342234,
-        "setup": -0.2649202128491262,
+        "reset": 2.7278768240704565,
+        "room_to_run": -3.0279305205723275,
+        "setup": -0.2408370324404279,
         "quality": -0.054828335715322536
       },
       "betas": {
-        "jkm_hh_beta": -0.12397174033008422,
-        "jkm_hh_t": -1.968597502581528,
-        "ttf_hh_beta": 0.2257081155548821,
-        "ttf_hh_t": 3.0436197618970726,
-        "brent_beta": 0.4798614242096979,
-        "r_squared": 0.227812573848155,
+        "jkm_hh_beta": -0.12343364061786682,
+        "jkm_hh_t": -1.9601645176040703,
+        "ttf_hh_beta": 0.2250692006782511,
+        "ttf_hh_t": 3.0353367423168787,
+        "brent_beta": 0.47961942229307536,
+        "r_squared": 0.22727333200415778,
         "reg_scatter": {
           "x": [
             0.02656,
@@ -3707,7 +3707,7 @@
             -0.07129,
             -0.00937,
             0.01569,
-            0.05386
+            0.05409
           ],
           "y": [
             0.00705,
@@ -3889,42 +3889,42 @@
             -0.07834,
             -0.02583,
             -0.02053,
-            0.02489
+            0.01878
           ]
         },
         "reg_line": {
-          "slope": 0.1883,
-          "intercept": -0.000182,
+          "slope": 0.1881,
+          "intercept": -0.000215,
           "x0": -0.20253,
           "x1": 0.63205
         }
       },
       "fundamentals": {
-        "mkt_cap_b": 29.232245041275004,
+        "mkt_cap_b": 29.132942298035,
         "ev_ebitda": 8.819266,
         "net_debt_ebitda": 5.359752,
-        "fcf_ev": -0.10003719,
+        "fcf_ev": -0.10018668,
         "fwd_rev_growth": 1.76930813,
         "roic": 0.09862607000000001,
         "roe": 0.40849525999999997,
-        "price_sales": 2.115836,
-        "from_1y_hi": -0.379368227607369
+        "price_sales": 2.1032147,
+        "from_1y_hi": -0.3830701939764851
       },
       "returns": {
         "mar_run": 0.5425413331661688,
         "apr_sell": -0.18937333984014648,
-        "ytd": 0.6691969967029225,
-        "rsi_14": 43.383820164513956
+        "ytd": 0.6592401766101137,
+        "rsi_14": 42.86696007585647
       },
       "crowding": {
         "si_pct_float": 1.866,
-        "days_to_cover": null,
+        "days_to_cover": 0.96,
         "delta_short_2w": 0.637
       },
       "catalyst": {
-        "next_earnings_date": null,
-        "days_to_earnings": null,
-        "earnings_flag": null
+        "next_earnings_date": "2026-05-12",
+        "days_to_earnings": 1,
+        "earnings_flag": "red"
       }
     },
     {
@@ -3932,22 +3932,22 @@
       "bucket": "core",
       "what_it_does": "Antero Resources: Appalachia gas/NGL producer; liquids-rich with LNG export upside.",
       "scores": {
-        "sweet_spot": 0.5296940286675005,
-        "spread": -0.11254506082443085,
-        "value": 1.3513256683567576,
+        "sweet_spot": 0.525747991374934,
+        "spread": -0.10951595973060145,
+        "value": 1.3497886849542835,
         "growth": -0.2914181726881806,
-        "reset": 0.7308525639688891,
-        "room_to_run": 0.5891846206921775,
-        "setup": 1.0705234347895443,
+        "reset": 0.7131787049727812,
+        "room_to_run": 0.5836247137784916,
+        "setup": 1.040874652343137,
         "quality": -0.5154460580730625
       },
       "betas": {
-        "jkm_hh_beta": -0.023981793532705596,
-        "jkm_hh_t": -0.7529399198697153,
-        "ttf_hh_beta": 0.019832235480916414,
-        "ttf_hh_t": 0.5287608874072259,
-        "brent_beta": 0.276770152123279,
-        "r_squared": 0.15504267106702063,
+        "jkm_hh_beta": -0.02415487038206164,
+        "jkm_hh_t": -0.7583893405628318,
+        "ttf_hh_beta": 0.02004326740362289,
+        "ttf_hh_t": 0.5344263400935783,
+        "brent_beta": 0.27678782481910114,
+        "r_squared": 0.15512031426706452,
         "reg_scatter": {
           "x": [
             0.02656,
@@ -4129,7 +4129,7 @@
             -0.07129,
             -0.00937,
             0.01569,
-            0.05386
+            0.05409
           ],
           "y": [
             0.00489,
@@ -4311,42 +4311,42 @@
             -0.05852,
             -0.01276,
             -0.01182,
-            0.01516
+            0.01628
           ]
         },
         "reg_line": {
           "slope": 0.0401,
-          "intercept": 0.001036,
+          "intercept": 0.001042,
           "x0": -0.20253,
           "x1": 0.63205
         }
       },
       "fundamentals": {
-        "mkt_cap_b": 11.310563180000003,
+        "mkt_cap_b": 11.31830908,
         "ev_ebitda": 6.094895,
         "net_debt_ebitda": 1.603273,
-        "fcf_ev": 0.12455487,
+        "fcf_ev": 0.12449542,
         "fwd_rev_growth": 0.21967539,
         "roic": 0.08489315,
         "roe": 0.12586044,
-        "price_sales": 2.0094259,
-        "from_1y_hi": -0.19191584989339971
+        "price_sales": 2.0116289,
+        "from_1y_hi": -0.19102989387622404
       },
       "returns": {
         "mar_run": 0.21763752147567472,
         "apr_sell": -0.0739109254197754,
-        "ytd": 0.06650106947566359,
-        "rsi_14": 40.24670024122908
+        "ytd": 0.06767034502660918,
+        "rsi_14": 40.499686276920684
       },
       "crowding": {
         "si_pct_float": 1.767,
-        "days_to_cover": null,
+        "days_to_cover": 1.35,
         "delta_short_2w": 0.2679999999999998
       },
       "catalyst": {
-        "next_earnings_date": null,
-        "days_to_earnings": null,
-        "earnings_flag": null
+        "next_earnings_date": "2026-07-29",
+        "days_to_earnings": 79,
+        "earnings_flag": "green"
       }
     },
     {
@@ -4354,22 +4354,22 @@
       "bucket": "core",
       "what_it_does": "EQT: largest US gas producer; Appalachia scale operator, high leverage to HH price.",
       "scores": {
-        "sweet_spot": 0.42173458193185626,
-        "spread": 0.10303929763816921,
-        "value": 1.0683981185379672,
+        "sweet_spot": 0.4277192927006017,
+        "spread": 0.09645497667757313,
+        "value": 1.0702136240548341,
         "growth": -0.1730064454056171,
-        "reset": 0.21855860590590165,
-        "room_to_run": 0.7149685474277538,
-        "setup": 0.7570716236396381,
+        "reset": 0.24064858202859854,
+        "room_to_run": 0.7383578282404051,
+        "setup": 0.7857960136407538,
         "quality": 1.3191377702125742
       },
       "betas": {
-        "jkm_hh_beta": -0.05121533731576437,
-        "jkm_hh_t": -1.8877446407491787,
-        "ttf_hh_beta": 0.031637718931123465,
-        "ttf_hh_t": 0.9902785237587228,
-        "brent_beta": 0.09462348882452276,
-        "r_squared": 0.05584815022730327,
+        "jkm_hh_beta": -0.05089809525317198,
+        "jkm_hh_t": -1.8771128035965772,
+        "ttf_hh_beta": 0.03127478127974535,
+        "ttf_hh_t": 0.9795237001612056,
+        "brent_beta": 0.09433089624114113,
+        "r_squared": 0.055384201377340236,
         "reg_scatter": {
           "x": [
             0.02656,
@@ -4551,7 +4551,7 @@
             -0.07129,
             -0.00937,
             0.01569,
-            0.05386
+            0.05409
           ],
           "y": [
             -0.00154,
@@ -4733,42 +4733,42 @@
             -0.02041,
             -0.01987,
             -0.00462,
-            0.01581
+            0.01224
           ]
         },
         "reg_line": {
-          "slope": 0.0007,
-          "intercept": 0.000726,
+          "slope": 0.0006,
+          "intercept": 0.000707,
           "x0": -0.20253,
           "x1": 0.63205
         }
       },
       "fundamentals": {
-        "mkt_cap_b": 35.50838606000001,
+        "mkt_cap_b": 35.48336694,
         "ev_ebitda": 6.619222,
         "net_debt_ebitda": 0.763206,
-        "fcf_ev": 0.09051677,
+        "fcf_ev": 0.0905673,
         "fwd_rev_growth": 0.28624801,
         "roic": 0.11049594000000001,
         "roe": 0.14330618,
-        "price_sales": 3.796969,
-        "from_1y_hi": -0.1608246340512386
+        "price_sales": 3.78361,
+        "from_1y_hi": -0.16377714895713358
       },
       "returns": {
         "mar_run": 0.09587938448538091,
         "apr_sell": -0.035685109338635446,
-        "ytd": 0.06932044409850291,
-        "rsi_14": 40.94654716443666
+        "ytd": 0.06555819763788406,
+        "rsi_14": 39.82762515924799
       },
       "crowding": {
         "si_pct_float": 2.253,
-        "days_to_cover": null,
+        "days_to_cover": 2.29,
         "delta_short_2w": -0.4079999999999999
       },
       "catalyst": {
-        "next_earnings_date": null,
-        "days_to_earnings": null,
-        "earnings_flag": null
+        "next_earnings_date": "2026-07-21",
+        "days_to_earnings": 71,
+        "earnings_flag": "green"
       }
     },
     {
@@ -4776,22 +4776,22 @@
       "bucket": "small/levered",
       "what_it_does": "Vistra: power generator; gas-fired capacity beneficiary of power demand surge, less direct LNG linkage.",
       "scores": {
-        "sweet_spot": 0.38832888340893507,
-        "spread": 0.2737582056280765,
-        "value": 0.08678523257399436,
+        "sweet_spot": 0.3865163609817048,
+        "spread": 0.2746391341997263,
+        "value": 0.0859244168107777,
         "growth": -0.6290718527276071,
-        "reset": 1.4672934358814167,
-        "room_to_run": 1.398973558803595,
-        "setup": 2.3244845098526135,
+        "reset": 1.4528274191653288,
+        "room_to_run": 1.410600958109819,
+        "setup": 2.2983206040401383,
         "quality": 0.05446549634390485
       },
       "betas": {
-        "jkm_hh_beta": -0.043773580644983254,
-        "jkm_hh_t": -0.9755073687042436,
-        "ttf_hh_beta": 0.040986352836128725,
-        "ttf_hh_t": 0.7756516920322637,
-        "brent_beta": -0.11338848147278968,
-        "r_squared": 0.014233281613413418,
+        "jkm_hh_beta": -0.043747269078088104,
+        "jkm_hh_t": -0.9751985181626279,
+        "ttf_hh_beta": 0.04099109306923639,
+        "ttf_hh_t": 0.7760030177747059,
+        "brent_beta": -0.11379201954162736,
+        "r_squared": 0.014306184418757417,
         "reg_scatter": {
           "x": [
             0.02656,
@@ -4973,7 +4973,7 @@
             -0.07129,
             -0.00937,
             0.01569,
-            0.05386
+            0.05409
           ],
           "y": [
             0.00095,
@@ -5039,7 +5039,7 @@
             0.00177,
             -0.00331,
             0.02706,
-            -0.02986,
+            -0.02987,
             -0.02992,
             0.03885,
             -0.02455,
@@ -5155,42 +5155,42 @@
             -0.01303,
             -0.02742,
             -0.04047,
-            0.0283
+            0.02752
           ]
         },
         "reg_line": {
           "slope": -0.0145,
-          "intercept": -0.00064,
+          "intercept": -0.000644,
           "x0": -0.20253,
           "x1": 0.63205
         }
       },
       "fundamentals": {
-        "mkt_cap_b": 50.94321317778,
+        "mkt_cap_b": 51.37649264916,
         "ev_ebitda": 11.181835,
         "net_debt_ebitda": 2.878991,
-        "fcf_ev": 0.025070139999999998,
+        "fcf_ev": 0.024920010000000003,
         "fwd_rev_growth": 0.029842080000000003,
         "roic": 0.11875376,
         "roe": 0.74917733,
-        "price_sales": 2.6325686,
-        "from_1y_hi": -0.3010316036211026
+        "price_sales": 2.6305757,
+        "from_1y_hi": -0.30156031065786326
       },
       "returns": {
         "mar_run": -0.06203938656245467,
         "apr_sell": 0.06748505414758865,
-        "ytd": -0.07942194400061697,
-        "rsi_14": 44.54205254583006
+        "ytd": -0.08011827891163126,
+        "rsi_14": 44.42050919472479
       },
       "crowding": {
         "si_pct_float": 3.264,
-        "days_to_cover": null,
+        "days_to_cover": 2.79,
         "delta_short_2w": -0.04900000000000038
       },
       "catalyst": {
-        "next_earnings_date": null,
-        "days_to_earnings": null,
-        "earnings_flag": null
+        "next_earnings_date": "2026-08-06",
+        "days_to_earnings": 87,
+        "earnings_flag": "green"
       }
     },
     {
@@ -5198,22 +5198,22 @@
       "bucket": "core",
       "what_it_does": "Range Resources: low-leverage Appalachia gas producer; cleaner balance sheet, lower LNG-spread directness.",
       "scores": {
-        "sweet_spot": 0.20627844251254704,
-        "spread": -0.1896907697594638,
-        "value": 1.0818615672187848,
+        "sweet_spot": 0.21554688445389625,
+        "spread": -0.2006477126406112,
+        "value": 1.0844498293112792,
         "growth": -0.47658450317773915,
-        "reset": -0.010089550125584879,
-        "room_to_run": 0.1699293695946915,
-        "setup": 0.1296268578965399,
+        "reset": 0.0275866473707235,
+        "room_to_run": 0.20141049350037815,
+        "setup": 0.18380374075609773,
         "quality": 1.676336708442411
       },
       "betas": {
-        "jkm_hh_beta": -0.022078811237290913,
-        "jkm_hh_t": -0.8015056992681395,
-        "ttf_hh_beta": 0.015607706407555932,
-        "ttf_hh_t": 0.48114835347927193,
-        "brent_beta": 0.21516038144396038,
-        "r_squared": 0.12909464749646782,
+        "jkm_hh_beta": -0.021618613105698906,
+        "jkm_hh_t": -0.7852502005168747,
+        "ttf_hh_beta": 0.015073888882491324,
+        "ttf_hh_t": 0.464983306771743,
+        "brent_beta": 0.21481629882934944,
+        "r_squared": 0.12836207720099269,
         "reg_scatter": {
           "x": [
             0.02656,
@@ -5395,7 +5395,7 @@
             -0.07129,
             -0.00937,
             0.01569,
-            0.05386
+            0.05409
           ],
           "y": [
             0.00482,
@@ -5577,42 +5577,42 @@
             -0.04345,
             -0.00753,
             -0.00832,
-            0.01703
+            0.01185
           ]
         },
         "reg_line": {
-          "slope": 0.0283,
-          "intercept": 0.001304,
+          "slope": 0.0281,
+          "intercept": 0.001277,
           "x0": -0.20253,
           "x1": 0.63205
         }
       },
       "fundamentals": {
-        "mkt_cap_b": 9.700568032500003,
+        "mkt_cap_b": 9.67347147375,
         "ev_ebitda": 7.126892,
         "net_debt_ebitda": 0.600162,
-        "fcf_ev": 0.07949616,
+        "fcf_ev": 0.07969838,
         "fwd_rev_growth": 0.11557245999999999,
         "roic": 0.17428035000000003,
         "roe": 0.21110463,
-        "price_sales": 3.0245454,
-        "from_1y_hi": -0.13515219801008105
+        "price_sales": 3.009498,
+        "from_1y_hi": -0.13955931401738286
       },
       "returns": {
         "mar_run": 0.14043419019540604,
         "apr_sell": -0.02620688252065373,
-        "ytd": 0.17015093960715122,
-        "rsi_14": 43.451738135953434
+        "ytd": 0.16418805119483615,
+        "rsi_14": 42.06444118406315
       },
       "crowding": {
         "si_pct_float": 4.681,
-        "days_to_cover": null,
+        "days_to_cover": 4.27,
         "delta_short_2w": 0.16199999999999992
       },
       "catalyst": {
-        "next_earnings_date": null,
-        "days_to_earnings": null,
-        "earnings_flag": null
+        "next_earnings_date": "2026-07-28",
+        "days_to_earnings": 78,
+        "earnings_flag": "green"
       }
     },
     {
@@ -5620,13 +5620,13 @@
       "bucket": "core",
       "what_it_does": "Coterra: gas-weighted E&P with Permian/Appalachia mix; lower leverage, more balanced producer exposure.",
       "scores": {
-        "sweet_spot": 0.14294199332561514,
-        "spread": -0.33743993102177733,
-        "value": 1.0426391234653472,
+        "sweet_spot": 0.1423211133166097,
+        "spread": -0.33923268960190256,
+        "value": 1.042541677258465,
         "growth": 0.030560898265321854,
-        "reset": -0.2939788446827018,
-        "room_to_run": -0.49678168226157515,
-        "setup": -0.6412907797121884,
+        "reset": -0.29161239303713593,
+        "room_to_run": -0.5038455298618646,
+        "setup": -0.6384714729919263,
         "quality": 0.5451306554463107
       },
       "betas": {
@@ -6024,17 +6024,17 @@
         "mar_run": 0.16072984244670985,
         "apr_sell": -0.011497624136238671,
         "ytd": 0.2329801102463971,
-        "rsi_14": 43.553361093426545
+        "rsi_14": 43.55336109343293
       },
       "crowding": {
         "si_pct_float": 2.166,
-        "days_to_cover": null,
+        "days_to_cover": 1.61,
         "delta_short_2w": -0.15500000000000025
       },
       "catalyst": {
-        "next_earnings_date": null,
-        "days_to_earnings": null,
-        "earnings_flag": null
+        "next_earnings_date": "2026-08-03",
+        "days_to_earnings": 84,
+        "earnings_flag": "green"
       }
     },
     {
@@ -6042,22 +6042,22 @@
       "bucket": "core",
       "what_it_does": "Cheniere: operating LNG exporter; contracted liquefaction fees plus spot/marketing upside to JKM-HH spreads.",
       "scores": {
-        "sweet_spot": 0.04766947067294243,
-        "spread": 0.6149724590269556,
-        "value": -0.3706602306844315,
+        "sweet_spot": 0.057946670963551064,
+        "spread": 0.6041597059380969,
+        "value": -0.3684111291946852,
         "growth": -0.19814709208743111,
-        "reset": 0.41082530751876006,
-        "room_to_run": -0.06662595013385049,
-        "setup": 0.27913871109218547,
+        "reset": 0.45007823411632836,
+        "room_to_run": -0.02748159871442225,
+        "setup": 0.33919568655895527,
         "quality": -0.6298263961004458
       },
       "betas": {
-        "jkm_hh_beta": -0.01824759523795641,
-        "jkm_hh_t": -0.8887699296958604,
-        "ttf_hh_beta": 0.05967137827211851,
-        "ttf_hh_t": 2.4680773766473068,
-        "brent_beta": 0.16875591284917651,
-        "r_squared": 0.2371658935763471,
+        "jkm_hh_beta": -0.017642866533887726,
+        "jkm_hh_t": -0.8594302691237904,
+        "ttf_hh_beta": 0.05895971980117968,
+        "ttf_hh_t": 2.4390950966591087,
+        "brent_beta": 0.16841474974340073,
+        "r_squared": 0.23566742712286393,
         "reg_scatter": {
           "x": [
             0.02656,
@@ -6239,7 +6239,7 @@
             -0.07129,
             -0.00937,
             0.01569,
-            0.05386
+            0.05409
           ],
           "y": [
             -0.01268,
@@ -6421,42 +6421,42 @@
             -0.03005,
             -0.056,
             -0.02703,
-            0.01099
+            0.0046
           ]
         },
         "reg_line": {
-          "slope": 0.0688,
-          "intercept": -0.000163,
+          "slope": 0.0686,
+          "intercept": -0.000198,
           "x0": -0.20253,
           "x1": 0.63205
         }
       },
       "fundamentals": {
-        "mkt_cap_b": 50.84985628887999,
+        "mkt_cap_b": 50.47475844516,
         "ev_ebitda": 14.808686,
         "net_debt_ebitda": 4.147035,
-        "fcf_ev": 0.027204540000000003,
+        "fcf_ev": 0.02733131,
         "fwd_rev_growth": 0.27211361,
         "roic": 0.09282538000000001,
         "roe": 0.31598115,
-        "price_sales": 2.4559815,
-        "from_1y_hi": -0.18241218885889998
+        "price_sales": 2.4407043,
+        "from_1y_hi": -0.18758211793901358
       },
       "returns": {
         "mar_run": 0.19274499818436763,
         "apr_sell": -0.0679741888374743,
-        "ytd": 0.23049335401060422,
-        "rsi_14": 36.38368143317801
+        "ytd": 0.22271246089172658,
+        "rsi_14": 34.972984885106186
       },
       "crowding": {
         "si_pct_float": 1.886,
-        "days_to_cover": null,
+        "days_to_cover": 1.14,
         "delta_short_2w": 0.3699999999999999
       },
       "catalyst": {
-        "next_earnings_date": null,
-        "days_to_earnings": null,
-        "earnings_flag": null
+        "next_earnings_date": "2026-08-06",
+        "days_to_earnings": 87,
+        "earnings_flag": "green"
       }
     },
     {
@@ -6464,22 +6464,22 @@
       "bucket": "core",
       "what_it_does": "ONEOK: NGL/gas midstream; more levered and less clean than TRGP/ET for this specific thesis.",
       "scores": {
-        "sweet_spot": -0.06329325436617869,
-        "spread": -0.14883804546818902,
-        "value": -0.1614599396726141,
+        "sweet_spot": -0.06795636967187176,
+        "spread": -0.14263551415008183,
+        "value": -0.16268238165694887,
         "growth": 0.29588756812069594,
-        "reset": -0.09575215691707771,
-        "room_to_run": -0.25114745611480305,
-        "setup": -0.2813285637596674,
+        "reset": -0.11295576628449658,
+        "room_to_run": -0.27210912712010604,
+        "setup": -0.3090709673159315,
         "quality": -1.0632006893505197
       },
       "betas": {
-        "jkm_hh_beta": -0.02497667022076072,
-        "jkm_hh_t": -1.210640373376393,
-        "ttf_hh_beta": 0.017844817503907498,
-        "ttf_hh_t": 0.7345167648606143,
-        "brent_beta": 0.1947467811636574,
-        "r_squared": 0.18260826535114216,
+        "jkm_hh_beta": -0.025288486448897834,
+        "jkm_hh_t": -1.2241606962589033,
+        "ttf_hh_beta": 0.018237271171726244,
+        "ttf_hh_t": 0.7497341200788389,
+        "brent_beta": 0.19464482424924537,
+        "r_squared": 0.1824488229950214,
         "reg_scatter": {
           "x": [
             0.02656,
@@ -6661,7 +6661,7 @@
             -0.07129,
             -0.00937,
             0.01569,
-            0.05386
+            0.05409
           ],
           "y": [
             0.01108,
@@ -6765,7 +6765,7 @@
             0.02428,
             0.02155,
             -0.03296,
-            0.01431,
+            0.01432,
             -0.00457,
             0.02376,
             0.03614,
@@ -6843,42 +6843,42 @@
             -0.0491,
             0.00315,
             -0.00827,
-            0.02707
+            0.02936
           ]
         },
         "reg_line": {
-          "slope": 0.025,
-          "intercept": 0.001148,
+          "slope": 0.0251,
+          "intercept": 0.00116,
           "x0": -0.20253,
           "x1": 0.63205
         }
       },
       "fundamentals": {
-        "mkt_cap_b": 55.09322274313999,
+        "mkt_cap_b": 55.222379477800004,
         "ev_ebitda": 12.137713,
         "net_debt_ebitda": 4.487334,
-        "fcf_ev": 0.02527501,
+        "fcf_ev": 0.025238260000000002,
         "fwd_rev_growth": 0.5498663500000001,
         "roic": 0.08273256999999999,
         "roe": 0.16152421,
-        "price_sales": 1.5653282,
-        "from_1y_hi": -0.057970087980877105
+        "price_sales": 1.5686393,
+        "from_1y_hi": -0.05586978797323516
       },
       "returns": {
         "mar_run": 0.09103566307207434,
         "apr_sell": 0.0016025829398316205,
-        "ytd": 0.20696116507920803,
-        "rsi_14": 51.82318038157797
+        "ytd": 0.20965214177951896,
+        "rsi_14": 52.30571231706567
       },
       "crowding": {
         "si_pct_float": 6.249,
-        "days_to_cover": null,
+        "days_to_cover": 4.82,
         "delta_short_2w": 0.5129999999999999
       },
       "catalyst": {
-        "next_earnings_date": null,
-        "days_to_earnings": null,
-        "earnings_flag": null
+        "next_earnings_date": "2026-08-03",
+        "days_to_earnings": 84,
+        "earnings_flag": "green"
       }
     },
     {
@@ -6886,22 +6886,22 @@
       "bucket": "small/levered",
       "what_it_does": "MPLX: large midstream MLP; Permian/Marcellus gathering, stable distributions, lower spread beta.",
       "scores": {
-        "sweet_spot": -0.3041718836108795,
-        "spread": -0.5952786107883886,
-        "value": -0.10920947317870007,
+        "sweet_spot": -0.3032814754419006,
+        "spread": -0.5977148914685794,
+        "value": -0.10800461516397832,
         "growth": -0.5234068943479013,
-        "reset": -0.5957502761630568,
-        "room_to_run": 0.7147811460259988,
-        "setup": 0.09653162587566186,
+        "reset": -0.5912190291453847,
+        "room_to_run": 0.7158807209966598,
+        "setup": 0.10005926364008962,
         "quality": 1.181501115319564
       },
       "betas": {
-        "jkm_hh_beta": 0.006895817537320367,
-        "jkm_hh_t": 0.48676580657878105,
-        "ttf_hh_beta": -0.00660244176375881,
-        "ttf_hh_t": -0.39577455505505005,
-        "brent_beta": 0.02774378761728003,
-        "r_squared": 0.007656409413383414,
+        "jkm_hh_beta": 0.006874230643522398,
+        "jkm_hh_t": 0.4853074365891388,
+        "ttf_hh_beta": -0.0065780276768496624,
+        "ttf_hh_t": -0.39438498189699833,
+        "brent_beta": 0.02776608085388129,
+        "r_squared": 0.0076664457653427,
         "reg_scatter": {
           "x": [
             0.02656,
@@ -7083,7 +7083,7 @@
             -0.07129,
             -0.00937,
             0.01569,
-            0.05386
+            0.05409
           ],
           "y": [
             0.00495,
@@ -7265,42 +7265,42 @@
             0.0,
             0.01096,
             -0.02162,
-            0.00019
+            0.00037
           ]
         },
         "reg_line": {
           "slope": 0.0036,
-          "intercept": 0.000738,
+          "intercept": 0.000739,
           "x0": -0.20253,
           "x1": 0.63205
         }
       },
       "fundamentals": {
-        "mkt_cap_b": 54.9086621622966,
+        "mkt_cap_b": 54.75503147724,
         "ev_ebitda": 11.503982,
         "net_debt_ebitda": 3.399164,
-        "fcf_ev": 0.04896656,
+        "fcf_ev": 0.04906134,
         "fwd_rev_growth": 0.0892483,
         "roic": 0.15025748,
         "roe": 0.33666559,
-        "price_sales": 4.6378746,
-        "from_1y_hi": -0.06939466997235477
+        "price_sales": 4.638734,
+        "from_1y_hi": -0.06922233074671125
       },
       "returns": {
         "mar_run": -0.017078128667230907,
         "apr_sell": -0.010371930516626882,
-        "ytd": 0.04220679296904817,
-        "rsi_14": 43.162389981142866
+        "ytd": 0.04239979972053032,
+        "rsi_14": 43.24444011759956
       },
       "crowding": {
         "si_pct_float": 2.901,
-        "days_to_cover": null,
+        "days_to_cover": 4.46,
         "delta_short_2w": -1.1660000000000004
       },
       "catalyst": {
-        "next_earnings_date": null,
-        "days_to_earnings": null,
-        "earnings_flag": null
+        "next_earnings_date": "2026-08-04",
+        "days_to_earnings": 85,
+        "earnings_flag": "green"
       }
     },
     {
@@ -7308,22 +7308,22 @@
       "bucket": "core",
       "what_it_does": "Energy Transfer: diversified midstream MLP; Permian gas takeaway, intrastate pipes, NGL, fractionation, exports.",
       "scores": {
-        "sweet_spot": -0.4008117021214078,
-        "spread": -0.38938821312767685,
-        "value": 0.0482377625993699,
+        "sweet_spot": -0.39830963943632836,
+        "spread": -0.3911465348241988,
+        "value": 0.047268438154511774,
         "growth": -0.6205104010131816,
-        "reset": -1.0498323621712604,
-        "room_to_run": -0.03336835638795019,
-        "setup": -0.8784538551436685,
+        "reset": -1.0338575904347973,
+        "room_to_run": -0.033872656282463054,
+        "setup": -0.8570098854445123,
         "quality": -1.2997505608744457
       },
       "betas": {
-        "jkm_hh_beta": 0.0002636563349186511,
-        "jkm_hh_t": 0.018950259921906715,
-        "ttf_hh_beta": 0.004672196616658526,
-        "ttf_hh_t": 0.2851721169553972,
-        "brent_beta": 0.08125056796958556,
-        "r_squared": 0.07938709251299092,
+        "jkm_hh_beta": 0.00026631251172834665,
+        "jkm_hh_t": 0.01914925977019136,
+        "ttf_hh_beta": 0.0046860632889818375,
+        "ttf_hh_t": 0.2861543783240902,
+        "brent_beta": 0.08106377537235496,
+        "r_squared": 0.07911884431714666,
         "reg_scatter": {
           "x": [
             0.02656,
@@ -7505,7 +7505,7 @@
             -0.07129,
             -0.00937,
             0.01569,
-            0.05386
+            0.05409
           ],
           "y": [
             0.00286,
@@ -7597,7 +7597,7 @@
             0.00183,
             -0.00854,
             0.00123,
-            0.01659,
+            0.0166,
             -0.00302,
             0.00606,
             -0.01025,
@@ -7687,42 +7687,42 @@
             -0.0255,
             0.00252,
             -0.01236,
-            0.01732
+            0.0168
           ]
         },
         "reg_line": {
-          "slope": 0.0171,
-          "intercept": 0.000931,
+          "slope": 0.017,
+          "intercept": 0.000928,
           "x0": -0.20253,
           "x1": 0.63205
         }
       },
       "fundamentals": {
-        "mkt_cap_b": 67.68760297859001,
+        "mkt_cap_b": 67.6442443716998,
         "ev_ebitda": 10.084197,
         "net_debt_ebitda": 4.550496,
-        "fcf_ev": 0.02306108,
+        "fcf_ev": 0.02306746,
         "fwd_rev_growth": 0.03465544,
         "roic": 0.07761351999999999,
         "roe": 0.131584,
-        "price_sales": 0.73363316,
-        "from_1y_hi": -0.018410688676325004
+        "price_sales": 0.73326033,
+        "from_1y_hi": -0.018909506766730977
       },
       "returns": {
         "mar_run": 0.029842890877739947,
         "apr_sell": 0.003154521356496298,
-        "ytd": 0.22906109855218992,
-        "rsi_14": 60.20881605310998
+        "ytd": 0.22843652175301377,
+        "rsi_14": 60.06718930134729
       },
       "crowding": {
         "si_pct_float": 2.17,
-        "days_to_cover": null,
+        "days_to_cover": 1.64,
         "delta_short_2w": 0.7609999999999999
       },
       "catalyst": {
-        "next_earnings_date": null,
-        "days_to_earnings": null,
-        "earnings_flag": null
+        "next_earnings_date": "2026-08-05",
+        "days_to_earnings": 86,
+        "earnings_flag": "green"
       }
     },
     {
@@ -7730,22 +7730,22 @@
       "bucket": "small/levered",
       "what_it_does": "Plains All American: crude/NGL pipelines; Permian logistics but wrong commodity for dry-gas spread.",
       "scores": {
-        "sweet_spot": -0.4608618079632715,
-        "spread": -0.5558820564147636,
-        "value": 0.2270066152668355,
+        "sweet_spot": -0.4641074079322439,
+        "spread": -0.5535456450363907,
+        "value": 0.22520507369535253,
         "growth": -0.8504915563738851,
-        "reset": -0.9444512050413838,
-        "room_to_run": -0.5879882897731555,
-        "setup": -1.2427774085903749,
+        "reset": -0.9496867744124209,
+        "room_to_run": -0.6092413487631031,
+        "setup": -1.2512681141762834,
         "quality": -1.9334685595603949
       },
       "betas": {
-        "jkm_hh_beta": 0.0006312981632575331,
-        "jkm_hh_t": 0.04305677950238984,
-        "ttf_hh_beta": -0.004445071099348125,
-        "ttf_hh_t": -0.25745107981252,
-        "brent_beta": 0.15895516349724897,
-        "r_squared": 0.19921016793226842,
+        "jkm_hh_beta": 0.0004040966592080888,
+        "jkm_hh_t": 0.027543935362265216,
+        "ttf_hh_beta": -0.004169496100249465,
+        "ttf_hh_t": -0.24135490426749423,
+        "brent_beta": 0.15899319032607964,
+        "r_squared": 0.1993285804894186,
         "reg_scatter": {
           "x": [
             0.02656,
@@ -7927,7 +7927,7 @@
             -0.07129,
             -0.00937,
             0.01569,
-            0.05386
+            0.05409
           ],
           "y": [
             0.00171,
@@ -7999,7 +7999,7 @@
             0.01339,
             -0.00402,
             0.00404,
-            0.00459,
+            0.0046,
             -0.00572,
             0.0184,
             0.00339,
@@ -8109,42 +8109,42 @@
             -0.01816,
             -0.00361,
             -0.01675,
-            0.01128
+            0.01312
           ]
         },
         "reg_line": {
           "slope": 0.0199,
-          "intercept": 0.001539,
+          "intercept": 0.001549,
           "x0": -0.20253,
           "x1": 0.63205
         }
       },
       "fundamentals": {
-        "mkt_cap_b": 15.511114050754998,
+        "mkt_cap_b": 15.532280001245,
         "ev_ebitda": 12.080067,
         "net_debt_ebitda": 4.719487,
-        "fcf_ev": 0.07363375,
+        "fcf_ev": 0.07357996,
         "fwd_rev_growth": -0.09464297,
         "roic": 0.06325699,
         "roe": 0.12185955,
-        "price_sales": 0.3424374,
-        "from_1y_hi": -0.030242802537708502
+        "price_sales": 0.34306097,
+        "from_1y_hi": -0.028476841881974635
       },
       "returns": {
         "mar_run": 0.05105386161153991,
         "apr_sell": -0.012849929565429297,
-        "ytd": 0.2551588716330371,
-        "rsi_14": 54.37240728474894
+        "ytd": 0.25744442133798606,
+        "rsi_14": 54.908652161872325
       },
       "crowding": {
         "si_pct_float": 6.521,
-        "days_to_cover": null,
+        "days_to_cover": 5.58,
         "delta_short_2w": 0.0
       },
       "catalyst": {
-        "next_earnings_date": null,
-        "days_to_earnings": null,
-        "earnings_flag": null
+        "next_earnings_date": "2026-08-07",
+        "days_to_earnings": 88,
+        "earnings_flag": "green"
       }
     },
     {
@@ -8152,22 +8152,22 @@
       "bucket": "core",
       "what_it_does": "Kinder Morgan: giant gas pipeline tollbooth; GCX/Permian Highway/Tennessee Gas/Trident LNG feedgas exposure.",
       "scores": {
-        "sweet_spot": -0.5037653311751176,
-        "spread": -0.5079564111236673,
-        "value": -0.5200721066577124,
+        "sweet_spot": -0.5068001350469367,
+        "spread": -0.5036548122478665,
+        "value": -0.5208187168610416,
         "growth": -0.4657644593360896,
-        "reset": -0.8067423611820086,
-        "room_to_run": 0.0834894715054926,
-        "setup": -0.5865434524685503,
+        "reset": -0.816364046885312,
+        "room_to_run": 0.06602143705229487,
+        "setup": -0.6022598273994695,
         "quality": -0.8844608746060917
       },
       "betas": {
-        "jkm_hh_beta": 0.0011069830907923274,
-        "jkm_hh_t": 0.0637240757111875,
-        "ttf_hh_beta": -0.0018206440937929662,
-        "ttf_hh_t": -0.0890013518069349,
-        "brent_beta": 0.04964448283522476,
-        "r_squared": 0.016932059951738077,
+        "jkm_hh_beta": 0.0008168205506144423,
+        "jkm_hh_t": 0.046928352058422496,
+        "ttf_hh_beta": -0.0014489686776563773,
+        "ttf_hh_t": -0.07069675351851057,
+        "brent_beta": 0.04947984950138054,
+        "r_squared": 0.016897813283106133,
         "reg_scatter": {
           "x": [
             0.02656,
@@ -8349,7 +8349,7 @@
             -0.07129,
             -0.00937,
             0.01569,
-            0.05386
+            0.05409
           ],
           "y": [
             -0.00447,
@@ -8371,12 +8371,12 @@
             -0.00548,
             0.01323,
             0.00363,
-            -0.00904,
+            -0.00903,
             -0.00875,
             0.01067,
             0.01274,
             0.00395,
-            0.01002,
+            0.01003,
             0.00567,
             -0.00211,
             -0.00035,
@@ -8389,7 +8389,7 @@
             -0.01526,
             0.00886,
             -0.0011,
-            0.01099,
+            0.01098,
             -0.01449,
             0.00625,
             0.00511,
@@ -8531,42 +8531,42 @@
             -0.02199,
             -0.0019,
             -0.00349,
-            0.02563
+            0.02786
           ]
         },
         "reg_line": {
-          "slope": 0.0066,
-          "intercept": 0.001226,
+          "slope": 0.0067,
+          "intercept": 0.001238,
           "x0": -0.20253,
           "x1": 0.63205
         }
       },
       "fundamentals": {
-        "mkt_cap_b": 71.69501001932501,
+        "mkt_cap_b": 71.87299607988501,
         "ev_ebitda": 14.500857,
         "net_debt_ebitda": 4.300659,
-        "fcf_ev": 0.03347627,
+        "fcf_ev": 0.03341959,
         "fwd_rev_growth": 0.12165563000000001,
         "roic": 0.059075369999999995,
         "roe": 0.10664169,
-        "price_sales": 4.0899773,
-        "from_1y_hi": -0.04570464376854144
+        "price_sales": 4.0988646,
+        "from_1y_hi": -0.04363106365393743
       },
       "returns": {
         "mar_run": 0.004131016991993919,
         "apr_sell": -0.03467158669167114,
-        "ytd": 0.18471001608307613,
-        "rsi_14": 52.87662174904557
+        "ytd": 0.18728426221649896,
+        "rsi_14": 53.54385282931469
       },
       "crowding": {
         "si_pct_float": 3.748,
-        "days_to_cover": null,
+        "days_to_cover": 3.52,
         "delta_short_2w": -0.36799999999999944
       },
       "catalyst": {
-        "next_earnings_date": null,
-        "days_to_earnings": null,
-        "earnings_flag": null
+        "next_earnings_date": "2026-07-15",
+        "days_to_earnings": 65,
+        "earnings_flag": "green"
       }
     },
     {
@@ -8574,22 +8574,22 @@
       "bucket": "core",
       "what_it_does": "Antero Midstream: Appalachia gathering/processing MLP; tied to AR volumes, high yield.",
       "scores": {
-        "sweet_spot": -0.7299983863092937,
-        "spread": -0.23618264201690617,
-        "value": -1.616816287737393,
+        "sweet_spot": -0.7376504559023951,
+        "spread": -0.2270110350087066,
+        "value": -1.6174252671177696,
         "growth": -0.5499262887852202,
-        "reset": -0.41415596357028267,
-        "room_to_run": -0.04900521113594023,
-        "setup": -0.37561433675444084,
+        "reset": -0.4442232343533221,
+        "room_to_run": -0.081907641376144,
+        "setup": -0.4222970763673897,
         "quality": 0.5721140539147647
       },
       "betas": {
-        "jkm_hh_beta": -0.010672938693451341,
-        "jkm_hh_t": -0.6295309270262686,
-        "ttf_hh_beta": 0.013061793371849342,
-        "ttf_hh_t": 0.6542516906761553,
-        "brent_beta": 0.05599151397220569,
-        "r_squared": 0.03364464017474966,
+        "jkm_hh_beta": -0.011145464640486592,
+        "jkm_hh_t": -0.6558155007955941,
+        "ttf_hh_beta": 0.013636307318016766,
+        "ttf_hh_t": 0.6814156515984223,
+        "brent_beta": 0.056057554866381656,
+        "r_squared": 0.034091683840485554,
         "reg_scatter": {
           "x": [
             0.02656,
@@ -8771,7 +8771,7 @@
             -0.07129,
             -0.00937,
             0.01569,
-            0.05386
+            0.05409
           ],
           "y": [
             -0.00056,
@@ -8953,42 +8953,42 @@
             -0.02847,
             0.00378,
             -0.01507,
-            0.01625
+            0.02055
           ]
         },
         "reg_line": {
-          "slope": 0.012,
-          "intercept": 0.001217,
+          "slope": 0.0122,
+          "intercept": 0.001239,
           "x0": -0.20253,
           "x1": 0.63205
         }
       },
       "fundamentals": {
-        "mkt_cap_b": 10.095699900000001,
+        "mkt_cap_b": 10.1336983,
         "ev_ebitda": 18.328839,
         "net_debt_ebitda": 4.686033,
-        "fcf_ev": -0.0230971,
+        "fcf_ev": -0.02303371,
         "fwd_rev_growth": 0.07433875,
         "roic": 0.08461914000000001,
         "roe": 0.20407117,
-        "price_sales": 7.854011,
-        "from_1y_hi": -0.08978393729202638
+        "price_sales": 7.88726,
+        "from_1y_hi": -0.08593071134424968
       },
       "returns": {
         "mar_run": 0.012221766386348643,
         "apr_sell": -0.05232815024622672,
-        "ytd": 0.2119209517520908,
-        "rsi_14": 45.82721420397994
+        "ytd": 0.21705138775434318,
+        "rsi_14": 47.19405666101994
       },
       "crowding": {
         "si_pct_float": 4.048,
-        "days_to_cover": null,
+        "days_to_cover": 3.99,
         "delta_short_2w": -0.5309999999999997
       },
       "catalyst": {
-        "next_earnings_date": null,
-        "days_to_earnings": null,
-        "earnings_flag": null
+        "next_earnings_date": "2026-07-29",
+        "days_to_earnings": 79,
+        "earnings_flag": "green"
       }
     },
     {
@@ -8996,22 +8996,22 @@
       "bucket": "core",
       "what_it_does": "Williams: Transco gas pipe owner; LNG/feedgas and Southeast power-demand tollbooth.",
       "scores": {
-        "sweet_spot": -0.8299453494858923,
-        "spread": -0.7582464748575805,
-        "value": -1.2748721292311274,
+        "sweet_spot": -0.8300153160105114,
+        "spread": -0.7574525878566563,
+        "value": -1.2733443901860333,
         "growth": -0.43710178492659985,
-        "reset": -0.9517846403820195,
-        "room_to_run": -0.18057130683314063,
-        "setup": -0.9183177505173005,
+        "reset": -0.949464532570909,
+        "room_to_run": -0.19208217883868392,
+        "setup": -0.9162584083222637,
         "quality": -0.10455212151527708
       },
       "betas": {
-        "jkm_hh_beta": 0.01267343886562687,
-        "jkm_hh_t": 0.6358645268948627,
-        "ttf_hh_beta": -0.015526625484249837,
-        "ttf_hh_t": -0.6615401227056208,
-        "brent_beta": 0.028048463100771828,
-        "r_squared": 0.004402760266886907,
+        "jkm_hh_beta": 0.012500955924196679,
+        "jkm_hh_t": 0.626772784875658,
+        "ttf_hh_beta": -0.015288461220576172,
+        "ttf_hh_t": -0.650972298878335,
+        "brent_beta": 0.02776276341413089,
+        "r_squared": 0.004296442218599927,
         "reg_scatter": {
           "x": [
             0.02656,
@@ -9193,7 +9193,7 @@
             -0.07129,
             -0.00937,
             0.01569,
-            0.05386
+            0.05409
           ],
           "y": [
             -0.01263,
@@ -9375,42 +9375,42 @@
             -0.031,
             -0.01098,
             -0.01357,
-            0.02925
+            0.03023
           ]
         },
         "reg_line": {
-          "slope": -0.0002,
-          "intercept": 0.001611,
+          "slope": -0.0001,
+          "intercept": 0.001616,
           "x0": -0.20253,
           "x1": 0.63205
         }
       },
       "fundamentals": {
-        "mkt_cap_b": 90.52810015655999,
+        "mkt_cap_b": 90.59547957461518,
         "ev_ebitda": 17.811632,
         "net_debt_ebitda": 4.336239,
-        "fcf_ev": 0.00980464,
+        "fcf_ev": 0.00979923,
         "fwd_rev_growth": 0.13777016,
         "roic": 0.07737036,
         "roe": 0.21952850999999998,
-        "price_sales": 7.4804997,
-        "from_1y_hi": -0.029419410156103165
+        "price_sales": 7.4875703,
+        "from_1y_hi": -0.028502103157495684
       },
       "returns": {
         "mar_run": -0.028203357599671075,
         "apr_sell": 0.004872594531520447,
-        "ytd": 0.22592769060171802,
-        "rsi_14": 53.98147254922912
+        "ytd": 0.2270863291137002,
+        "rsi_14": 54.223747253518106
       },
       "crowding": {
         "si_pct_float": 3.153,
-        "days_to_cover": null,
+        "days_to_cover": 2.81,
         "delta_short_2w": 0.14100000000000001
       },
       "catalyst": {
-        "next_earnings_date": null,
-        "days_to_earnings": null,
-        "earnings_flag": null
+        "next_earnings_date": "2026-08-03",
+        "days_to_earnings": 84,
+        "earnings_flag": "green"
       }
     },
     {
@@ -9418,22 +9418,22 @@
       "bucket": "small/levered",
       "what_it_does": "DT Midstream: gas pipes/storage with Haynesville/Gulf Coast exposure; smaller midstream compounder.",
       "scores": {
-        "sweet_spot": -0.8705920516056701,
-        "spread": -0.5064083094007695,
-        "value": -1.5814750090173282,
+        "sweet_spot": -0.8773564382976656,
+        "spread": -0.49950159329098853,
+        "value": -1.5825008065924073,
         "growth": -0.20711024204491058,
-        "reset": -1.0278409541449882,
-        "room_to_run": -0.4787764778233787,
-        "setup": -1.2218362383471038,
+        "reset": -1.0496658451108316,
+        "room_to_run": -0.5135066023059734,
+        "setup": -1.2546748059347992,
         "quality": -0.04945306097496366
       },
       "betas": {
-        "jkm_hh_beta": 0.00949361345120076,
-        "jkm_hh_t": 0.5031516275152793,
-        "ttf_hh_beta": -0.0017358694403847193,
-        "ttf_hh_t": -0.07812560314793149,
-        "brent_beta": -0.03616450911095773,
-        "r_squared": 0.010521460732728638,
+        "jkm_hh_beta": 0.009073988273641649,
+        "jkm_hh_t": 0.4800576148131787,
+        "ttf_hh_beta": -0.0012224952870013572,
+        "ttf_hh_t": -0.05492551886827815,
+        "brent_beta": -0.03614046250190488,
+        "r_squared": 0.010261726718265973,
         "reg_scatter": {
           "x": [
             0.02656,
@@ -9615,7 +9615,7 @@
             -0.07129,
             -0.00937,
             0.01569,
-            0.05386
+            0.05409
           ],
           "y": [
             -0.0153,
@@ -9797,42 +9797,42 @@
             -0.0129,
             -0.00311,
             -0.00923,
-            0.01471
+            0.01861
           ]
         },
         "reg_line": {
-          "slope": 0.0012,
-          "intercept": 0.002083,
+          "slope": 0.0014,
+          "intercept": 0.002104,
           "x0": -0.20253,
           "x1": 0.63205
         }
       },
       "fundamentals": {
-        "mkt_cap_b": 14.809379308648202,
+        "mkt_cap_b": 14.854785792570002,
         "ev_ebitda": 19.086207,
         "net_debt_ebitda": 3.594866,
-        "fcf_ev": 0.025698340000000004,
+        "fcf_ev": 0.025634290000000004,
         "fwd_rev_growth": 0.26707441,
         "roic": 0.05849282,
         "roe": 0.09856306999999999,
-        "price_sales": 11.584518,
-        "from_1y_hi": -0.02087986676115383
+        "price_sales": 11.62909,
+        "from_1y_hi": -0.01711265035948728
       },
       "returns": {
         "mar_run": -0.03597470864229968,
         "apr_sell": 0.005826539237669293,
-        "ytd": 0.20532924929837382,
-        "rsi_14": 63.310496772683585
+        "ytd": 0.2099668172159539,
+        "rsi_14": 64.20724301797657
       },
       "crowding": {
         "si_pct_float": 4.002,
-        "days_to_cover": null,
+        "days_to_cover": 3.9,
         "delta_short_2w": -0.7759999999999998
       },
       "catalyst": {
-        "next_earnings_date": null,
-        "days_to_earnings": null,
-        "earnings_flag": null
+        "next_earnings_date": "2026-07-30",
+        "days_to_earnings": 80,
+        "earnings_flag": "green"
       }
     }
   ]

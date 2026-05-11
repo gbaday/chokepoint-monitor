@@ -142,6 +142,7 @@ function pluck(t, key) {
   if (key in t.betas)        return t.betas[key];
   if (key in t.fundamentals) return t.fundamentals[key];
   if (key in t.returns)      return t.returns[key];
+  if (key in t.crowding)     return t.crowding[key];
   return null;
 }
 
