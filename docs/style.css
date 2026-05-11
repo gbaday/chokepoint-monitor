@@ -241,7 +241,7 @@ h2 {
 #stackChart { height: 600px !important; }
 #spreadChart { height: 360px !important; }
 #scatterSetup, #scatterValLev { height: 420px; }
-#scatterRegression { height: 460px; }
+#rsiChart { height: 420px; }
 
 .explainer-grid {
   display: grid;

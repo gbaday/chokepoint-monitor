@@ -107,6 +107,7 @@ def _ticker_payload(meta: dict, prices: dict, betas: dict,
             "mar_run":  _f(prices.get("mar_run")),
             "apr_sell": _f(prices.get("apr_sell")),
             "ytd":      _f(prices.get("ytd")),
+            "rsi_14":   _f(prices.get("rsi_14")),
         },
         "crowding": {
             "si_pct_float":   _f(bbg.get("si_pct_float")),

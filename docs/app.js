@@ -37,12 +37,6 @@ const FMT = {
   date:  (v) => (v ? v : "—"),
 };
 
-// Distinct color palette for regression chart (works on light + dark)
-const REG_COLORS = [
-  "#45889F","#F7B55A","#48AC98","#D2DB6F","#c5524a","#5D9CA4",
-  "#e8a838","#4f7e5f","#9b6dca","#d96b60","#4caf7d","#f0b84a",
-  "#6b9fd4","#e87d45","#a0825e","#5dc98c",
-];
 
 let STATE = {
   data: null,
@@ -161,7 +155,7 @@ function renderAll() {
   renderSetupScatter(rows);
   renderValLevScatter(rows);
   renderSpreadChart();
-  renderRegressionChart();
+  renderRsiChart();
   renderScreenTable(getFilteredSorted());
 }
 
@@ -304,68 +298,87 @@ function renderValLevScatter(rows) {
     { displayModeBar: false, responsive: true });
 }
 
-// ---------- Regression chart ----------
-function renderRegressionChart() {
-  if (!document.getElementById("scatterRegression")) return;
-  const allRows = STATE.data.tickers;
-  const traces = [];
+// ---------- RSI-14 bar chart ----------
+function renderRsiChart() {
+  const el = document.getElementById("rsiChart");
+  if (!el) return;
 
-  allRows.forEach((r, i) => {
-    const color = REG_COLORS[i % REG_COLORS.length];
-    const scatter = r.betas.reg_scatter;
-    const line = r.betas.reg_line;
-    if (!scatter || !line) return;
+  const allRows = [...STATE.data.tickers]
+    .filter((r) => r.returns.rsi_14 != null)
+    .sort((a, b) => a.returns.rsi_14 - b.returns.rsi_14);  // ascending: oversold left → overbought right
 
-    // Scatter points (semi-transparent)
-    traces.push({
-      x: scatter.x,
-      y: scatter.y,
-      mode: "markers",
-      name: r.ticker,
-      legendgroup: r.ticker,
-      type: "scatter",
-      marker: { color, opacity: 0.18, size: 4 },
-      showlegend: false,
-      hovertemplate: `<b>${r.ticker}</b><br>TTF-HH: %{x:.3f}<br>Stock: %{y:.3f}<extra></extra>`,
-    });
-
-    // Regression line
-    const y0 = line.intercept + line.slope * line.x0;
-    const y1 = line.intercept + line.slope * line.x1;
-    traces.push({
-      x: [line.x0, line.x1],
-      y: [y0, y1],
-      mode: "lines",
-      name: r.ticker,
-      legendgroup: r.ticker,
-      type: "scatter",
-      line: { color, width: 2 },
-      hovertemplate: `<b>${r.ticker}</b>  β = ${line.slope.toFixed(2)}<extra></extra>`,
-    });
-  });
+  if (allRows.length === 0) return;
 
   const p = palette();
+  const tickers = allRows.map((r) => r.ticker);
+  const values  = allRows.map((r) => r.returns.rsi_14);
+  const validValues = values.filter((v) => v != null);
+  const mean = validValues.reduce((a, b) => a + b, 0) / validValues.length;
+
+  const barColors = values.map((v) =>
+    v >= 70 ? p.red :
+    v <= 30 ? p.green :
+    p.accent
+  );
+
+  const barTrace = {
+    type: "bar",
+    x: tickers,
+    y: values,
+    marker: { color: barColors, opacity: 0.85 },
+    hovertemplate: "<b>%{x}</b><br>RSI(14): %{y:.1f}<extra></extra>",
+  };
+
+  const nTickers = tickers.length;
+
+  const lineStyle = (color, dash, name, y) => ({
+    type: "scatter",
+    x: [tickers[0], tickers[nTickers - 1]],
+    y: [y, y],
+    mode: "lines",
+    name,
+    line: { color, width: 1.5, dash },
+    hoverinfo: "skip",
+    showlegend: true,
+  });
+
+  const traces = [
+    barTrace,
+    lineStyle(p.green, "dash",     "Oversold (30)",  30),
+    lineStyle(p.red,   "dash",     "Overbought (70)", 70),
+    lineStyle(p.accent, "dot",     `Mean (${mean.toFixed(1)})`, mean),
+  ];
+
   const layout = {
     paper_bgcolor: "rgba(0,0,0,0)",
     plot_bgcolor:  "rgba(0,0,0,0)",
     font: { color: p.text, family: "-apple-system, Segoe UI, Helvetica, Arial, sans-serif", size: 12 },
-    margin: { t: 12, r: 180, b: 48, l: 56 },
+    margin: { t: 12, r: 24, b: 48, l: 48 },
     xaxis: {
-      title: "TTF-HH Daily Return",
-      gridcolor: p.grid, zerolinecolor: p.dim, color: p.dim,
-      zeroline: true, zerolinewidth: 1,
+      tickfont: { family: "ui-monospace, monospace", size: 11 },
+      color: p.dim,
+      gridcolor: p.grid,
     },
     yaxis: {
-      title: "Stock Daily Return",
-      gridcolor: p.grid, zerolinecolor: p.dim, color: p.dim,
-      zeroline: true, zerolinewidth: 1,
+      range: [0, 100],
+      title: "RSI(14)",
+      color: p.dim,
+      gridcolor: p.grid,
+      dtick: 10,
     },
     showlegend: true,
-    legend: { font: { color: p.text, size: 11 }, bgcolor: "rgba(0,0,0,0)", borderwidth: 0 },
+    legend: {
+      orientation: "h",
+      x: 0.5, xanchor: "center",
+      y: 1.08,
+      font: { color: p.text, size: 11 },
+      bgcolor: "rgba(0,0,0,0)",
+    },
+    bargap: 0.3,
     hovermode: "closest",
   };
 
-  Plotly.newPlot("scatterRegression", traces, layout, { displayModeBar: false, responsive: true });
+  Plotly.newPlot(el, traces, layout, { displayModeBar: false, responsive: true });
 }
 
 // ---------- Spread time series ----------

@@ -40,6 +40,20 @@ def _first_not_none(d: dict, *keys) -> Any:
     return None
 
 
+def _rsi14(prices: pd.Series) -> float | None:
+    if prices is None or len(prices) < 15:
+        return None
+    delta = prices.diff().dropna()
+    gain = delta.clip(lower=0)
+    loss = (-delta).clip(lower=0)
+    avg_gain = gain.ewm(alpha=1 / 14, min_periods=14, adjust=False).mean()
+    avg_loss = loss.ewm(alpha=1 / 14, min_periods=14, adjust=False).mean()
+    rs = avg_gain / avg_loss.replace(0, float("nan"))
+    rsi = 100 - (100 / (1 + rs))
+    last = rsi.iloc[-1]
+    return float(last) if pd.notna(last) else None
+
+
 def _window_return(prices: pd.Series, start: dt.date, end: dt.date) -> float | None:
     if prices is None or prices.empty:
         return None
@@ -130,10 +144,11 @@ def fetch_one(ticker: str) -> dict[str, Any]:
 
         out["mar_run"] = _window_return(hist, MAR_RUN_START, MAR_RUN_END)
         out["apr_sell"] = _window_return(hist, APR_SELL_START, APR_SELL_END)
+        out["rsi_14"] = _rsi14(hist)
     else:
         for k in ("price_last", "high_1y", "low_1y", "high_5y",
                  "from_1y_hi", "from_1y_lo", "from_5y_hi",
-                 "ytd", "mar_run", "apr_sell"):
+                 "ytd", "mar_run", "apr_sell", "rsi_14"):
             out[k] = None
 
     info = _fetch_info(tk, ticker)
