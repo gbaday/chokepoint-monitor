@@ -3,7 +3,9 @@
 Window is 180 business days (the most recent aligned observations).
 Returns dict per ticker:
   jkm_hh_beta, jkm_hh_t, ttf_hh_beta, ttf_hh_t, brent_beta, r_squared, n_obs
-  spread_score_raw = jkm_hh_beta + ttf_hh_beta - 0.5 * brent_beta
+  spread_score_raw = ttf_hh_beta  (univariate TTF-HH signal for score ranking)
+  reg_scatter      = {"x": [ttf_hh_rets], "y": [stock_rets]}  (for chart)
+  reg_line         = {"slope", "intercept", "x0", "x1"}        (bivariate fit)
 Any failure on a ticker yields a dict of None values.
 """
 
@@ -29,7 +31,8 @@ def _empty() -> dict[str, Any]:
     return {"jkm_hh_beta": None, "jkm_hh_t": None,
             "ttf_hh_beta": None, "ttf_hh_t": None,
             "brent_beta": None, "r_squared": None,
-            "spread_score_raw": None, "n_obs": 0}
+            "spread_score_raw": None, "n_obs": 0,
+            "reg_scatter": None, "reg_line": None}
 
 
 def compute_one(stock_prices: pd.Series, spreads: pd.DataFrame) -> dict[str, Any]:
@@ -62,9 +65,10 @@ def compute_one(stock_prices: pd.Series, spreads: pd.DataFrame) -> dict[str, Any
     df = df.tail(WINDOW)
     out["n_obs"] = len(df)
 
-    X = sm.add_constant(df[["jkm_hh", "ttf_hh", "brent"]])
+    # Multivariate OLS — keeps individual betas for display in table
+    X_multi = sm.add_constant(df[["jkm_hh", "ttf_hh", "brent"]])
     try:
-        res = sm.OLS(df["y"], X).fit()
+        res = sm.OLS(df["y"], X_multi).fit()
     except Exception as e:
         log.warning("OLS failed: %s", e)
         return out
@@ -75,8 +79,30 @@ def compute_one(stock_prices: pd.Series, spreads: pd.DataFrame) -> dict[str, Any
     out["ttf_hh_t"] = float(res.tvalues["ttf_hh"])
     out["brent_beta"] = float(res.params["brent"])
     out["r_squared"] = float(res.rsquared)
-    out["spread_score_raw"] = (out["jkm_hh_beta"] + out["ttf_hh_beta"]
-                               - 0.5 * out["brent_beta"])
+
+    # Spread score uses TTF-HH beta only
+    out["spread_score_raw"] = out["ttf_hh_beta"]
+
+    # Bivariate OLS (stock ~ TTF-HH) for the regression chart
+    try:
+        X_ttf = sm.add_constant(df[["ttf_hh"]])
+        res_ttf = sm.OLS(df["y"], X_ttf).fit()
+        slope = float(res_ttf.params["ttf_hh"])
+        intercept = float(res_ttf.params["const"])
+        x0 = round(float(df["ttf_hh"].min()), 5)
+        x1 = round(float(df["ttf_hh"].max()), 5)
+        out["reg_scatter"] = {
+            "x": [round(float(v), 5) for v in df["ttf_hh"]],
+            "y": [round(float(v), 5) for v in df["y"]],
+        }
+        out["reg_line"] = {
+            "slope": round(slope, 4),
+            "intercept": round(intercept, 6),
+            "x0": x0, "x1": x1,
+        }
+    except Exception as e:
+        log.warning("bivariate OLS failed: %s", e)
+
     return out
 
 
@@ -107,7 +133,9 @@ if __name__ == "__main__":
     for t in sample:
         print(f"\n=== {t} ===")
         for k, v in res[t].items():
-            if isinstance(v, float):
+            if k in ("reg_scatter", "reg_line"):
+                print(f"  {k}: {type(v).__name__}")
+            elif isinstance(v, float):
                 print(f"  {k}: {v:.4f}")
             else:
                 print(f"  {k}: {v}")

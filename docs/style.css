@@ -27,7 +27,7 @@
   --c-growth:       #5D9CA4;      /* accent2 light teal */
   --c-spread:       #48AC98;      /* accent3 sea green */
   --c-reset:        #45889F;      /* accent1 teal */
-  --c-not-extended: #D2DB6F;      /* accent5 lime */
+  --c-room-to-run: #D2DB6F;       /* accent5 lime */
 
   --shadow-card:       0 2px 14px rgba(74, 53, 37, 0.07);
   --shadow-card-hover: 0 12px 28px -10px rgba(74, 53, 37, 0.18);
@@ -57,7 +57,7 @@
   --c-growth:       #5D9CA4;
   --c-spread:       #48AC98;
   --c-reset:        #4FA8C2;     /* slightly brighter for dark contrast */
-  --c-not-extended: #D2DB6F;
+  --c-room-to-run:  #D2DB6F;
 
   --shadow-card:       0 2px 14px rgba(0, 0, 0, 0.35);
   --shadow-card-hover: 0 14px 32px -12px rgba(0, 0, 0, 0.65);
@@ -241,6 +241,7 @@ h2 {
 #stackChart { height: 600px !important; }
 #spreadChart { height: 360px !important; }
 #scatterSetup, #scatterValLev { height: 420px; }
+#scatterRegression { height: 460px; }
 
 .explainer-grid {
   display: grid;
@@ -322,6 +323,29 @@ h2 {
 .dictionary-table th, .dictionary-table td { text-align: left; white-space: normal; }
 .dictionary-table td:first-child { font-weight: 600; white-space: nowrap; color: var(--text); }
 .dictionary-table td { font-family: -apple-system, "Segoe UI", sans-serif; font-size: 12px; color: var(--text-dim); }
+
+.dict-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+}
+.dict-toggle:hover { color: var(--accent); }
+.dict-chevron { font-size: 12px; color: var(--text-mute); transition: transform 0.15s; }
+
+.warning-banner {
+  background: rgba(232, 168, 56, 0.12);
+  border: 1px solid var(--yellow);
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 12px;
+  padding: 8px 12px;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+.warning-icon { color: var(--yellow); margin-right: 4px; }
+
+.missing-dot { color: var(--yellow); font-size: 8px; vertical-align: super; cursor: default; }
 
 footer {
   border-top: 1px solid var(--border-soft);

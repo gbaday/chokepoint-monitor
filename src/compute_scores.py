@@ -66,7 +66,7 @@ def compute_scores(prices_dict: dict[str, dict],
     raw["from_1y_hi"]      = [_g(prices_dict[t], "from_1y_hi")              for t in tickers]
     raw["from_5y_hi"]      = [_g(prices_dict[t], "from_5y_hi")              for t in tickers]
     raw["ytd"]             = [_g(prices_dict[t], "ytd")                     for t in tickers]
-    raw["from_1y_lo"]      = [_g(prices_dict[t], "from_1y_lo")              for t in tickers]
+    raw["from_1y_lo"]      = [_g(prices_dict[t], "from_1y_lo")             for t in tickers]
     raw["ebitda_margin"]   = [_g(prices_dict[t], "ebitda_margin")           for t in tickers]
     raw["roic"]            = [_g(prices_dict[t], "roic")                    for t in tickers]
     raw["roe"]             = [_g(prices_dict[t], "roe")                     for t in tickers]
@@ -92,12 +92,12 @@ def compute_scores(prices_dict: dict[str, dict],
     reset_raw = -((raw["from_1y_hi"] + raw["from_5y_hi"]) / 2.0)
     z["reset"] = _z(reset_raw)
 
-    # Not Extended: penalize high YTD + large distance from 1y low.
-    not_ext_raw = -((_z(raw["ytd"]) + _z(raw["from_1y_lo"])) / 2.0)
-    z["not_extended"] = _z(not_ext_raw)
+    # Room to Run: penalize high YTD + large distance from 1y low.
+    room_raw = -((_z(raw["ytd"]) + _z(raw["from_1y_lo"])) / 2.0)
+    z["room_to_run"] = _z(room_raw)
 
     # Setup
-    z["setup"] = _z((z["reset"] + z["not_extended"]) / 2.0)
+    z["setup"] = _z((z["reset"] + z["room_to_run"]) / 2.0)
 
     # Quality
     roic_or_roe = raw["roic"].copy()
@@ -115,21 +115,17 @@ def compute_scores(prices_dict: dict[str, dict],
         return s
 
     sweet = _composite([("value", 0.30), ("growth", 0.20), ("spread", 0.20),
-                        ("reset", 0.20), ("not_extended", 0.10)])
-    broad = _composite([("value", 0.25), ("growth", 0.15), ("spread", 0.15),
-                        ("reset", 0.15), ("not_extended", 0.10),
-                        ("setup", 0.10), ("quality", 0.10)])
+                        ("reset", 0.20), ("room_to_run", 0.10)])
 
     out: dict[str, dict] = {}
     for t in tickers:
         out[t] = {
             "sweet_spot":   float(sweet.loc[t]),
-            "broad_score":  float(broad.loc[t]),
             "spread":       _to_float_or_none(z["spread"].loc[t]),
             "value":        _to_float_or_none(z["value"].loc[t]),
             "growth":       _to_float_or_none(z["growth"].loc[t]),
             "reset":        _to_float_or_none(z["reset"].loc[t]),
-            "not_extended": _to_float_or_none(z["not_extended"].loc[t]),
+            "room_to_run":  _to_float_or_none(z["room_to_run"].loc[t]),
             "setup":        _to_float_or_none(z["setup"].loc[t]),
             "quality":      _to_float_or_none(z["quality"].loc[t]),
         }
@@ -156,11 +152,11 @@ if __name__ == "__main__":
     rows = []
     for t in universe:
         s = scores[t]
-        rows.append([t, s["sweet_spot"], s["broad_score"], s["spread"],
+        rows.append([t, s["sweet_spot"], s["spread"],
                      s["value"], s["growth"], s["reset"],
-                     s["not_extended"], s["setup"], s["quality"]])
-    df = pd.DataFrame(rows, columns=["tk", "sweet", "broad", "spr",
-                                      "val", "grw", "rst", "nxt",
+                     s["room_to_run"], s["setup"], s["quality"]])
+    df = pd.DataFrame(rows, columns=["tk", "sweet", "spr",
+                                      "val", "grw", "rst", "rtr",
                                       "stp", "qty"])
     df = df.sort_values("sweet", ascending=False)
     print("\nRanking by Sweet Spot:")
