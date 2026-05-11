@@ -40,4 +40,6 @@ TICKERS = [
      "what_it_does": "Vistra: power generator; gas-fired capacity beneficiary of power demand surge, less direct LNG linkage."},
     {"ticker": "MPLX", "ticker_bbg": "MPLX US Equity", "bucket": "small/levered",
      "what_it_does": "MPLX: large midstream MLP; Permian/Marcellus gathering, stable distributions, lower spread beta."},
+    {"ticker": "GLNG", "ticker_bbg": "GLNG US Equity", "bucket": "small/levered",
+     "what_it_does": "Golar LNG: floating LNG (FLNG) owner/operator; direct exposure to global LNG infrastructure and JKM/TTF shipping spreads."},
 ]

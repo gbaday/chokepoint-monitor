@@ -143,6 +143,7 @@ function pluck(t, key) {
   if (key in t.fundamentals) return t.fundamentals[key];
   if (key in t.returns)      return t.returns[key];
   if (key in t.crowding)     return t.crowding[key];
+  if (key in t.catalyst)     return t.catalyst[key];
   return null;
 }
 
@@ -326,6 +327,8 @@ function renderRsiChart() {
     type: "bar",
     x: tickers,
     y: values,
+    name: "RSI(14)",
+    showlegend: false,
     marker: { color: barColors, opacity: 0.85 },
     hovertemplate: "<b>%{x}</b><br>RSI(14): %{y:.1f}<extra></extra>",
   };
