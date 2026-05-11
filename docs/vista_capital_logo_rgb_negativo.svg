@@ -6,7 +6,7 @@
    id="svg1"
    width="1409.76"
    height="793.70667"
-   viewBox="0 0 1409.76 793.70667"
+   viewBox="375 362 650 70"
    sodipodi:docname="vista_capital_logo_rgb_negativo.ai"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -136,16 +136,6 @@
        margin="0.0067952499 0 0 4.069e-05"
        bleed="0" />
   </sodipodi:namedview>
-  <g
-     id="layer-MC0"
-     inkscape:groupmode="layer"
-     inkscape:label="FUNDO">
-    <path
-       id="path1"
-       d="M 0,0.005 H 1057.32 V 595.279 H 0 Z"
-       style="fill:#4f3a27;fill-opacity:1;fill-rule:nonzero;stroke:none"
-       transform="matrix(1.3333333,0,0,-1.3333333,0,793.70667)" />
-  </g>
   <g
      id="layer-MC1"
      inkscape:groupmode="layer"
