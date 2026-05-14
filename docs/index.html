@@ -118,6 +118,26 @@
       <div id="rsiChart" class="chart-wrap"></div>
     </section>
 
+    <section class="chart-section">
+      <h2>Ranking History</h2>
+      <p class="chart-note">Sweet Spot rank over time — consistent top names vs. recent movers. Rank 1 = best. Click a ticker in the legend to isolate it.</p>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap;">
+        <div class="toggle-group" id="rhModeToggle">
+          <button class="toggle-btn active" data-rh-mode="top10">Top 10</button>
+          <button class="toggle-btn" data-rh-mode="all">All</button>
+        </div>
+        <div class="toggle-group" id="rhBucketToggle">
+          <button class="toggle-btn active" data-rh-bucket="all">All</button>
+          <button class="toggle-btn" data-rh-bucket="core">Core</button>
+          <button class="toggle-btn" data-rh-bucket="small/levered">Small/Levered</button>
+        </div>
+      </div>
+      <div id="rankingHistoryPlaceholder" style="display:none;padding:32px;text-align:center;color:var(--text-mute);font-size:13px;">
+        Ranking history will appear here after a few days of data collection.
+      </div>
+      <div class="chart-wrap"><canvas id="rankingHistoryChart"></canvas></div>
+    </section>
+
     <section class="table-section">
       <div id="warningBanner" class="warning-banner" style="display:none"></div>
       <h2>Screen Table</h2>

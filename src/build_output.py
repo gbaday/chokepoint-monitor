@@ -20,6 +20,8 @@ from typing import Any
 
 import pandas as pd
 
+from src.build_history import load_ranking_history
+
 log = logging.getLogger(__name__)
 
 _PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -145,6 +147,7 @@ def build(universe: list[dict], sector_name: str,
         "generated_at": dt.datetime.now().isoformat(timespec="seconds"),
         "sector": sector_name,
         "spreads": _spreads_payload(spreads["frame"], spreads["latest"]),
+        "ranking_history": load_ranking_history(weeks=12),
         "tickers": tickers_payload,
     }
 

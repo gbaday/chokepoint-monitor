@@ -31,6 +31,7 @@ def main() -> int:
     # Imports happen after env var is set so config.universe picks the right sector.
     from config.universe import TICKERS, SECTOR_NAME
     from src.build_output import build, write_json
+    from src.build_history import save_snapshot
     from src.compute_betas import compute_all as compute_betas
     from src.compute_scores import compute_scores
     from src.fetch_bloomberg import get_bloomberg_data, FUND_KEYS
@@ -95,6 +96,7 @@ def main() -> int:
     scores = compute_scores(prices, betas)
     payload = build(TICKERS, SECTOR_NAME, spreads, prices, betas, scores, bbg)
     path = write_json(payload, SECTOR_NAME)
+    save_snapshot(payload["tickers"])
 
     log.info("done in %.1fs -> %s", time.time() - t0, path)
     return 0

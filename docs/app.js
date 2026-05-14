@@ -45,6 +45,9 @@ let STATE = {
   sortDir: "desc",
   topMode: "top10",
   scatterSpread: "ttf",
+  rankingHistoryMode: "top10",
+  rankingHistoryBucket: "all",
+  rankingHistoryHighlight: null,
   charts: {},
 };
 
@@ -159,6 +162,7 @@ function renderAll() {
   renderValLevScatter(rows);
   renderSpreadChart();
   renderRsiChart();
+  renderRankingHistory();
   renderScreenTable(getFilteredSorted());
 }
 
@@ -389,6 +393,127 @@ function renderRsiChart() {
   Plotly.newPlot(el, traces, layout, { displayModeBar: false, responsive: true });
 }
 
+// ---------- Ranking History ----------
+const _RH_COLORS = [
+  "#5D9CA4","#F7B55A","#48AC98","#D2DB6F","#c5524a",
+  "#45889F","#e8a838","#4caf7d","#a78bfa","#fb923c",
+  "#34d399","#60a5fa","#f472b6","#94a3b8","#fbbf24","#c084fc",
+];
+
+function renderRankingHistory() {
+  const el          = document.getElementById("rankingHistoryChart");
+  const placeholder = document.getElementById("rankingHistoryPlaceholder");
+  if (!el) return;
+
+  const hist    = STATE.data.ranking_history;
+  const hasData = hist && hist.dates && hist.dates.length >= 3;
+
+  if (!hasData) {
+    if (placeholder) placeholder.style.display = "block";
+    el.style.display = "none";
+    if (STATE.charts.rankingHistory) { STATE.charts.rankingHistory.destroy(); STATE.charts.rankingHistory = null; }
+    return;
+  }
+  if (placeholder) placeholder.style.display = "none";
+  el.style.display = "block";
+
+  const dates      = hist.dates;
+  const allTickers = STATE.data.tickers;           // already sorted by sweet_spot desc
+  const top3       = allTickers.slice(0, 3).map((t) => t.ticker);
+  const totalCount = allTickers.length;
+  const highlight  = STATE.rankingHistoryHighlight;
+
+  // Apply bucket filter then top-10 slice
+  let filtered = [...allTickers];
+  if (STATE.rankingHistoryBucket !== "all") {
+    filtered = filtered.filter((t) => t.bucket === STATE.rankingHistoryBucket);
+  }
+  if (STATE.rankingHistoryMode === "top10") {
+    filtered = filtered.slice(0, 10);
+  }
+
+  const p = palette();
+
+  const datasets = filtered.map((t, i) => {
+    const ticker  = t.ticker;
+    const series  = hist.tickers[ticker];
+    const isTop3  = top3.includes(ticker);
+    const isDimmed = highlight !== null && highlight !== ticker;
+    const color   = _RH_COLORS[i % _RH_COLORS.length];
+    const [r, g, b] = hexToRgb(color);
+    return {
+      label:       ticker,
+      data:        series ? series.ranks      : dates.map(() => null),
+      _sweetSpots: series ? series.sweet_spots : dates.map(() => null),
+      borderColor: isDimmed ? `rgba(${r},${g},${b},0.10)` : color,
+      backgroundColor: "transparent",
+      borderWidth: isTop3 ? 2.5 : 1.5,
+      pointRadius: 0,
+      pointHoverRadius: 4,
+      tension: 0.15,
+      spanGaps: true,
+    };
+  });
+
+  if (STATE.charts.rankingHistory) STATE.charts.rankingHistory.destroy();
+  STATE.charts.rankingHistory = new Chart(el, {
+    type: "line",
+    data: { labels: dates, datasets },
+    options: {
+      maintainAspectRatio: false,
+      responsive: true,
+      plugins: {
+        legend: {
+          position: "right",
+          labels: {
+            color: p.text,
+            boxWidth: 10,
+            font: { size: 11, family: "ui-monospace, monospace" },
+            padding: 10,
+          },
+          onClick(e, legendItem) {
+            const ticker = legendItem.text;
+            STATE.rankingHistoryHighlight =
+              STATE.rankingHistoryHighlight === ticker ? null : ticker;
+            renderRankingHistory();
+          },
+        },
+        tooltip: {
+          mode: "index",
+          intersect: false,
+          callbacks: {
+            label: (ctx) => {
+              const rank = ctx.parsed.y;
+              if (rank == null) return null;
+              const spot = ctx.dataset._sweetSpots?.[ctx.dataIndex];
+              const spotStr = spot != null ? ` (score ${spot.toFixed(2)})` : "";
+              return `${ctx.dataset.label}: #${rank}${spotStr}`;
+            },
+          },
+        },
+      },
+      scales: {
+        x: {
+          ticks: { color: p.dim, maxTicksLimit: 10, autoSkip: true },
+          grid: { color: p.grid, drawBorder: false },
+        },
+        y: {
+          reverse: true,
+          min: 1,
+          max: totalCount,
+          ticks: {
+            color: p.dim,
+            stepSize: 1,
+            callback: (v) => Number.isInteger(v) ? `#${v}` : "",
+          },
+          grid: { color: p.grid, drawBorder: false },
+          title: { display: true, text: "Rank (1 = best)", color: p.dim },
+        },
+      },
+    },
+  });
+}
+
 // ---------- Spread time series ----------
 function renderSpreadChart() {
   const h = STATE.data.spreads.history;
@@ -556,6 +681,26 @@ function bindControls() {
       btn.classList.add("active");
       STATE.scatterSpread = btn.dataset.spread;
       renderSetupScatter(topSlice(getFilteredSorted()));
+    });
+  });
+
+  document.querySelectorAll("#rhModeToggle .toggle-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll("#rhModeToggle .toggle-btn").forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      STATE.rankingHistoryMode = btn.dataset.rhMode;
+      STATE.rankingHistoryHighlight = null;
+      renderRankingHistory();
+    });
+  });
+
+  document.querySelectorAll("#rhBucketToggle .toggle-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll("#rhBucketToggle .toggle-btn").forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      STATE.rankingHistoryBucket = btn.dataset.rhBucket;
+      STATE.rankingHistoryHighlight = null;
+      renderRankingHistory();
     });
   });
 }
