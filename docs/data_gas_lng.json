@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-11-06T01:42:50",
+  "generated_at": "2026-11-06T02:43:39",
   "sector": "gas_lng",
   "spreads": {
-    "jkm_hh_latest": 28.65899968147278,
+    "jkm_hh_latest": 28.57800054550171,
     "ttf_hh_latest": null,
     "jkm_ttf_latest": null,
-    "hh_latest": 2.9560000896453857,
-    "brent_latest": 99.29000091552734,
+    "hh_latest": 2.986999988555908,
+    "brent_latest": 99.79000091552734,
     "history": [
       {
         "date": "2024-10-23",
@@ -3082,7 +3082,7 @@
       },
       {
         "date": "2026-11-05",
-        "jkm_hh": 28.65899968147278,
+        "jkm_hh": 28.57800054550171,
         "ttf_hh": null,
         "jkm_ttf": null
       }
@@ -3140,7 +3140,8 @@
       "2026-10-30",
       "2026-11-03",
       "2026-11-04",
-      "2026-11-05"
+      "2026-11-05",
+      "2026-11-06"
     ],
     "tickers": {
       "EXE": {
@@ -3193,6 +3194,7 @@
           1,
           1,
           2,
+          1,
           1,
           1,
           1
@@ -3248,7 +3250,8 @@
           0.3331,
           0.777,
           0.7731,
-          0.6938
+          0.6938,
+          0.6982
         ],
         "bucket": "core"
       },
@@ -3304,7 +3307,8 @@
           7,
           3,
           3,
-          3
+          3,
+          4
         ],
         "sweet_spots": [
           0.5096,
@@ -3357,7 +3361,8 @@
           0.0303,
           0.4976,
           0.4957,
-          0.4188
+          0.4188,
+          0.463
         ],
         "bucket": "core"
       },
@@ -3413,7 +3418,8 @@
           1,
           2,
           6,
-          4
+          4,
+          2
         ],
         "sweet_spots": [
           0.491,
@@ -3466,7 +3472,8 @@
           0.8349,
           0.7,
           0.1111,
-          0.2448
+          0.2448,
+          0.6494
         ],
         "bucket": "small/levered"
       },
@@ -3522,7 +3529,8 @@
           13,
           7,
           7,
-          7
+          7,
+          8
         ],
         "sweet_spots": [
           0.4867,
@@ -3575,7 +3583,8 @@
           -0.1833,
           0.0249,
           0.039,
-          0.0094
+          0.0094,
+          -0.0354
         ],
         "bucket": "core"
       },
@@ -3631,6 +3640,7 @@
           4,
           5,
           4,
+          5,
           5
         ],
         "sweet_spots": [
@@ -3684,7 +3694,8 @@
           0.1451,
           0.1997,
           0.1748,
-          0.2192
+          0.2192,
+          0.1379
         ],
         "bucket": "core"
       },
@@ -3740,7 +3751,8 @@
           11,
           14,
           12,
-          10
+          10,
+          13
         ],
         "sweet_spots": [
           0.0564,
@@ -3793,7 +3805,8 @@
           -0.1163,
           -0.3206,
           -0.1874,
-          -0.1208
+          -0.1208,
+          -0.3055
         ],
         "bucket": "core"
       },
@@ -3849,6 +3862,7 @@
           9,
           8,
           5,
+          6,
           6
         ],
         "sweet_spots": [
@@ -3902,6 +3916,7 @@
           0.0,
           0.0,
           0.112,
+          0.1115,
           0.1115
         ],
         "bucket": "core"
@@ -3958,7 +3973,8 @@
           5,
           4,
           2,
-          2
+          2,
+          3
         ],
         "sweet_spots": [
           -0.0199,
@@ -4011,7 +4027,8 @@
           0.1314,
           0.2068,
           0.5017,
-          0.5305
+          0.5305,
+          0.582
         ],
         "bucket": "core"
       },
@@ -4067,7 +4084,8 @@
           8,
           12,
           13,
-          11
+          11,
+          12
         ],
         "sweet_spots": [
           -0.1875,
@@ -4120,7 +4138,8 @@
           0.0161,
           -0.2493,
           -0.1922,
-          -0.1964
+          -0.1964,
+          -0.2876
         ],
         "bucket": "core"
       },
@@ -4176,7 +4195,8 @@
           10,
           10,
           14,
-          14
+          14,
+          9
         ],
         "sweet_spots": [
           -0.24,
@@ -4229,7 +4249,8 @@
           -0.0787,
           -0.1455,
           -0.342,
-          -0.3766
+          -0.3766,
+          -0.1288
         ],
         "bucket": "small/levered"
       },
@@ -4285,7 +4306,8 @@
           3,
           9,
           11,
-          13
+          13,
+          10
         ],
         "sweet_spots": [
           -0.2475,
@@ -4338,7 +4360,8 @@
           0.2438,
           -0.0566,
           -0.1657,
-          -0.2247
+          -0.2247,
+          -0.1706
         ],
         "bucket": "core"
       },
@@ -4394,7 +4417,8 @@
           6,
           6,
           8,
-          9
+          9,
+          7
         ],
         "sweet_spots": [
           -0.2731,
@@ -4447,7 +4471,8 @@
           0.0622,
           0.1368,
           -0.0829,
-          -0.0829
+          -0.0829,
+          0.0094
         ],
         "bucket": "small/levered"
       },
@@ -4503,7 +4528,8 @@
           12,
           11,
           10,
-          12
+          12,
+          11
         ],
         "sweet_spots": [
           -0.3515,
@@ -4556,7 +4582,8 @@
           -0.1761,
           -0.207,
           -0.1311,
-          -0.1993
+          -0.1993,
+          -0.2501
         ],
         "bucket": "small/levered"
       },
@@ -4612,7 +4639,8 @@
           14,
           15,
           15,
-          15
+          15,
+          14
         ],
         "sweet_spots": [
           -0.3755,
@@ -4665,7 +4693,8 @@
           -0.2928,
           -0.3842,
           -0.4879,
-          -0.4622
+          -0.4622,
+          -0.4154
         ],
         "bucket": "core"
       },
@@ -4721,7 +4750,8 @@
           15,
           13,
           16,
-          16
+          16,
+          15
         ],
         "sweet_spots": [
           -0.4064,
@@ -4774,7 +4804,8 @@
           -0.4443,
           -0.2944,
           -0.5231,
-          -0.5067
+          -0.5067,
+          -0.4245
         ],
         "bucket": "core"
       },
@@ -4830,7 +4861,8 @@
           16,
           16,
           9,
-          8
+          8,
+          16
         ],
         "sweet_spots": [
           -0.438,
@@ -4883,7 +4915,8 @@
           -0.5052,
           -0.8851,
           -0.0948,
-          -0.0584
+          -0.0584,
+          -0.6334
         ],
         "bucket": "core"
       }
@@ -4895,15 +4928,15 @@
       "bucket": "core",
       "what_it_does": "Expand Energy: large US gas producer; cheap producer exposure to higher HH with lower oil beta.",
       "scores": {
-        "sweet_spot": 0.6981852805698874,
+        "sweet_spot": 0.6736094793773347,
         "spread": null,
         "spread_ttf": null,
         "spread_jkm": null,
         "value": 1.7147417643412575,
-        "growth": -0.6063724287378635,
-        "reset": 0.9118343515081424,
-        "room_to_run": 1.2267036671345444,
-        "setup": 1.4672036785458173,
+        "growth": -0.6061219603799322,
+        "reset": 0.7966857585080207,
+        "room_to_run": 1.210741904493399,
+        "setup": 1.3713311069486125,
         "quality": 0.8279365893978545
       },
       "betas": {
@@ -4925,13 +4958,13 @@
         "roic": 0.08167,
         "roe": 0.14624,
         "price_sales": 1.522,
-        "from_1y_hi": -0.2770097041670434
+        "from_1y_hi": -0.29332274740578124
       },
       "returns": {
-        "mar_run": 0.05189189026723007,
+        "mar_run": 0.05189181499123752,
         "apr_sell": -0.09044606860711701,
-        "ytd": -0.19059600372595165,
-        "rsi_14": 37.54513193261054
+        "ytd": -0.20885882476923223,
+        "rsi_14": 32.88841308191853
       },
       "crowding": {
         "si_pct_float": null,
@@ -4949,15 +4982,15 @@
       "bucket": "small/levered",
       "what_it_does": "Vistra: power generator; gas-fired capacity beneficiary of power demand surge, less direct LNG linkage.",
       "scores": {
-        "sweet_spot": 0.6493835724061818,
+        "sweet_spot": 0.6606192139425282,
         "spread": null,
         "spread_ttf": null,
         "spread_jkm": null,
         "value": 0.12264854928925782,
-        "growth": 0.1944668416385758,
-        "reset": 2.1366234537961613,
-        "room_to_run": 1.4637094853245696,
-        "setup": 2.4701088716768855,
+        "growth": 0.19513287841252677,
+        "reset": 2.1901012951191743,
+        "room_to_run": 1.4677781444941056,
+        "setup": 2.49880180165969,
         "quality": -0.7792471851764252
       },
       "betas": {
@@ -4979,13 +5012,13 @@
         "roic": 0.05886,
         "roe": 0.42962003,
         "price_sales": 1.9721974,
-        "from_1y_hi": -0.366550888660347
+        "from_1y_hi": -0.40551941767193
       },
       "returns": {
         "mar_run": -0.06203937686399419,
         "apr_sell": 0.06748505045908093,
-        "ytd": -0.26877488815259243,
-        "rsi_14": 32.519981079803216
+        "ytd": -0.31375846583206135,
+        "rsi_14": 29.25692288440878
       },
       "crowding": {
         "si_pct_float": null,
@@ -5003,15 +5036,15 @@
       "bucket": "core",
       "what_it_does": "Antero Midstream: Appalachia gathering/processing MLP; tied to AR volumes, high yield.",
       "scores": {
-        "sweet_spot": 0.5819790157924909,
+        "sweet_spot": 0.5916027344237793,
         "spread": null,
         "spread_ttf": null,
         "spread_jkm": null,
         "value": null,
-        "growth": 3.2962365733824543,
-        "reset": -0.4725757735508109,
-        "room_to_run": 0.17246855826162116,
-        "setup": -0.20589692883267377,
+        "growth": 3.297311197766339,
+        "reset": -0.4344878556459648,
+        "room_to_run": 0.19038065999704334,
+        "setup": -0.16675658953650685,
         "quality": 1.4716327637455415
       },
       "betas": {
@@ -5033,13 +5066,13 @@
         "roic": 0.07666,
         "roe": 0.31605,
         "price_sales": 6.7071395,
-        "from_1y_hi": -0.13157450723853326
+        "from_1y_hi": -0.16174641234322573
       },
       "returns": {
-        "mar_run": 0.01222187617462267,
-        "apr_sell": -0.052328036592048655,
-        "ytd": 0.15627828963791934,
-        "rsi_14": 39.26393300853152
+        "mar_run": 0.012221703294059694,
+        "apr_sell": -0.05232820659820525,
+        "ytd": 0.11610532516977945,
+        "rsi_14": 33.70696350887248
       },
       "crowding": {
         "si_pct_float": null,
@@ -5057,15 +5090,15 @@
       "bucket": "core",
       "what_it_does": "EQT: largest US gas producer; Appalachia scale operator, high leverage to HH price.",
       "scores": {
-        "sweet_spot": 0.4630173600245081,
+        "sweet_spot": 0.467520405217295,
         "spread": null,
         "spread_ttf": null,
         "spread_jkm": null,
         "value": 1.4698161100909892,
-        "growth": -0.633311976059395,
-        "reset": 0.36720955046174136,
-        "room_to_run": 0.7529301211674202,
-        "setup": 0.7685030765749533,
+        "growth": -0.6330754870671402,
+        "reset": 0.37279213828262353,
+        "room_to_run": 0.786322419469016,
+        "setup": 0.7918242230383585,
         "quality": 1.0204048685742337
       },
       "betas": {
@@ -5087,13 +5120,13 @@
         "roic": 0.06249,
         "roe": 0.104890004,
         "price_sales": 3.4608319,
-        "from_1y_hi": -0.21979572273292103
+        "from_1y_hi": -0.24802095701289462
       },
       "returns": {
         "mar_run": 0.09587936474866976,
         "apr_sell": -0.035685051845804394,
-        "ytd": -0.005823539818535672,
-        "rsi_14": 44.64326918426909
+        "ytd": -0.041789655752834776,
+        "rsi_14": 37.88242952888285
       },
       "crowding": {
         "si_pct_float": null,
@@ -5111,15 +5144,15 @@
       "bucket": "core",
       "what_it_does": "Antero Resources: Appalachia gas/NGL producer; liquids-rich with LNG export upside.",
       "scores": {
-        "sweet_spot": 0.13792181876417767,
+        "sweet_spot": 0.12787351339335543,
         "spread": null,
         "spread_ttf": null,
         "spread_jkm": null,
         "value": null,
-        "growth": 0.36198184498337227,
-        "reset": 0.1606756888621769,
-        "room_to_run": 0.3339031199506784,
-        "setup": 0.33931959184040733,
+        "growth": 0.3627348079948025,
+        "reset": 0.11615625504070942,
+        "room_to_run": 0.3209530078625305,
+        "setup": 0.2986018078770334,
         "quality": 0.321587244027143
       },
       "betas": {
@@ -5141,13 +5174,13 @@
         "roic": 0.07693,
         "roe": 0.17386,
         "price_sales": 1.8681228,
-        "from_1y_hi": -0.1709856248017667
+        "from_1y_hi": -0.19424142107142384
       },
       "returns": {
         "mar_run": 0.21763752147567472,
         "apr_sell": -0.0739109254197754,
-        "ytd": 0.09412456319429219,
-        "rsi_14": 44.181685244384056
+        "ytd": 0.06343180478562194,
+        "rsi_14": 40.329394789271205
       },
       "crowding": {
         "si_pct_float": null,
@@ -5165,12 +5198,12 @@
       "bucket": "core",
       "what_it_does": "Coterra: gas-weighted E&P with Permian/Appalachia mix; lower leverage, more balanced producer exposure.",
       "scores": {
-        "sweet_spot": 0.11148320311046032,
+        "sweet_spot": 0.11008587331241762,
         "spread": null,
         "spread_ttf": null,
         "spread_jkm": null,
         "value": null,
-        "growth": 0.5574160155523016,
+        "growth": 0.5504293665620881,
         "reset": null,
         "room_to_run": null,
         "setup": null,
@@ -5191,7 +5224,7 @@
         "ev_ebitda": null,
         "net_debt_ebitda": null,
         "fcf_ev": null,
-        "fwd_rev_growth": 0.1675,
+        "fwd_rev_growth": 0.1659,
         "roic": null,
         "roe": null,
         "price_sales": null,
@@ -5219,15 +5252,15 @@
       "bucket": "small/levered",
       "what_it_does": "DT Midstream: gas pipes/storage with Haynesville/Gulf Coast exposure; smaller midstream compounder.",
       "scores": {
-        "sweet_spot": 0.009362500227278803,
+        "sweet_spot": 0.021748699382294998,
         "spread": null,
         "spread_ttf": null,
         "spread_jkm": null,
         "value": -0.5084343502383885,
-        "growth": 0.10972972006357644,
-        "reset": 0.316696774283278,
-        "room_to_run": 0.7660750642942441,
-        "setup": 0.7428658320486908,
+        "growth": 0.11035178537821769,
+        "reset": 0.35283693543776906,
+        "room_to_run": 0.8164126029061416,
+        "setup": 0.7987477174240648,
         "quality": -0.0008754140365351938
       },
       "betas": {
@@ -5249,13 +5282,13 @@
         "roic": 0.04052,
         "roe": 0.09919,
         "price_sales": 8.64526,
-        "from_1y_hi": -0.21448924929853486
+        "from_1y_hi": -0.24588833134128285
       },
       "returns": {
         "mar_run": -0.03597478272896182,
         "apr_sell": 0.005826455568627376,
-        "ytd": -0.008913156912847664,
-        "rsi_14": 38.82341822005764
+        "ytd": -0.048529695667781314,
+        "rsi_14": 33.27710671936255
       },
       "crowding": {
         "si_pct_float": null,
@@ -5273,15 +5306,15 @@
       "bucket": "core",
       "what_it_does": "Range Resources: low-leverage Appalachia gas producer; cleaner balance sheet, lower LNG-spread directness.",
       "scores": {
-        "sweet_spot": -0.03540890530343696,
+        "sweet_spot": -0.018421416443767075,
         "spread": null,
         "spread_ttf": null,
         "spread_jkm": null,
         "value": 1.1171668284103178,
-        "growth": -0.23999458516503372,
-        "reset": -1.0024177840960653,
-        "room_to_run": -1.2207647997431248,
-        "setup": -1.5252764443056905,
+        "growth": -0.239553997433902,
+        "reset": -0.9206424826557187,
+        "room_to_run": -1.2153216894893826,
+        "setup": -1.459138063391451,
         "quality": 1.664248456088638
       },
       "betas": {
@@ -5303,13 +5336,13 @@
         "roic": 0.10597,
         "roe": 0.19643,
         "price_sales": 3.450256,
-        "from_1y_hi": -0.07591348905480289
+        "from_1y_hi": -0.10979074714680881
       },
       "returns": {
         "mar_run": 0.14043418657231355,
         "apr_sell": -0.026206806956893924,
-        "ytd": 0.48682431325409015,
-        "rsi_14": 65.64451550120187
+        "ytd": 0.4323169371578217,
+        "rsi_14": 58.57987261368266
       },
       "crowding": {
         "si_pct_float": null,
@@ -5327,15 +5360,15 @@
       "bucket": "small/levered",
       "what_it_does": "MPLX: large midstream MLP; Permian/Marcellus gathering, stable distributions, lower spread beta.",
       "scores": {
-        "sweet_spot": -0.12884055191331048,
+        "sweet_spot": -0.2021964628208443,
         "spread": null,
         "spread_ttf": null,
         "spread_jkm": null,
         "value": null,
-        "growth": 0.2836122527752804,
-        "reset": -1.0960234252998406,
-        "room_to_run": 0.3364168259160158,
-        "setup": -0.5211493025365943,
+        "growth": 0.28432454854110634,
+        "reset": -1.3762551100019345,
+        "room_to_run": 0.16189649471321355,
+        "setup": -0.8295630148120002,
         "quality": 0.042722157477978175
       },
       "betas": {
@@ -5357,13 +5390,13 @@
         "roic": null,
         "roe": null,
         "price_sales": 4.7635684,
-        "from_1y_hi": -0.06608001946679998
+        "from_1y_hi": -0.06109912557105668
       },
       "returns": {
         "mar_run": -0.017078140751159876,
         "apr_sell": -0.010371954320489873,
-        "ytd": 0.10513030151479508,
-        "rsi_14": 39.152256508418255
+        "ytd": 0.11102439806758069,
+        "rsi_14": 41.16776439962016
       },
       "crowding": {
         "si_pct_float": null,
@@ -5381,15 +5414,15 @@
       "bucket": "core",
       "what_it_does": "Energy Transfer: diversified midstream MLP; Permian gas takeaway, intrastate pipes, NGL, fractionation, exports.",
       "scores": {
-        "sweet_spot": -0.17056226624995227,
+        "sweet_spot": -0.2048970306306463,
         "spread": null,
         "spread_ttf": null,
         "spread_jkm": null,
         "value": null,
-        "growth": -0.07149995212143709,
-        "reset": -0.7306439894215814,
-        "room_to_run": -0.10133477941348562,
-        "setup": -0.5708022487631937,
+        "growth": -0.07097192980717254,
+        "reset": -0.8542229136062339,
+        "room_to_run": -0.1985806194796496,
+        "setup": -0.7192001291182036,
         "quality": -1.8775624921323921
       },
       "betas": {
@@ -5411,13 +5444,13 @@
         "roic": 0.05244,
         "roe": 0.15574001,
         "price_sales": 0.53061897,
-        "from_1y_hi": -0.10446389809403822
+        "from_1y_hi": -0.11688905023866869
       },
       "returns": {
-        "mar_run": 0.029842813458247575,
+        "mar_run": 0.029842916742020886,
         "apr_sell": 0.003154485137701446,
-        "ytd": 0.23596082195776824,
-        "rsi_14": 37.032417532556
+        "ytd": 0.21881221168771559,
+        "rsi_14": 34.415026461825335
       },
       "crowding": {
         "si_pct_float": null,
@@ -5435,15 +5468,15 @@
       "bucket": "small/levered",
       "what_it_does": "Flex LNG: modern TFDE/X-DF LNG carrier fleet; direct shipping rate exposure to tonne-mile demand and JKM/TTF arbitrage flows.",
       "scores": {
-        "sweet_spot": -0.2501230506105882,
+        "sweet_spot": -0.24650047615293208,
         "spread": null,
         "spread_ttf": null,
         "spread_jkm": null,
         "value": -0.37780888196768697,
-        "growth": -0.70335476970678,
-        "reset": -0.06535179209757856,
-        "room_to_run": 0.16960926340589588,
-        "setup": 0.07152874724973803,
+        "growth": -0.703154627050034,
+        "reset": -0.0546772851503115,
+        "room_to_run": 0.18408570877443134,
+        "setup": 0.08840258609946917,
         "quality": -0.0718219336610952
       },
       "betas": {
@@ -5465,13 +5498,13 @@
         "roic": 0.042940002,
         "roe": 0.14029,
         "price_sales": 3.892542,
-        "from_1y_hi": -0.17435424343422223
+        "from_1y_hi": -0.20233701817599992
       },
       "returns": {
         "mar_run": 0.07018788836429923,
         "apr_sell": 0.05733795066381253,
-        "ytd": 0.17462103246853156,
-        "rsi_14": 27.758408245171452
+        "ytd": 0.13481079242655714,
+        "rsi_14": 23.267104239080396
       },
       "crowding": {
         "si_pct_float": null,
@@ -5485,73 +5518,19 @@
       }
     },
     {
-      "ticker": "OKE",
-      "bucket": "core",
-      "what_it_does": "ONEOK: NGL/gas midstream; more levered and less clean than TRGP/ET for this specific thesis.",
-      "scores": {
-        "sweet_spot": -0.2875579423226897,
-        "spread": null,
-        "spread_ttf": null,
-        "spread_jkm": null,
-        "value": -0.26613336708127433,
-        "growth": -0.3080781683958136,
-        "reset": -0.5593831884161264,
-        "room_to_run": -0.3422566083591935,
-        "setup": -0.618595140708174,
-        "quality": -1.6487743355611717
-      },
-      "betas": {
-        "jkm_hh_beta": null,
-        "jkm_hh_t": null,
-        "ttf_hh_beta": null,
-        "ttf_hh_t": null,
-        "brent_beta": null,
-        "r_squared": null,
-        "reg_scatter": null,
-        "reg_line": null
-      },
-      "fundamentals": {
-        "mkt_cap_b": 54.376349696,
-        "ev_ebitda": 11.933,
-        "net_debt_ebitda": 3.6787846036244574,
-        "fcf_ev": 0.008434040096826816,
-        "fwd_rev_growth": -0.0092,
-        "roic": 0.05459,
-        "roe": 0.15018,
-        "price_sales": 1.2590907,
-        "from_1y_hi": -0.08124788171596908
-      },
-      "returns": {
-        "mar_run": 0.09103565604245056,
-        "apr_sell": 0.0016025088881321814,
-        "ytd": 0.25099081387801925,
-        "rsi_14": 40.91671113574936
-      },
-      "crowding": {
-        "si_pct_float": null,
-        "days_to_cover": 6.37,
-        "delta_short_2w": null
-      },
-      "catalyst": {
-        "next_earnings_date": "2027-02-22",
-        "days_to_earnings": 108,
-        "earnings_flag": "green"
-      }
-    },
-    {
       "ticker": "LNG",
       "bucket": "core",
       "what_it_does": "Cheniere: operating LNG exporter; contracted liquefaction fees plus spot/marketing upside to JKM-HH spreads.",
       "scores": {
-        "sweet_spot": -0.3054657059459556,
+        "sweet_spot": -0.2787120607358613,
         "spread": null,
         "spread_ttf": null,
         "spread_jkm": null,
         "value": 0.017143072151860724,
-        "growth": -0.33354829076154296,
-        "reset": -0.6213237020429623,
-        "room_to_run": -1.1963422903061276,
-        "setup": -1.247060471730528,
+        "growth": -0.33315624955739315,
+        "reset": -0.5103507747632001,
+        "room_to_run": -1.1515357751730082,
+        "setup": -1.1352821145941432,
         "quality": 0.3093412085774731
       },
       "betas": {
@@ -5573,13 +5552,13 @@
         "roic": 0.08611,
         "roe": 0.39681998,
         "price_sales": 2.5180528,
-        "from_1y_hi": -0.11594822433191065
+        "from_1y_hi": -0.15363889220972127
       },
       "returns": {
         "mar_run": 0.19274498334451917,
-        "apr_sell": -0.06797417776618053,
-        "ytd": 0.4868929917337521,
-        "rsi_14": 49.60928741194092
+        "apr_sell": -0.06797428134425054,
+        "ytd": 0.4235007883993609,
+        "rsi_14": 43.476646987867916
       },
       "crowding": {
         "si_pct_float": null,
@@ -5593,20 +5572,20 @@
       }
     },
     {
-      "ticker": "KMI",
+      "ticker": "OKE",
       "bucket": "core",
-      "what_it_does": "Kinder Morgan: giant gas pipeline tollbooth; GCX/Permian Highway/Tennessee Gas/Trident LNG feedgas exposure.",
+      "what_it_does": "ONEOK: NGL/gas midstream; more levered and less clean than TRGP/ET for this specific thesis.",
       "scores": {
-        "sweet_spot": -0.41540809139867224,
+        "sweet_spot": -0.29632228807467076,
         "spread": null,
         "spread_ttf": null,
         "spread_jkm": null,
-        "value": -0.5034254171705527,
-        "growth": -0.34334448488945496,
-        "reset": -0.9978528434258731,
-        "room_to_run": 0.03858999415559161,
-        "setup": -0.6581290437076194,
-        "quality": -1.0409754312096566
+        "value": -0.26613336708127433,
+        "growth": -0.3076729103343006,
+        "reset": -0.5843469807990476,
+        "room_to_run": -0.3807829972361883,
+        "setup": -0.659307822404664,
+        "quality": -1.6487743355611717
       },
       "betas": {
         "jkm_hh_beta": null,
@@ -5619,30 +5598,30 @@
         "reg_line": null
       },
       "fundamentals": {
-        "mkt_cap_b": 67.254726656,
-        "ev_ebitda": 13.146,
-        "net_debt_ebitda": 4.228776066666667,
-        "fcf_ev": 0.010652341445489062,
-        "fwd_rev_growth": -0.0164,
-        "roic": 0.04437,
-        "roe": 0.11428001,
-        "price_sales": 3.6663065,
-        "from_1y_hi": -0.07639304567846461
+        "mkt_cap_b": 54.376349696,
+        "ev_ebitda": 11.933,
+        "net_debt_ebitda": 3.6787846036244574,
+        "fcf_ev": 0.008434040096826816,
+        "fwd_rev_growth": -0.0092,
+        "roic": 0.05459,
+        "roe": 0.15018,
+        "price_sales": 1.2590907,
+        "from_1y_hi": -0.10561657373906919
       },
       "returns": {
-        "mar_run": 0.0041309852000601666,
-        "apr_sell": -0.03467166992337012,
-        "ytd": 0.1803712004580471,
-        "rsi_14": 40.967098869653356
+        "mar_run": 0.09103565604245056,
+        "apr_sell": 0.0016025090330471503,
+        "ytd": 0.2178099272597025,
+        "rsi_14": 36.23140251846954
       },
       "crowding": {
         "si_pct_float": null,
-        "days_to_cover": 3.46,
+        "days_to_cover": 6.37,
         "delta_short_2w": null
       },
       "catalyst": {
-        "next_earnings_date": "2027-01-27",
-        "days_to_earnings": 82,
+        "next_earnings_date": "2027-02-22",
+        "days_to_earnings": 108,
         "earnings_flag": "green"
       }
     },
@@ -5651,15 +5630,15 @@
       "bucket": "core",
       "what_it_does": "Williams: Transco gas pipe owner; LNG/feedgas and Southeast power-demand tollbooth.",
       "scores": {
-        "sweet_spot": -0.42454149175136924,
+        "sweet_spot": -0.37592873603902655,
         "spread": null,
         "spread_ttf": null,
         "spread_jkm": null,
         "value": -1.2697885792504453,
-        "growth": 0.13715907733640859,
-        "reset": -0.4611338921891591,
-        "room_to_run": 0.211900449943144,
-        "setup": -0.1709935573238401,
+        "growth": 0.13779537618701135,
+        "reset": -0.27387835008301437,
+        "room_to_run": 0.32224432515307655,
+        "setup": 0.03304017741406927,
         "quality": -0.4097834221678357
       },
       "betas": {
@@ -5681,13 +5660,13 @@
         "roic": 0.04592,
         "roe": 0.18309,
         "price_sales": 6.3363185,
-        "from_1y_hi": -0.1327765009533608
+        "from_1y_hi": -0.1789108559888959
       },
       "returns": {
         "mar_run": -0.028203342582783675,
-        "apr_sell": 0.004872550629907213,
-        "ytd": 0.13973360266333268,
-        "rsi_14": 39.37057241729074
+        "apr_sell": 0.004872658931011298,
+        "ytd": 0.07910231819167901,
+        "rsi_14": 33.090196884269346
       },
       "crowding": {
         "si_pct_float": null,
@@ -5701,19 +5680,73 @@
       }
     },
     {
+      "ticker": "KMI",
+      "bucket": "core",
+      "what_it_does": "Kinder Morgan: giant gas pipeline tollbooth; GCX/Permian Highway/Tennessee Gas/Trident LNG feedgas exposure.",
+      "scores": {
+        "sweet_spot": -0.3840891958143029,
+        "spread": null,
+        "spread_ttf": null,
+        "spread_jkm": null,
+        "value": -0.5034254171705527,
+        "growth": -0.342957527088464,
+        "reset": -0.8684832675027452,
+        "room_to_run": 0.09226588255104787,
+        "setup": -0.5302562405397198,
+        "quality": -1.0409754312096566
+      },
+      "betas": {
+        "jkm_hh_beta": null,
+        "jkm_hh_t": null,
+        "ttf_hh_beta": null,
+        "ttf_hh_t": null,
+        "brent_beta": null,
+        "r_squared": null,
+        "reg_scatter": null,
+        "reg_line": null
+      },
+      "fundamentals": {
+        "mkt_cap_b": 67.254726656,
+        "ev_ebitda": 13.146,
+        "net_debt_ebitda": 4.228776066666667,
+        "fcf_ev": 0.010652341445489062,
+        "fwd_rev_growth": -0.0164,
+        "roic": 0.04437,
+        "roe": 0.11428001,
+        "price_sales": 3.6663065,
+        "from_1y_hi": -0.11536503682510368
+      },
+      "returns": {
+        "mar_run": 0.0041309852000601666,
+        "apr_sell": -0.03467166992337012,
+        "ytd": 0.1305649319379163,
+        "rsi_14": 33.635236638589845
+      },
+      "crowding": {
+        "si_pct_float": null,
+        "days_to_cover": 3.46,
+        "delta_short_2w": null
+      },
+      "catalyst": {
+        "next_earnings_date": "2027-01-27",
+        "days_to_earnings": 82,
+        "earnings_flag": "green"
+      }
+    },
+    {
       "ticker": "VG",
       "bucket": "core",
       "what_it_does": "Venture Global: LNG exporter/developer; maximum LNG torque with high leverage/legal-contract overhang.",
       "scores": {
-        "sweet_spot": -0.6334247453990105,
+        "sweet_spot": -0.6459922523369541,
         "spread": null,
         "spread_ttf": null,
         "spread_jkm": null,
         "value": -1.5159257285753358,
-        "growth": -1.7010976698946476,
-        "reset": 2.113666571628496,
-        "room_to_run": -2.6116080717317933,
-        "setup": -0.34162666002817876,
+        "growth": -1.7014152721237523,
+        "reset": 2.048772637819874,
+        "room_to_run": -2.6068600690357764,
+        "setup": -0.38124544606460864,
         "quality": 0.17116692605624895
       },
       "betas": {
@@ -5735,13 +5768,13 @@
         "roic": 0.07379,
         "roe": 0.33641997,
         "price_sales": 1.699078,
-        "from_1y_hi": -0.31271556647042265
+        "from_1y_hi": -0.3402069175937852
       },
       "returns": {
         "mar_run": 0.542541352861462,
         "apr_sell": -0.18937333930094657,
-        "ytd": 0.7137320224910004,
-        "rsi_14": 38.280117136881856
+        "ytd": 0.6451830310310556,
+        "rsi_14": 35.45115006061084
       },
       "crowding": {
         "si_pct_float": null,
